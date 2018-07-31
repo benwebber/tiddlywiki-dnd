@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+set -euo pipefail
+IFS=$'\n\t'
+
+TEMPFILE="$(mktemp)"
+VERSION="$(jq -r '.version' package.json)"
+MANIFEST='src/plugins/dnd/plugin.info'
+
+cleanup() {
+  rm "${TEMPFILE}"
+}
+
+trap cleanup EXIT
+cp "${MANIFEST}" "${TEMPFILE}"
+jq --arg version "${VERSION}" '.version = $version' "${TEMPFILE}" > "${MANIFEST}"
+git add "${MANIFEST}"

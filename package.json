@@ -1,0 +1,18 @@
+{
+  "name": "tiddlywiki-dnd",
+  "version": "0.1.0",
+  "description": "Manage Dungeons & Dragons campaigns with TiddlyWiki.",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/benwebber/tiddlywiki-dnd.git"
+  },
+  "scripts": {
+    "build": "./script/build",
+    "version": "./script/version"
+  },
+  "author": "Ben Webber <benjamin.webber@gmail.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "tiddlywiki": "^5.1.17"
+  }
+}

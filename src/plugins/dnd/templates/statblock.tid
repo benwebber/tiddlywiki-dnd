@@ -1,0 +1,18 @@
+title: dnd.statblock
+
+<<dnd.statblock
+description:{{!!description}}
+ac: {{!!ac}}
+hp: {{!!hp}}
+speed: {{!!speed}}
+str: {{!!str}}
+dex: {{!!dex}}
+con: {{!!con}}
+int: {{!!int}}
+wis: {{!!wis}}
+cha: {{!!cha}}
+skills: {{!!skills}}
+senses: {{!!senses}}
+languages: {{!!languages}}
+challenge: "{{!!challenge}}"
+>>

@@ -1,0 +1,99 @@
+title: $:/plugins/benwebber/dnd/README
+
+Manage a //Dungeons & Dragons// campaign with [[TiddlyWiki|https://tiddlywiki.com]].
+
+! Install
+
+[[Manually install|https://tiddlywiki.com/#Manually%20installing%20a%20plugin]] the plugin by dragging this link to your ~TiddlyWiki:
+
+{{$:/plugins/benwebber/dnd||$:/core/ui/Components/plugin-info}}
+
+Then save and refresh your ~TiddlyWiki.
+
+! Macros
+
+!! `dnd.ability`
+
+Renders an [[ability score|https://roll20.net/compendium/dnd5e/Ability%20Scores]] with its calculated modifier.
+
+|! Call|! Output|
+|`<<dnd.ability 8>>`|<<dnd.ability 8>>|
+|`<<dnd.ability 10>>`|<<dnd.ability 10>>|
+|`<<dnd.ability 15>>`|<<dnd.ability 15>>|
+|`<<dnd.ability 20>>`|<<dnd.ability 20>>|
+
+!! `dnd.average`
+
+Calculates the average result of the specified roll.
+
+|! Call|! Output|
+|`<<dnd.average d8>>`|<<dnd.average d8>>|
+|`<<dnd.average 2d8>>`|<<dnd.average 2d8>>|
+|`<<dnd.average 2d8+2>>`|<<dnd.average 2d8+2>>|
+|`<<dnd.average 2d8-2>>`|<<dnd.average 2d8-2>>|
+|`<<dnd.average "2d8 + 2">>`|<<dnd.average "2d8 + 2">>|
+|`<<dnd.average "2d8 - 2">>`|<<dnd.average "2d8 - 2">>|
+
+!! `dnd.statblock`
+
+Render a creature stat block. This is a low-level macro. You may want to use the `dnd.statblock` template instead (see below).
+
+''Note:'' Due to a quirk in how ~TiddlyWiki passes values to macros, you must double-quote values containing forward slashes. This is ''not'' necessary when using the template.
+
+```
+<<dnd.statblock
+description: "Small humanoid (goblinoid), neutral evil"
+ac: "15 (leather armor, shield)"
+hp: 2d6
+speed: "30 ft."
+str: 8
+dex: 14
+con: 10
+int: 10
+wis: 8
+cha: 8
+skills: "Stealth +6"
+senses: "darkvision 60 ft., passive Perception 9"
+languages: "Common, Goblin"
+challenge: "'1/4'"
+>>
+```
+
+<<dnd.statblock
+description: "Small humanoid (goblinoid), neutral evil"
+ac: "15 (leather armor, shield)"
+hp: 2d6
+speed: "30 ft."
+str: 8
+dex: 14
+con: 10
+int: 10
+wis: 8
+cha: 8
+skills: "Stealth +6"
+senses: "darkvision 60 ft., passive Perception 9"
+languages: "Common, Goblin"
+challenge: "'1/4'"
+>>
+
+!! `dnd.xp`
+
+Renders the experience points (XP) for a the given challenge rating (CR).
+
+|! Call|! Output|
+|`<<dnd.xp 0>>`|<<dnd.xp 0>>|
+|`<<dnd.xp "0 (10 XP)">>`|<<dnd.xp "0 (10 XP)">>|
+|`<<dnd.xp 1/2>>`|<<dnd.xp 1/2>>|
+|`<<dnd.xp 5>>`|<<dnd.xp 5>>|
+
+! Templates
+
+!! `dnd.statblock`
+
+This template works the same as the `dnd.statblock` macro, but calls the macro with the tiddler's fields.
+
+```
+{{||dnd.statblock}}
+```
+
+See [[Goblin]] for an example.

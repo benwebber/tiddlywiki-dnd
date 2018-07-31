@@ -1,0 +1,14 @@
+{
+  "plugins": [
+    "tiddlywiki/github-fork-ribbon"
+  ],
+  "themes": [
+    "tiddlywiki/vanilla"
+  ],
+  "build": {
+    "index": [
+      "--output", "./",
+      "--rendertiddler", "$:/core/save/all", "index.html", "text/plain"
+    ]
+  }
+}
