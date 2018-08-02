@@ -38,18 +38,23 @@ Calculates the average result of the specified roll.
 
 Render a creature stat block. This is a low-level macro. You may want to use the `dnd.statblock` template instead (see below).
 
-''Note:'' Due to a quirk in how ~TiddlyWiki passes values to macros, you must double-quote values containing forward slashes. This is ''not'' necessary when using the template.
+!!! Notes
+
+* Due to a quirk in how ~TiddlyWiki passes values to macros, you must double-quote values containing forward slashes. This is ''not'' necessary when using the template.
+* Ability scores default to <<dnd.ability 10>>.
+* If not set, `language` defaults to `---`.
 
 ```
 <<dnd.statblock
-description: "Small humanoid (goblinoid), neutral evil"
+size: small
+type: humanoid
+tags: goblinoid
+alignment: "neutral evil"
 ac: "15 (leather armor, shield)"
 hp: 2d6
 speed: "30 ft."
 str: 8
 dex: 14
-con: 10
-int: 10
 wis: 8
 cha: 8
 skills: "Stealth +6"
@@ -59,15 +64,26 @@ challenge: "'1/4'"
 >>
 ```
 
+<$reveal type="nomatch" state="!!dnd.statblock.state" text="show">
+
+<$button set="!!dnd.statblock.state" setTo="show">Show</$button>
+
+</$reveal>
+
+<$reveal type="match" state="!!dnd.statblock.state" text="show">
+
+<$button set="!!dnd.statblock.state" setTo="hide">Hide</$button>
+
 <<dnd.statblock
-description: "Small humanoid (goblinoid), neutral evil"
+size: small
+type: humanoid
+tags: goblinoid
+alignment: "neutral evil"
 ac: "15 (leather armor, shield)"
 hp: 2d6
 speed: "30 ft."
 str: 8
 dex: 14
-con: 10
-int: 10
 wis: 8
 cha: 8
 skills: "Stealth +6"
@@ -75,6 +91,8 @@ senses: "darkvision 60 ft., passive Perception 9"
 languages: "Common, Goblin"
 challenge: "'1/4'"
 >>
+
+</$reveal>
 
 !! `dnd.xp`
 
@@ -90,10 +108,10 @@ Renders the experience points (XP) for a the given challenge rating (CR).
 
 !! `dnd.statblock`
 
-This template works the same as the `dnd.statblock` macro, but calls the macro with the tiddler's fields.
+This template works the same as the `dnd.statblock` macro, but calls the macro with values from a data tiddler.
 
 ```
-{{||dnd.statblock}}
+{{<tiddler>||dnd.statblock}}
 ```
 
 See [[Goblin]] for an example.

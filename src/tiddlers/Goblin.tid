@@ -1,17 +1,3 @@
 title: Goblin
-description: Small humanoid (goblinoid), neutral evil
-ac: 15 (leather armor, shield)
-hp: 2d6
-speed: 30 ft.
-str: 8
-dex: 14
-con: 10
-int: 10
-wis: 8
-cha: 8
-skills: Stealth +6
-senses: darkvision 60 ft., passive Perception 9
-languages: Common, Goblin
-challenge: 1/4
 
-{{||dnd.statblock}}
+{{GoblinData||dnd.statblock}}
