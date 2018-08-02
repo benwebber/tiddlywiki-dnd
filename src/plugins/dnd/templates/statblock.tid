@@ -1,18 +1,30 @@
 title: dnd.statblock
 
-<<dnd.statblock
-description:{{!!description}}
-ac: {{!!ac}}
-hp: {{!!hp}}
-speed: {{!!speed}}
-str: {{!!str}}
-dex: {{!!dex}}
-con: {{!!con}}
-int: {{!!int}}
-wis: {{!!wis}}
-cha: {{!!cha}}
-skills: {{!!skills}}
-senses: {{!!senses}}
-languages: {{!!languages}}
-challenge: "{{!!challenge}}"
->>
+<$macrocall
+  $name="dnd.statblock"
+
+  size={{##size}}
+  type={{##type}}
+  tags={{##tags}}
+  alignment={{##alignment}}
+  ac={{##ac}}
+  hp={{##hp}}
+  speed={{##speed}}
+  str={{##str}}
+  dex={{##dex}}
+  con={{##con}}
+  int={{##int}}
+  wis={{##wis}}
+  cha={{##cha}}
+  saves={{##saves}}
+  skills={{##skills}}
+  dimm={{##dimm}}
+  dres={{##dres}}
+  dvul={{##dvul}}
+  cimm={{##cimm}}
+  cres={{##cres}}
+  cvul={{##cvul}}
+  senses={{##senses}}
+  languages={{##languages}}
+  challenge={{##challenge}}
+/>

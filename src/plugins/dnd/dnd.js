@@ -76,6 +76,14 @@ exports.average = function(expr) {
   return `${avg} (${nDice}d${nSides} ${op} ${mod})`;
 };
 
+exports.capitalize = function(s) {
+  return s.charAt(0).toLocaleUpperCase() + s.slice(1);
+};
+
+exports.italicize = function(s) {
+  return `\/\/${s}\/\/`;
+};
+
 exports.xp = function(rating) {
   var rating = rating.replace(/['"]/g, '');
   var xp = CR_TO_XP[rating];
