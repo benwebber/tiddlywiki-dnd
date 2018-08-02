@@ -6,4 +6,24 @@ tags: $:/tags/Macro
 
 {{||dnd.statblock}}
 </$tiddler>
+
+<$reveal type="nomatch" state="!!dnd.stats.editing" text="true">
+
+  <$button set="!!dnd.stats.editing" setTo="true">
+    <$action-setfield $tiddler={{!!dnd.stats}} type="application/x-tiddler-dictionary"/>
+    Edit
+  </$button>
+
+</$reveal>
+
+<$reveal type="match" state="!!dnd.stats.editing" text="true">
+
+  <$button>
+    <$action-deletefield $field="dnd.stats.editing"/>
+    Close
+  </$button>
+
+  <$edit tiddler={{!!dnd.stats}}/>
+
+</$reveal>
 \end

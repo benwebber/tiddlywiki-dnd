@@ -96,7 +96,7 @@ challenge: "'1/4'"
 
 !!! Variant: `dnd.fstatblock`
 
-This macro works like the `dnd.statblock` template, but pulls data from the data tiddler specified in the `dnd.stats` field.
+This macro works like the `dnd.statblock` template, but pulls data from the data tiddler specified in the `dnd.stats` field. The `f` stands for "field".
 
 ```
 title: Goblin
@@ -105,9 +105,10 @@ dnd.stats: GoblinData
 <<dnd.fstatblock>>
 ```
 
-This allows you to change the data source dynamically with ~TiddlyWiki widgets like the `action-setfield` widget.
+This macro has two advantages:
 
-The `f` stands for "field".
+# It allows you to change the data source dynamically with ~TiddlyWiki widgets like the `action-setfield` widget.
+# It allows you to edit the associated stat data inline.
 
 See [[Goblin (dnd.fstatblock)]] for an example.
 
