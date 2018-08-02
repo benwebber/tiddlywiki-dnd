@@ -1,0 +1,22 @@
+title: $:/plugins/benwebber/dnd/i18n/en/
+
+StatBlock/AC: Armour Class
+StatBlock/HP: Hit Points
+StatBlock/Speed: Speed
+StatBlock/STR: STR
+StatBlock/DEX: DEX
+StatBlock/CON: CON
+StatBlock/INT: INT
+StatBlock/WIS: WIS
+StatBlock/CHA: CHA
+StatBlock/Senses: Senses
+StatBlock/Languages: Languages
+StatBlock/Challenge: Challenge
+StatBlock/Saves: Saving Throws
+StatBlock/Skills: Skills
+StatBlock/DamageImmunities: Damage Immunities
+StatBlock/DamageResistances: Damage Resistances
+StatBlock/DamageVulnerabilities: Damage Vulnerabilities
+StatBlock/ConditionImmunities: Condition Immunities
+StatBlock/ConditionResistances: Condition Resistances
+StatBlock/ConditionVulnerabilities: Condition Vulnerabilities
