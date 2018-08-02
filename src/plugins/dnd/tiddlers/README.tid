@@ -36,7 +36,7 @@ Calculates the average result of the specified roll.
 
 !! `dnd.statblock`
 
-Render a creature stat block. This is a low-level macro. You may want to use the `dnd.statblock` template instead (see below).
+Render a creature stat block. This is a low-level macro. You may want to use the `dnd.fstatblock` macro or `dnd.statblock` template instead (see below).
 
 !!! Notes
 
@@ -93,6 +93,23 @@ challenge: "'1/4'"
 >>
 
 </$reveal>
+
+!!! Variant: `dnd.fstatblock`
+
+This macro works like the `dnd.statblock` template, but pulls data from the data tiddler specified in the `dnd.stats` field.
+
+```
+title: Goblin
+dnd.stats: GoblinData
+
+<<dnd.fstatblock>>
+```
+
+This allows you to change the data source dynamically with ~TiddlyWiki widgets like the `action-setfield` widget.
+
+The `f` stands for "field".
+
+See [[Goblin (dnd.fstatblock)]] for an example.
 
 !! `dnd.xp`
 

@@ -1,0 +1,9 @@
+title: $:/plugins/benwebber/dnd/macros/fstatblock
+tags: $:/tags/Macro
+
+\define dnd.fstatblock()
+<$tiddler tiddler={{!!dnd.stats}}>
+
+{{||dnd.statblock}}
+</$tiddler>
+\end
