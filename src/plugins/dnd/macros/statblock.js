@@ -3,11 +3,8 @@ title: $:/plugins/benwebber/dnd/macros/statblock.js
 type: application/javascript
 module-type: macro
 \*/
-(function(){
-"use strict";
-
-var dnd = require('$:/plugins/benwebber/dnd/dnd.js');
-var i18n = require('$:/plugins/benwebber/dnd/i18n.js');
+import {I18N} from '$:/plugins/benwebber/dnd/i18n.js';
+import * as dnd from '$:/plugins/benwebber/dnd/dnd.js';
 
 function renderAbilities(language, abilities) {
   var output = [];
@@ -43,8 +40,9 @@ function renderFields(language, fields, alwaysRender) {
 }
 
 
-exports.name = 'dnd.statblock';
-exports.params = [
+export const name = 'dnd.statblock';
+
+export const params = [
   // All monsters/NPCs have these attributes:
   {name: 'size'},
   {name: 'type'},
@@ -72,7 +70,8 @@ exports.params = [
   {name: 'cres'}, // Condition Resistances
   {name: 'cvul'}, // Condition Vulnerabilities
 ];
-exports.run = function(
+
+export function run(
   size,
   type,
   alignment,
@@ -98,7 +97,7 @@ exports.run = function(
   cres,
   cvul
   ) {
-  var language = i18n.I18N(this.wiki, this.getVariable('languageTitle'));
+  var language = new I18N(this.wiki, this.getVariable('languageTitle'));
 
   var descriptionFragments = [
     size,
@@ -158,4 +157,3 @@ exports.run = function(
 
   return output.join('\n');
 };
-})();

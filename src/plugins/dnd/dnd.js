@@ -3,9 +3,6 @@ title: $:/plugins/benwebber/dnd/dnd.js
 type: application/javascript
 module-type: library
 \*/
-(function(){
-"use strict";
-
 var CR_TO_XP = {
   '0': '0',
   '1/8': '25',
@@ -43,13 +40,13 @@ var CR_TO_XP = {
   '30': '155,000'
 };
 
-exports.ability = function(score) {
+export function ability(score) {
   var mod = Math.floor((score - 10)/2);
   var op = (mod >= 0) ? '+' : '-';
   return `${score} (${op}${mod})`;
 };
 
-exports.average = function(expr) {
+export function average(expr) {
   var regexp = /(\d+)?d(\d+)\s?(?:(\-|\+)\s?(\d+))?/i;
   var match = expr.match(regexp);
 
@@ -76,15 +73,15 @@ exports.average = function(expr) {
   return `${avg} (${nDice}d${nSides} ${op} ${mod})`;
 };
 
-exports.capitalize = function(s) {
+export function capitalize(s) {
   return s.charAt(0).toLocaleUpperCase() + s.slice(1);
 };
 
-exports.italicize = function(s) {
+export function italicize(s) {
   return `\/\/${s}\/\/`;
 };
 
-exports.xp = function(rating) {
+export function xp(rating) {
   var rating = rating.replace(/['"]/g, '');
   var xp = CR_TO_XP[rating];
   if (xp) {
@@ -92,4 +89,3 @@ exports.xp = function(rating) {
   }
   return `${rating}`;
 };
-})();

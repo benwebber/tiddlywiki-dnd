@@ -5,14 +5,12 @@ module-type: macro
 
 Calculates ability score modifiers.
 \*/
-(function(){
-"use strict";
+import {ability} from '$:/plugins/benwebber/dnd/dnd.js';
 
-var dnd = require('$:/plugins/benwebber/dnd/dnd.js');
+export const name = 'dnd.ability';
 
-exports.name = 'dnd.ability';
-exports.params = [{name: 'score'}];
-exports.run = function(score) {
-  return dnd.ability(score);
+export const params = [{name: 'score'}];
+
+export function run(score) {
+  return ability(score);
 };
-})();

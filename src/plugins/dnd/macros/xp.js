@@ -5,16 +5,14 @@ module-type: macro
 
 Render XP for challenge rating.
 \*/
-(function(){
-"use strict";
+import {xp} from '$:/plugins/benwebber/dnd/dnd.js';
 
-var dnd = require('$:/plugins/benwebber/dnd/dnd.js');
+export const name = 'dnd.xp';
 
-exports.name = 'dnd.xp';
-exports.params = [
+export const params = [
   {name: 'rating'},
 ];
-exports.run = function(rating) {
-  return dnd.xp(rating);
-};
-})();
+
+export function run(rating) {
+  return xp(rating);
+}

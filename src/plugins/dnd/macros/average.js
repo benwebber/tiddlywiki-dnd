@@ -5,14 +5,12 @@ module-type: macro
 
 Returns the average value for a specified roll.
 \*/
-(function(){
-"use strict";
+import {average} from '$:/plugins/benwebber/dnd/dnd.js';
 
-var dnd = require('$:/plugins/benwebber/dnd/dnd.js');
+export const name = 'dnd.average';
 
-exports.name = 'dnd.average';
-exports.params = [{name: 'expr'}];
-exports.run = function(expr) {
-  return dnd.average(expr);
+export const params = [{name: 'expr'}];
+
+export function run(expr) {
+  return average(expr);
 };
-})();
