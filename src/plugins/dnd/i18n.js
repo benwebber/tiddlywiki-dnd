@@ -3,8 +3,8 @@ title: $:/plugins/benwebber/dnd/i18n.js
 type: application/javascript
 module-type: library
 \*/
-var CAPTION_PATH = "$:/plugins/benwebber/dnd/i18n";
-var FALLBACK = "en";
+const CAPTION_PATH = "$:/plugins/benwebber/dnd/i18n";
+const FALLBACK = "en";
 
 export class I18N {
   constructor(wiki, code) {
@@ -14,13 +14,13 @@ export class I18N {
   }
 
   getString(title) {
-    var paths = [
+    let paths = [
       `${CAPTION_PATH}/${this.code}`,
       `${CAPTION_PATH}/${this.family}`,
       `${CAPTION_PATH}/${FALLBACK}`
     ];
-    for (var i = 0; i < paths.length; i++) {
-      var s = this.wiki.renderTiddler("text/plain", `${paths[i]}/${title}`);
+    for (let path of paths) {
+      let s = this.wiki.renderTiddler("text/plain", `${path}/${title}`);
       if (s !== "") {
         return s;
       }

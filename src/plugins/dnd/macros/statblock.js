@@ -6,16 +6,10 @@ module-type: macro
 import {I18N} from "$:/plugins/benwebber/dnd/i18n.js";
 import * as dnd from "$:/plugins/benwebber/dnd/dnd.js";
 
-function renderAbilities(language, abilities) {
-  var renderedHeaders = "|! " + abilities.map(function(i) {
-    return language.getString(i[0]);
-  }).join("|! ") + " |";
-  var renderedValues = "| " + abilities.map(function(i) {
-    return dnd.ability(i[1]);
-  }).join(" | ") + " |";
+function renderAbilities(i18n, abilities) {
   return [
-    renderedHeaders,
-    renderedValues,
+    "|! " + abilities.map((field) => i18n.getString(field.caption)).join("|! ") + " |",
+    "| " + abilities.map((field) => dnd.ability(field.value)).join(" | ") + " |"
   ];
 }
 
@@ -26,13 +20,12 @@ function renderTags(tags) {
   return tags;
 }
 
-function renderFields(language, fields, alwaysRender) {
-  var output = [];
-  for (var i = 0; i < fields.length; i++) {
-    var caption = language.getString(fields[i][0]);
-    var value = fields[i][1];
-    if (alwaysRender || value) {
-      output.push(`|!${caption} |${value} |`);
+function renderFields(i18n, fields, alwaysRender) {
+  let output = [];
+  for (let field of fields) {
+    let caption = i18n.getString(field.caption);
+    if (alwaysRender || field.value) {
+      output.push(`|!${caption} |${field.value} |`);
     }
   }
   return output;
@@ -96,61 +89,61 @@ export function run(
   cres,
   cvul
 ) {
-  var language = new I18N(this.wiki, this.getVariable("languageTitle"));
+  let i18n = new I18N(this.wiki, this.getVariable("languageTitle"));
 
-  var descriptionFragments = [
+  let descriptionFragments = [
     size,
     type,
     renderTags(tags),
   ];
-  var description = descriptionFragments.join(" ").trim();
+  let description = descriptionFragments.join(" ").trim();
   if (alignment) {
     description = `${description}, ${alignment}`;
   }
 
-  var output = [
+  let output = [
     dnd.italicize(dnd.capitalize(description)),
     "",
   ];
 
-  var fields = [
-    ["StatBlock/AC", ac],
-    ["StatBlock/HP", dnd.average(hp)],
-    ["StatBlock/Speed", speed],
+  let fields = [
+    {caption: "StatBlock/AC", value: ac},
+    {caption: "StatBlock/HP", value: dnd.average(hp)},
+    {caption: "StatBlock/Speed", value: speed},
   ];
-  output = output.concat(renderFields(language, fields, true));
+  output = output.concat(renderFields(i18n, fields, true));
   output.push("");
   output.push("---");
 
-  var abilities = [
-    ["StatBlock/STR", str],
-    ["StatBlock/DEX", dex],
-    ["StatBlock/CON", con],
-    ["StatBlock/INT", int],
-    ["StatBlock/WIS", wis],
-    ["StatBlock/CHA", cha],
+  let abilities = [
+    {caption: "StatBlock/STR", value: str},
+    {caption: "StatBlock/DEX", value: dex},
+    {caption: "StatBlock/CON", value: con},
+    {caption: "StatBlock/INT", value: int},
+    {caption: "StatBlock/WIS", value: wis},
+    {caption: "StatBlock/CHA", value: cha},
   ];
-  output = output.concat(renderAbilities(language, abilities));
+  output = output.concat(renderAbilities(i18n, abilities));
   output.push("");
   output.push("---");
 
   fields = [
-    ["StatBlock/SavingThrows", saves],
-    ["StatBlock/Skills", skills],
-    ["StatBlock/DamageImmunities", dimm],
-    ["StatBlock/DamageResistances", dres],
-    ["StatBlock/DamageVulnerabilities", dvul],
-    ["StatBlock/ConditionImmunities", cimm],
-    ["StatBlock/ConditionResistances", cres],
-    ["StatBlock/ConditionVulnerabilities", cvul],
+    {caption: "StatBlock/SavingThrows", value: saves},
+    {caption: "StatBlock/Skills", value: skills},
+    {caption: "StatBlock/DamageImmunities", value: dimm},
+    {caption: "StatBlock/DamageResistances", value: dres},
+    {caption: "StatBlock/DamageVulnerabilities", value: dvul},
+    {caption: "StatBlock/ConditionImmunities", value: cimm},
+    {caption: "StatBlock/ConditionResistances", value: cres},
+    {caption: "StatBlock/ConditionVulnerabilities", value: cvul},
   ];
-  output = output.concat(renderFields(language, fields, false));
+  output = output.concat(renderFields(i18n, fields, false));
   fields = [
-    ["StatBlock/Senses", senses],
-    ["StatBlock/Languages", languages],
-    ["StatBlock/Challenge", dnd.xp(challenge)],
+    {caption: "StatBlock/Senses", value: senses},
+    {caption: "StatBlock/Languages", value: languages},
+    {caption: "StatBlock/Challenge", value: dnd.xp(challenge)},
   ];
-  output = output.concat(renderFields(language, fields, true));
+  output = output.concat(renderFields(i18n, fields, true));
   output.push("");
   output.push("---");
 

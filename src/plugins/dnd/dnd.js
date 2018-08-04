@@ -3,7 +3,7 @@ title: $:/plugins/benwebber/dnd/dnd.js
 type: application/javascript
 module-type: library
 \*/
-var CR_TO_XP = {
+const CR_TO_XP = {
   "0": "0",
   "1/8": "25",
   "1/4": "50",
@@ -41,24 +41,24 @@ var CR_TO_XP = {
 };
 
 export function ability(score) {
-  var mod = Math.floor((score - 10)/2);
-  var op = (mod >= 0) ? "+" : "-";
+  let mod = Math.floor((score - 10)/2);
+  let op = (mod >= 0) ? "+" : "-";
   return `${score} (${op}${mod})`;
 }
 
 export function average(expr) {
-  var regexp = /(\d+)?d(\d+)\s?(?:(-|\+)\s?(\d+))?/i;
-  var match = expr.match(regexp);
+  let regexp = /(\d+)?d(\d+)\s?(?:(-|\+)\s?(\d+))?/i;
+  let match = expr.match(regexp);
 
   if (!match) {
     return "";
   }
 
-  var nDice = parseInt(match[1]) || 1;
-  var nSides = parseInt(match[2]);
-  var op = match[3];
-  var mod = parseInt(match[4]) || 0;
-  var avg;
+  let nDice = parseInt(match[1]) || 1;
+  let nSides = parseInt(match[2]);
+  let op = match[3];
+  let mod = parseInt(match[4]) || 0;
+  let avg;
 
   if (!op) {
     avg = Math.floor(nDice * (1 + nSides)/2 + mod);
@@ -83,7 +83,7 @@ export function italicize(s) {
 
 export function xp(rating) {
   rating = rating.replace(/['"]/g, "");
-  var xp = CR_TO_XP[rating];
+  let xp = CR_TO_XP[rating];
   if (xp) {
     return `${rating} (${xp} XP)`;
   }
