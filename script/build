@@ -2,4 +2,5 @@
 set -euo pipefail
 IFS=$'\n\t'
 
-tiddlywiki ./src --verbose --build
+babel --copy-files --out-dir lib/ src/
+tiddlywiki ./lib --verbose --build
