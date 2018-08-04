@@ -3,17 +3,16 @@ title: $:/plugins/benwebber/dnd/macros/statblock.js
 type: application/javascript
 module-type: macro
 \*/
-import {I18N} from '$:/plugins/benwebber/dnd/i18n.js';
-import * as dnd from '$:/plugins/benwebber/dnd/dnd.js';
+import {I18N} from "$:/plugins/benwebber/dnd/i18n.js";
+import * as dnd from "$:/plugins/benwebber/dnd/dnd.js";
 
 function renderAbilities(language, abilities) {
-  var output = [];
-  var renderedHeaders = '|! ' + abilities.map(function(i) {
+  var renderedHeaders = "|! " + abilities.map(function(i) {
     return language.getString(i[0]);
-  }).join('|! ') + ' |';
-  var renderedValues = '| ' + abilities.map(function(i) {
+  }).join("|! ") + " |";
+  var renderedValues = "| " + abilities.map(function(i) {
     return dnd.ability(i[1]);
-  }).join(' | ') + ' |';
+  }).join(" | ") + " |";
   return [
     renderedHeaders,
     renderedValues,
@@ -40,35 +39,35 @@ function renderFields(language, fields, alwaysRender) {
 }
 
 
-export const name = 'dnd.statblock';
+export const name = "dnd.statblock";
 
 export const params = [
   // All monsters/NPCs have these attributes:
-  {name: 'size'},
-  {name: 'type'},
-  {name: 'alignment'},
-  {name: 'ac'},
-  {name: 'hp'},
-  {name: 'speed'},
-  {name: 'str', default: 10},
-  {name: 'dex', default: 10},
-  {name: 'con', default: 10},
-  {name: 'int', default: 10},
-  {name: 'wis', default: 10},
-  {name: 'cha', default: 10},
-  {name: 'senses'},
-  {name: 'languages', default: '---'},
-  {name: 'challenge'},
+  {name: "size"},
+  {name: "type"},
+  {name: "alignment"},
+  {name: "ac"},
+  {name: "hp"},
+  {name: "speed"},
+  {name: "str", default: 10},
+  {name: "dex", default: 10},
+  {name: "con", default: 10},
+  {name: "int", default: 10},
+  {name: "wis", default: 10},
+  {name: "cha", default: 10},
+  {name: "senses"},
+  {name: "languages", default: "---"},
+  {name: "challenge"},
   // These attributes are optional:
-  {name: 'tags'},
-  {name: 'saves'},
-  {name: 'skills'},
-  {name: 'dimm'}, // Damage Immunities
-  {name: 'dres'}, // Damage Resistances
-  {name: 'dvul'}, // Damage Vulnerabilities
-  {name: 'cimm'}, // Condition Immunities
-  {name: 'cres'}, // Condition Resistances
-  {name: 'cvul'}, // Condition Vulnerabilities
+  {name: "tags"},
+  {name: "saves"},
+  {name: "skills"},
+  {name: "dimm"}, // Damage Immunities
+  {name: "dres"}, // Damage Resistances
+  {name: "dvul"}, // Damage Vulnerabilities
+  {name: "cimm"}, // Condition Immunities
+  {name: "cres"}, // Condition Resistances
+  {name: "cvul"}, // Condition Vulnerabilities
 ];
 
 export function run(
@@ -96,64 +95,64 @@ export function run(
   cimm,
   cres,
   cvul
-  ) {
-  var language = new I18N(this.wiki, this.getVariable('languageTitle'));
+) {
+  var language = new I18N(this.wiki, this.getVariable("languageTitle"));
 
   var descriptionFragments = [
     size,
     type,
     renderTags(tags),
   ];
-  var description = descriptionFragments.join(' ').trim();
+  var description = descriptionFragments.join(" ").trim();
   if (alignment) {
-    description = `${description}, ${alignment}`
+    description = `${description}, ${alignment}`;
   }
 
   var output = [
     dnd.italicize(dnd.capitalize(description)),
-    '',
+    "",
   ];
 
   var fields = [
-    ['StatBlock/AC', ac],
-    ['StatBlock/HP', dnd.average(hp)],
-    ['StatBlock/Speed', speed],
-  ]
+    ["StatBlock/AC", ac],
+    ["StatBlock/HP", dnd.average(hp)],
+    ["StatBlock/Speed", speed],
+  ];
   output = output.concat(renderFields(language, fields, true));
-  output.push('');
-  output.push('---');
+  output.push("");
+  output.push("---");
 
   var abilities = [
-    ['StatBlock/STR', str],
-    ['StatBlock/DEX', dex],
-    ['StatBlock/CON', con],
-    ['StatBlock/INT', int],
-    ['StatBlock/WIS', wis],
-    ['StatBlock/CHA', cha],
+    ["StatBlock/STR", str],
+    ["StatBlock/DEX", dex],
+    ["StatBlock/CON", con],
+    ["StatBlock/INT", int],
+    ["StatBlock/WIS", wis],
+    ["StatBlock/CHA", cha],
   ];
   output = output.concat(renderAbilities(language, abilities));
-  output.push('');
-  output.push('---');
+  output.push("");
+  output.push("---");
 
   fields = [
-    ['StatBlock/SavingThrows', saves],
-    ['StatBlock/Skills', skills],
-    ['StatBlock/DamageImmunities', dimm],
-    ['StatBlock/DamageResistances', dres],
-    ['StatBlock/DamageVulnerabilities', dvul],
-    ['StatBlock/ConditionImmunities', cimm],
-    ['StatBlock/ConditionResistances', cres],
-    ['StatBlock/ConditionVulnerabilities', cvul],
+    ["StatBlock/SavingThrows", saves],
+    ["StatBlock/Skills", skills],
+    ["StatBlock/DamageImmunities", dimm],
+    ["StatBlock/DamageResistances", dres],
+    ["StatBlock/DamageVulnerabilities", dvul],
+    ["StatBlock/ConditionImmunities", cimm],
+    ["StatBlock/ConditionResistances", cres],
+    ["StatBlock/ConditionVulnerabilities", cvul],
   ];
   output = output.concat(renderFields(language, fields, false));
   fields = [
-    ['StatBlock/Senses', senses],
-    ['StatBlock/Languages', languages],
-    ['StatBlock/Challenge', dnd.xp(challenge)],
-  ]
+    ["StatBlock/Senses", senses],
+    ["StatBlock/Languages", languages],
+    ["StatBlock/Challenge", dnd.xp(challenge)],
+  ];
   output = output.concat(renderFields(language, fields, true));
-  output.push('');
-  output.push('---');
+  output.push("");
+  output.push("---");
 
-  return output.join('\n');
-};
+  return output.join("\n");
+}
