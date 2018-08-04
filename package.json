@@ -7,7 +7,7 @@
     "url": "https://github.com/benwebber/tiddlywiki-dnd.git"
   },
   "scripts": {
-    "build": "./script/build",
+    "build": "make",
     "version": "./script/version"
   },
   "author": "Ben Webber <benjamin.webber@gmail.com>",

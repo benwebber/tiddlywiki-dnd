@@ -1,6 +1,0 @@
-#!/usr/bin/env bash
-set -euo pipefail
-IFS=$'\n\t'
-
-babel --copy-files --out-dir lib/ src/
-tiddlywiki ./lib --verbose --build
