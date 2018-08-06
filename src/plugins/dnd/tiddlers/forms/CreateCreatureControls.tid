@@ -1,0 +1,32 @@
+title: $:/plugins/benwebber/dnd/forms/CreateCreature/Controls
+
+\define actions()
+<$action-createtiddler
+  $basetitle=<<view-name>>
+  text="<<dnd.fstatblock>>"
+/>
+<$action-setfield
+  $tiddler=<<view-name>>
+  $field=dnd.stats
+  $value=<<model-name>>
+/>
+<$action-setfield
+  $tiddler="$:/temp/dnd/CreateCreature/view/title"
+  text=""
+/>
+<$action-navigate $to=<<view-name>> />
+</$navigator>
+\end
+
+<$wikify name="model-name" text=<<get-model-name>>>
+<$wikify name="view-name" text=<<get-view-name>>>
+<$set name="view-exists" filter="[title<view-name>is[tiddler]]" value="true" emptyValue="false">
+<$reveal type="match" text="true" default=<<view-exists>>>
+<button disabled>Create</button>
+</$reveal>
+<$reveal type="nomatch" text="true" default=<<view-exists>>>
+<$button actions=<<actions>>>Create</$button>
+</$reveal>
+</$set>
+</$wikify>
+</$wikify>

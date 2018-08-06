@@ -1,0 +1,40 @@
+title: $:/plugins/benwebber/dnd/forms/UpdateCreature
+subtitle: Editing <<creature>>
+
+\define input(index)
+<$edit-text tag=input tiddler=<<data>> index=<<__index__>> />
+\end
+
+\define inputAbility(index)
+<$edit-text tag=input tiddler=<<data>> index=<<__index__>> size=3 />
+\end
+
+|!Size |<<input size>> |
+|!Type |<<input type>> |
+|!Tags |<<input tags>> |
+|!Alignment |<<input alignment>> |
+
+---
+
+|!Armour Class |<<input ac>> |
+|!Hit Points |<<input hp>> |
+|!Speed |<<input speed>> |
+
+---
+
+|! STR|! DEX|! CON|! INT|! WIS|! CHA|
+| <<inputAbility str>> | <<inputAbility dex>> | <<inputAbility con>> | <<inputAbility int>> | <<inputAbility wis>> | <<inputAbility cha>> |
+
+---
+
+|!Saving Throws |<<input saves>> |
+|!Skills |<<input skills>> |
+|!Damage Immunities |<<input dimm>> |
+|!Damage Resistances |<<input dres>> |
+|!Damage Vulnerabilities |<<input dvul>> |
+|!Condition Immunities |<<input cimm>> |
+|!Condition Resistances |<<input cres>> |
+|!Condition Vulnerabilities |<<input cvul>> |
+|!Senses |<<input senses>> |
+|!Languages |<<input languages>> |
+|!Challenge |<<input challenge>> |
