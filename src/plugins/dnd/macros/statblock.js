@@ -128,7 +128,7 @@ export function run(
   output.push("---");
 
   fields = [
-    {caption: "StatBlock/SavingThrows", value: saves},
+    {caption: "StatBlock/Saves", value: saves},
     {caption: "StatBlock/Skills", value: skills},
     {caption: "StatBlock/DamageImmunities", value: dimm},
     {caption: "StatBlock/DamageResistances", value: dres},
