@@ -5,12 +5,115 @@ subtitle: Editing <<tiddler>>
 <$edit-text tag=input tiddler=<<tiddler>> field=<<__field__>> />
 \end
 
-\define inputAbility(field)
-<$edit-text tag=input tiddler=<<tiddler>> field=<<__field__>> size=3 />
+\define select-size()
+<$select tiddler=<<tiddler>> field="dnd.creature.size">
+  <option value="tiny">Tiny</option>
+  <option value="small">Small</option>
+  <option value="medium">Medium</option>
+  <option value="large">Large</option>
+  <option value="huge">Huge</option>
+  <option value="gargantuan">Gargantuan</option>
+</$select>
 \end
 
-|!Size |<<input dnd.creature.size>> |
-|!Type |<<input dnd.creature.type>> |
+\define select-type()
+<$select tiddler=<<tiddler>> field="dnd.creature.type">
+  <option value="aberration">Aberration</option>
+  <option value="beast">Beast</option>
+  <option value="celestial">Celestial</option>
+  <option value="construct">Construct</option>
+  <option value="dragon">Dragon</option>
+  <option value="elemental">Elemental</option>
+  <option value="fey">Fey</option>
+  <option value="fiend">Fiend</option>
+  <option value="giant">Giant</option>
+  <option value="humanoid">Humanoid</option>
+  <option value="monstrosity">Monstrosity</option>
+  <option value="ooze">Ooze</option>
+  <option value="plant">Plant</option>
+  <option value="undead">Undead</option>
+</$select>
+\end
+
+\define select-ability(field)
+<$select tiddler=<<tiddler>> field=<<__field__>>>
+  <option value="1"><<dnd.ability 1>></option>
+  <option value="2"><<dnd.ability 2>></option>
+  <option value="3"><<dnd.ability 3>></option>
+  <option value="4"><<dnd.ability 4>></option>
+  <option value="5"><<dnd.ability 5>></option>
+  <option value="6"><<dnd.ability 6>></option>
+  <option value="7"><<dnd.ability 7>></option>
+  <option value="8"><<dnd.ability 8>></option>
+  <option value="9"><<dnd.ability 9>></option>
+  <option value="10"><<dnd.ability 10>></option>
+  <option value="11"><<dnd.ability 11>></option>
+  <option value="12"><<dnd.ability 12>></option>
+  <option value="13"><<dnd.ability 13>></option>
+  <option value="14"><<dnd.ability 14>></option>
+  <option value="15"><<dnd.ability 15>></option>
+  <option value="16"><<dnd.ability 16>></option>
+  <option value="17"><<dnd.ability 17>></option>
+  <option value="18"><<dnd.ability 18>></option>
+  <option value="19"><<dnd.ability 19>></option>
+  <option value="20"><<dnd.ability 20>></option>
+  <option value="21"><<dnd.ability 21>></option>
+  <option value="22"><<dnd.ability 22>></option>
+  <option value="23"><<dnd.ability 23>></option>
+  <option value="24"><<dnd.ability 24>></option>
+  <option value="25"><<dnd.ability 25>></option>
+  <option value="26"><<dnd.ability 26>></option>
+  <option value="27"><<dnd.ability 27>></option>
+  <option value="28"><<dnd.ability 28>></option>
+  <option value="29"><<dnd.ability 29>></option>
+  <option value="30"><<dnd.ability 30>></option>
+</$select>
+\end
+
+\define select-challenge()
+<$select tiddler=<<tiddler>> field="dnd.creature.challenge">>
+  <option value="0"><<dnd.xp "0">></option>
+  <option value="0 (10 XP)"><<dnd.xp "0 (10 XP)">></option>
+  <option value="1/8"><<dnd.xp "1/8">></option>
+  <option value="1/4"><<dnd.xp "1/4">></option>
+  <option value="1/2"><<dnd.xp "1/2">></option>
+  <option value="1"><<dnd.xp "1">></option>
+  <option value="2"><<dnd.xp "2">></option>
+  <option value="3"><<dnd.xp "3">></option>
+  <option value="4"><<dnd.xp "4">></option>
+  <option value="5"><<dnd.xp "5">></option>
+  <option value="6"><<dnd.xp "6">></option>
+  <option value="7"><<dnd.xp "7">></option>
+  <option value="8"><<dnd.xp "8">></option>
+  <option value="9"><<dnd.xp "9">></option>
+  <option value="10"><<dnd.xp "10">></option>
+  <option value="11"><<dnd.xp "11">></option>
+  <option value="12"><<dnd.xp "12">></option>
+  <option value="13"><<dnd.xp "13">></option>
+  <option value="14"><<dnd.xp "14">></option>
+  <option value="15"><<dnd.xp "15">></option>
+  <option value="16"><<dnd.xp "16">></option>
+  <option value="17"><<dnd.xp "17">></option>
+  <option value="18"><<dnd.xp "18">></option>
+  <option value="19"><<dnd.xp "19">></option>
+  <option value="20"><<dnd.xp "20">></option>
+  <option value="21"><<dnd.xp "21">></option>
+  <option value="22"><<dnd.xp "22">></option>
+  <option value="23"><<dnd.xp "23">></option>
+  <option value="24"><<dnd.xp "24">></option>
+  <option value="25"><<dnd.xp "25">></option>
+  <option value="26"><<dnd.xp "26">></option>
+  <option value="27"><<dnd.xp "27">></option>
+  <option value="28"><<dnd.xp "28">></option>
+  <option value="29"><<dnd.xp "29">></option>
+  <option value="30"><<dnd.xp "30">></option>
+</$select>
+\end
+
+//Changes take effect immediately.//
+
+|!Size |<<select-size>> |
+|!Type |<<select-type>> |
 |!Tags |<<input dnd.creature.tags>> |
 |!Alignment |<<input dnd.creature.alignment>> |
 
@@ -23,7 +126,7 @@ subtitle: Editing <<tiddler>>
 ---
 
 |! STR|! DEX|! CON|! INT|! WIS|! CHA|
-| <<inputAbility dnd.creature.str>> | <<inputAbility dnd.creature.dex>> | <<inputAbility dnd.creature.con>> | <<inputAbility dnd.creature.int>> | <<inputAbility dnd.creature.wis>> | <<inputAbility dnd.creature.cha>> |
+| <<select-ability dnd.creature.str>> | <<select-ability dnd.creature.dex>> | <<select-ability dnd.creature.con>> | <<select-ability dnd.creature.int>> | <<select-ability dnd.creature.wis>> | <<select-ability dnd.creature.cha>> |
 
 ---
 
@@ -37,4 +140,4 @@ subtitle: Editing <<tiddler>>
 |!Condition Vulnerabilities |<<input dnd.creature.cvul>> |
 |!Senses |<<input dnd.creature.senses>> |
 |!Languages |<<input dnd.creature.languages>> |
-|!Challenge |<<input dnd.creature.challenge>> |
+|!Challenge |<<select-challenge>> |
