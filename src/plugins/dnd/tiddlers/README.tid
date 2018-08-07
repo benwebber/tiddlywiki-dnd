@@ -133,3 +133,12 @@ Calls the `dnd.statblock` macro with values from a tiddler's fields. The "f" sta
 The `dnd.creature` helper macro uses this template.
 
 Field names must start with `dnd.creature` (e.g., `dnd.creature.ac`, `dnd.creature.hp`, etc.).
+
+! Tools
+
+!! Create a new creature
+
+<!-- Set variables to render button as it appears in the toolbar. -->
+<$vars tv-config-toolbar-text="yes" tv-config-toolbar-class="">
+Enable the {{$:/plugins/benwebber/dnd/ui/NewCreature}} tool to create new creature tiddlers with a single click.
+</$vars>
