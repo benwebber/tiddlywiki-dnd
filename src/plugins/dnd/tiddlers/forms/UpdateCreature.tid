@@ -1,40 +1,40 @@
 title: $:/plugins/benwebber/dnd/forms/UpdateCreature
-subtitle: Editing <<creature>>
+subtitle: Editing <<tiddler>>
 
-\define input(index)
-<$edit-text tag=input tiddler=<<data>> index=<<__index__>> />
+\define input(field)
+<$edit-text tag=input tiddler=<<tiddler>> field=<<__field__>> />
 \end
 
-\define inputAbility(index)
-<$edit-text tag=input tiddler=<<data>> index=<<__index__>> size=3 />
+\define inputAbility(field)
+<$edit-text tag=input tiddler=<<tiddler>> field=<<__field__>> size=3 />
 \end
 
-|!Size |<<input size>> |
-|!Type |<<input type>> |
-|!Tags |<<input tags>> |
-|!Alignment |<<input alignment>> |
+|!Size |<<input dnd.creature.size>> |
+|!Type |<<input dnd.creature.type>> |
+|!Tags |<<input dnd.creature.tags>> |
+|!Alignment |<<input dnd.creature.alignment>> |
 
 ---
 
-|!Armour Class |<<input ac>> |
-|!Hit Points |<<input hp>> |
-|!Speed |<<input speed>> |
+|!Armour Class |<<input dnd.creature.ac>> |
+|!Hit Points |<<input dnd.creature.hp>> |
+|!Speed |<<input dnd.creature.speed>> |
 
 ---
 
 |! STR|! DEX|! CON|! INT|! WIS|! CHA|
-| <<inputAbility str>> | <<inputAbility dex>> | <<inputAbility con>> | <<inputAbility int>> | <<inputAbility wis>> | <<inputAbility cha>> |
+| <<inputAbility dnd.creature.str>> | <<inputAbility dnd.creature.dex>> | <<inputAbility dnd.creature.con>> | <<inputAbility dnd.creature.int>> | <<inputAbility dnd.creature.wis>> | <<inputAbility dnd.creature.cha>> |
 
 ---
 
-|!Saving Throws |<<input saves>> |
-|!Skills |<<input skills>> |
-|!Damage Immunities |<<input dimm>> |
-|!Damage Resistances |<<input dres>> |
-|!Damage Vulnerabilities |<<input dvul>> |
-|!Condition Immunities |<<input cimm>> |
-|!Condition Resistances |<<input cres>> |
-|!Condition Vulnerabilities |<<input cvul>> |
-|!Senses |<<input senses>> |
-|!Languages |<<input languages>> |
-|!Challenge |<<input challenge>> |
+|!Saving Throws |<<input dnd.creature.saves>> |
+|!Skills |<<input dnd.creature.skills>> |
+|!Damage Immunities |<<input dnd.creature.dimm>> |
+|!Damage Resistances |<<input dnd.creature.dres>> |
+|!Damage Vulnerabilities |<<input dnd.creature.dvul>> |
+|!Condition Immunities |<<input dnd.creature.cimm>> |
+|!Condition Resistances |<<input dnd.creature.cres>> |
+|!Condition Vulnerabilities |<<input dnd.creature.cvul>> |
+|!Senses |<<input dnd.creature.senses>> |
+|!Languages |<<input dnd.creature.languages>> |
+|!Challenge |<<input dnd.creature.challenge>> |

@@ -1,4 +1,4 @@
-title: dnd.statblock
+title: dnd.dstatblock
 
 <$macrocall
   $name="dnd.statblock"

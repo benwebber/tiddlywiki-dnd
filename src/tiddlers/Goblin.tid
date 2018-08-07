@@ -1,3 +1,18 @@
 title: Goblin
+dnd.creature.size: small
+dnd.creature.type: humanoid
+dnd.creature.tags: goblinoid
+dnd.creature.alignment: neutral evil
+dnd.creature.ac: 15 (leather armor, shield)
+dnd.creature.hp: 2d6
+dnd.creature.speed: 30 ft.
+dnd.creature.str: 8
+dnd.creature.dex: 14
+dnd.creature.wis: 8
+dnd.creature.cha: 8
+dnd.creature.skills: Stealth +6
+dnd.creature.senses: darkvision 60 ft., passive Perception 9
+dnd.creature.languages: Common, Goblin
+dnd.creature.challenge: 1/4
 
-{{GoblinData||dnd.statblock}}
+<<dnd.creature>>

@@ -34,9 +34,17 @@ Calculates the average result of the specified roll.
 |`<<dnd.average "2d8 + 2">>`|<<dnd.average "2d8 + 2">>|
 |`<<dnd.average "2d8 - 2">>`|<<dnd.average "2d8 - 2">>|
 
+!! `dnd.creature`
+
+Helper macro to create a standalong creature tiddler.
+
+This macro uses the `dnd.fstatblock` template, so the creature's stats will be stored as tiddler fields. It also adds a convenient button to edit the stats.
+
+See [[Goblin]] as an example.
+
 !! `dnd.statblock`
 
-Render a creature stat block. This is a low-level macro. You may want to use the `dnd.fstatblock` macro or `dnd.statblock` template instead (see below).
+Render a creature stat block. This is a low-level macro. You may want to use the `dnd.creature` macro or stat block templates instead (see below).
 
 !!! Notes
 
@@ -94,24 +102,6 @@ challenge: "'1/4'"
 
 </$reveal>
 
-!!! Variant: `dnd.fstatblock`
-
-This macro works like the `dnd.statblock` template, but pulls data from the data tiddler specified in the `dnd.stats` field. The `f` stands for "field".
-
-```
-title: Goblin
-dnd.stats: GoblinData
-
-<<dnd.fstatblock>>
-```
-
-This macro has two advantages:
-
-# It allows you to change the data source dynamically with ~TiddlyWiki widgets like the `action-setfield` widget.
-# It allows you to edit the associated stat data inline.
-
-See [[Goblin (dnd.fstatblock)]] for an example.
-
 !! `dnd.xp`
 
 Renders the experience points (XP) for a the given challenge rating (CR).
@@ -124,12 +114,22 @@ Renders the experience points (XP) for a the given challenge rating (CR).
 
 ! Templates
 
-!! `dnd.statblock`
+!! `dnd.dstatblock`
 
-This template works the same as the `dnd.statblock` macro, but calls the macro with values from a data tiddler.
+Calls the `dnd.statblock` macro with values from a data tiddler. The "d" stands for "data".
 
 ```
-{{<tiddler>||dnd.statblock}}
+{{<tiddler>||dnd.dstatblock}}
 ```
 
-See [[Goblin]] for an example.
+!! `dnd.fstatblock`
+
+Calls the `dnd.statblock` macro with values from a tiddler's fields. The "f" stands for "field".
+
+```
+{{<tiddler>||dnd.fstatblock}}
+```
+
+The `dnd.creature` helper macro uses this template.
+
+Field names must start with `dnd.creature` (e.g., `dnd.creature.ac`, `dnd.creature.hp`, etc.).

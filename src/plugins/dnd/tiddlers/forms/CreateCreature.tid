@@ -1,4 +1,0 @@
-title: $:/plugins/benwebber/dnd/forms/CreateCreature
-
-{{$:/plugins/benwebber/dnd/forms/CreateCreature/NameField}}
-{{$:/plugins/benwebber/dnd/forms/CreateCreature/Controls}}

@@ -1,8 +1,0 @@
-title: $:/plugins/benwebber/dnd/forms/CreateCreature/NameField
-
-Name: <$edit-text tiddler="$:/temp/dnd/CreateCreature/view/title" tag="input" default="" />
-<$wikify name="view-name" text=<<get-view-name>>>
-<$list filter="[title<view-name>is[tiddler]]">
-<$macrocall $name="link" tiddler=<<view-name>> /> already exists
-</$list>
-</$wikify>

@@ -3,8 +3,9 @@ tags: $:/tags/PageControls
 
 \define actions()
 <$action-sendmessage
-  $message="tm-modal"
-  $param="$:/plugins/benwebber/dnd/forms/CreateCreatureModal"
+  $message="tm-new-tiddler"
+  title="New Creature"
+  text="<<dnd.creature>>"
 />
 \end
 
