@@ -6,7 +6,12 @@ Manage a //Dungeons & Dragons// campaign with [[TiddlyWiki|https://tiddlywiki.co
 
 [[Manually install|https://tiddlywiki.com/#Manually%20installing%20a%20plugin]] the plugin by dragging this link to your ~TiddlyWiki:
 
+<$list
+  filter="[<transclusion>prefix[{$:/plugins/benwebber/dnd/README|$:/plugins/benwebber/dnd/README|||}]]"
+  emptyMessage="[[$:/plugins/benwebber/dnd]]"
+>
 {{$:/plugins/benwebber/dnd||$:/core/ui/Components/plugin-info}}
+</$list>
 
 Then save and refresh your ~TiddlyWiki.
 
