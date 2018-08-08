@@ -1,4 +1,4 @@
-.PHONY: all clean
+.PHONY: all clean lint test
 
 all:
 	babel --copy-files --out-dir lib/ src/
@@ -7,3 +7,9 @@ all:
 clean:
 	$(RM) index.html
 	$(RM) -r lib/
+
+lint:
+	eslint src/ test/
+
+test:
+	jest --env=node --coverage test
