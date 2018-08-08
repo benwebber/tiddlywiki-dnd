@@ -51,7 +51,7 @@ export function average(expr) {
   let match = expr.match(regexp);
 
   if (!match) {
-    return "";
+    return expr;
   }
 
   let nDice = parseInt(match[1]) || 1;
@@ -68,6 +68,7 @@ export function average(expr) {
   if (op == "+") {
     avg = Math.floor(nDice * (1 + nSides)/2 + mod);
   } else {
+    op = "−";
     avg = Math.floor(nDice * (1 + nSides)/2 - mod);
   }
   return `${avg} (${nDice}d${nSides} ${op} ${mod})`;
