@@ -42,8 +42,8 @@ const CR_TO_XP = {
 
 export function ability(score) {
   let mod = Math.floor((score - 10)/2);
-  let op = (mod >= 0) ? "+" : "-";
-  return `${score} (${op}${mod})`;
+  let op = (mod >= 0) ? "+" : "−"; // minus sign (U+2212)
+  return `${score} (${op}${Math.abs(mod)})`;
 }
 
 export function average(expr) {
