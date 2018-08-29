@@ -20,3 +20,7 @@ StatBlock/DamageVulnerabilities: Damage Vulnerabilities
 StatBlock/ConditionImmunities: Condition Immunities
 StatBlock/ConditionResistances: Condition Resistances
 StatBlock/ConditionVulnerabilities: Condition Vulnerabilities
+Spell/CastingTime: Casting Time
+Spell/Range: Range
+Spell/Components: Components
+Spell/Duration: Duration

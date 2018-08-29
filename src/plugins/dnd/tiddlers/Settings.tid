@@ -7,3 +7,4 @@ icon: $:/core/images/options-button
 
 |Version |{{$:/plugins/benwebber/dnd!!version}} |
 |Automatically render stat blocks for [[creature tiddlers|Creatures]] | <<render-boolean "ViewTemplates/StatBlock">> |
+|Automatically render spell blocks for [[spell tiddlers|Spells]] | <<render-boolean "ViewTemplates/Spell">> |

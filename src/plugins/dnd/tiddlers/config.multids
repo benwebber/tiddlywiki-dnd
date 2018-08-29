@@ -1,3 +1,4 @@
 title: $:/plugins/benwebber/dnd/config/
 
 ViewTemplates/StatBlock: true
+ViewTemplates/Spell: true

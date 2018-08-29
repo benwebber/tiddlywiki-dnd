@@ -1,0 +1,15 @@
+title: dnd.fspell
+
+<$macrocall
+  $name="dnd.spellblock"
+
+  level={{!!dnd.spell.level}}
+  school={{!!dnd.spell.school}}
+  cast={{!!dnd.spell.cast}}
+  ritual={{!!dnd.spell.ritual}}
+  range={{!!dnd.spell.range}}
+  verbal={{!!dnd.spell.verbal}}
+  somatic={{!!dnd.spell.somatic}}
+  material={{!!dnd.spell.material}}
+  duration={{!!dnd.spell.duration}}
+/>

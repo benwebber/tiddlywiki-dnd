@@ -1,0 +1,13 @@
+title: dnd.dspell
+
+<$macrocall
+  $name="dnd.spellblock"
+
+  level={{##level}}
+  school={{##school}}
+  cast={{##cast}}
+  range={{##range}}
+  components={{##components}}
+  duration={{##duration}}
+  ritual={{##ritual}}
+/>

@@ -1,4 +1,4 @@
-title: $:/plugins/benwebber/dnd/ui/NewCreature
+title: $:/plugins/benwebber/dnd/ui/Buttons/new-creature
 tags: $:/tags/PageControls
 
 \define actions()
@@ -11,7 +11,7 @@ tags: $:/tags/PageControls
 
 <$button actions=<<actions>> class=<<tv-config-toolbar-class>> tooltip="Create a new creature">
 <$list filter="[<tv-config-toolbar-icons>prefix[yes]]">
-{{$:/plugins/benwebber/dnd/images/NewCreature}}
+{{$:/plugins/benwebber/dnd/images/new-creature}}
 </$list>
 <$list filter="[<tv-config-toolbar-text>prefix[yes]]">
 <span class="tc-btn-text"><$text text="new creature"/></span>

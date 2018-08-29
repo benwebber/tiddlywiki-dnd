@@ -28,6 +28,7 @@ https://benwebber.github.io/tiddlywiki-dnd/
 
 ### View Templates
 
+* `Spell`: Automatically render a spell description for all tiddlers tagged `Spells`.
 * `StatBlock`: Automatically render a stat block for all tiddlers tagged `Creatures`.
 
 ## License

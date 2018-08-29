@@ -1,0 +1,15 @@
+title: $:/plugins/benwebber/dnd/ui/ViewTemplate/spell
+tags: $:/tags/ViewTemplate
+list-before: $:/core/ui/ViewTemplate/body
+
+<!-- Check tiddler tag. -->
+<$list filter="[<currentTiddler>tag[Spells]]">
+<!-- Check if user enabled view template; don't override <<currentTiddler>>. -->
+<$list
+  filter="[title[$:/plugins/benwebber/dnd/config/ViewTemplates/Spell]field:text[true]]"
+  variable="noop"
+>
+
+<<dnd.spell>>
+</$list>
+</$list>

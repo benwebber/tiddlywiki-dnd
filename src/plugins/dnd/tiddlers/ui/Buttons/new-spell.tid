@@ -1,0 +1,19 @@
+title: $:/plugins/benwebber/dnd/ui/Buttons/new-spell
+tags: $:/tags/PageControls
+
+\define actions()
+<$action-sendmessage
+  $message="tm-new-tiddler"
+  title="New Spell"
+  tags="Spells"
+/>
+\end
+
+<$button actions=<<actions>> class=<<tv-config-toolbar-class>> tooltip="Create a new spell">
+<$list filter="[<tv-config-toolbar-icons>prefix[yes]]">
+{{$:/plugins/benwebber/dnd/images/new-spell}}
+</$list>
+<$list filter="[<tv-config-toolbar-text>prefix[yes]]">
+<span class="tc-btn-text"><$text text="new spell"/></span>
+</$list>
+</$button>

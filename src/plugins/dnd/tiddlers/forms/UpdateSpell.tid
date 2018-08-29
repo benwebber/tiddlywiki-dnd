@@ -1,0 +1,43 @@
+title: $:/plugins/benwebber/dnd/forms/UpdateSpell
+subtitle: Editing <<tiddler>>
+
+\define input(field)
+<$edit-text tag=input tiddler=<<tiddler>> field=<<__field__>> />
+\end
+
+\define select-level(field)
+<$select tiddler=<<tiddler>> field="dnd.spell.level">
+  <option>0</option>
+  <option>1</option>
+  <option>2</option>
+  <option>3</option>
+  <option>4</option>
+  <option>5</option>
+  <option>6</option>
+  <option>7</option>
+  <option>8</option>
+  <option>9</option>
+</$select>
+\end
+
+\define select-school()
+<$select tiddler=<<tiddler>> field="dnd.spell.school">
+  <option value="abjuration">Abjuration</option>
+  <option value="conjuration">Conjuration</option>
+  <option value="divination">Divination</option>
+  <option value="enchantment">Enchantment</option>
+  <option value="evocation">Evocation</option>
+  <option value="illusion">Illusion</option>
+  <option value="necromancy">Necromancy</option>
+  <option value="transmutation">Transmutation</option>
+</$select>
+\end
+
+//Changes take effect immediately.//
+
+|!Level |<<select-level>> |
+|!School |<<select-school>> |
+|!Casting Time |<<input dnd.spell.cast>> <$checkbox tiddler=<<tiddler>> field="dnd.spell.ritual" checked="true" unchecked="" default=""> Ritual</$checkbox> |
+|!Range |<<input dnd.spell.range>> |
+|!Duration |<<input dnd.spell.duration>> |
+|!Components |<$checkbox tiddler=<<tiddler>> field="dnd.spell.verbal" checked="true" unchecked="" default=""> V</$checkbox> <$checkbox tiddler=<<tiddler>> field="dnd.spell.somatic" checked="true" unchecked="" default=""> S</$checkbox> M: <<input dnd.spell.material>> |
