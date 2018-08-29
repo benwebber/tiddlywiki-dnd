@@ -15,6 +15,10 @@ Manage //Dungeons & Dragons// campaigns with [[TiddlyWiki|https://tiddlywiki.com
 
 Then save and refresh your ~TiddlyWiki.
 
+! Configuration
+
+Navigate to the plugin info tiddler ([[$:/plugins/benwebber/dnd]]), then go to the ''Settings'' tab.
+
 ! Macros
 
 !! `dnd.ability`
@@ -41,11 +45,11 @@ Calculates the average result of the specified roll.
 
 !! `dnd.creature`
 
-Helper macro to create a standalong creature tiddler.
+Helper macro to create a standalone creature tiddler.
 
 This macro uses the `dnd.fstatblock` template, so the creature's stats will be stored as tiddler fields. It also adds a convenient button to edit the stats.
 
-See [[Goblin]] as an example.
+It is ''not'' necessary to use this macro if you use the automatic view template.
 
 !! `dnd.statblock`
 
@@ -147,3 +151,13 @@ Field names must start with `dnd.creature` (e.g., `dnd.creature.ac`, `dnd.creatu
 <$vars tv-config-toolbar-text="yes" tv-config-toolbar-class="">
 Enable the {{$:/plugins/benwebber/dnd/ui/NewCreature}} tool to create new creature tiddlers with a single click.
 </$vars>
+
+! View Templates
+
+~TiddlyWiki view templates automatically inject content into tiddlers that match certain criteria.
+For example, you might use a view template to style all tiddlers with a certain tag.
+
+This plugin ships a view template that automatically renders a stat block for all tiddlers tagged [[Creatures]].
+
+This feature is enabled by default.
+To disable it and use the `<<dnd.creature>>` macro manually, navigate to the plugin configuration.

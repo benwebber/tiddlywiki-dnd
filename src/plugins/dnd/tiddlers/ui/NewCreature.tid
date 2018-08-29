@@ -5,7 +5,7 @@ tags: $:/tags/PageControls
 <$action-sendmessage
   $message="tm-new-tiddler"
   title="New Creature"
-  text="<<dnd.creature>>"
+  tags="Creatures"
 />
 \end
 

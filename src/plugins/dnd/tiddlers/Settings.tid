@@ -1,0 +1,9 @@
+title: $:/plugins/benwebber/dnd/Settings
+icon: $:/core/images/options-button
+
+\define render-boolean(key)
+<$checkbox tiddler="$:/plugins/benwebber/dnd/config/$key$" field="text" checked="true" unchecked="false" default="true" />
+\end
+
+|Version |{{$:/plugins/benwebber/dnd!!version}} |
+|Automatically render stat blocks for [[creature tiddlers|Creatures]] | <<render-boolean "ViewTemplates/StatBlock">> |

@@ -26,6 +26,10 @@ https://benwebber.github.io/tiddlywiki-dnd/
 * `dnd.dstatblock`: Render a data tiddler as a stat block.
 * `dnd.fstatblock`: Render a stat block using a tiddler's fields.
 
+### View Templates
+
+* `StatBlock`: Automatically render a stat block for all tiddlers tagged `Creatures`.
+
 ## License
 
 MIT
