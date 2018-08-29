@@ -1,4 +1,5 @@
 title: Goblin
+tags: Creatures
 dnd.creature.size: small
 dnd.creature.type: humanoid
 dnd.creature.tags: goblinoid
@@ -14,5 +15,3 @@ dnd.creature.skills: Stealth +6
 dnd.creature.senses: darkvision 60 ft., passive Perception 9
 dnd.creature.languages: Common, Goblin
 dnd.creature.challenge: 1/4
-
-<<dnd.creature>>
