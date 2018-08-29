@@ -60,7 +60,7 @@ export function run(
   verbal,
   somatic,
   material,
-  duration,
+  duration
 ) {
   let i18n = new I18N(this.wiki, this.getVariable("languageTitle"));
 
@@ -90,15 +90,15 @@ export function run(
 
   let componentFragments = [];
   if (verbal) {
-    componentFragments.push('V');
+    componentFragments.push("V");
   }
   if (somatic) {
-    componentFragments.push('S');
+    componentFragments.push("S");
   }
   if (material) {
-    componentFragments.push(`M (${material})`)
+    componentFragments.push(`M (${material})`);
   }
-  let components = componentFragments.join(', ');
+  let components = componentFragments.join(", ");
 
   let fields = [
     {caption: "Spell/CastingTime", value: cast},
