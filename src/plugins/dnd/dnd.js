@@ -10,7 +10,7 @@ const ABILITIES = {
   INT: "Intelligence",
   WIS: "Wisdom",
   CHA: "Charisma",
-}
+};
 
 
 const CR_TO_XP = {
@@ -70,7 +70,7 @@ const SKILLS = [
   "Sleight of Hand",
   "Stealth",
   "Survival",
-]
+];
 
 
 export class Spell {
