@@ -1,5 +1,6 @@
 import * as dnd from "../src/plugins/dnd/dnd.js";
 
+
 describe("ability", () => {
   [
     {score: "1", expected: "1 (−5)"},
@@ -15,6 +16,7 @@ describe("ability", () => {
   });
 });
 
+
 describe("average", () => {
   [
     {expr: "10", expected: "10"},
@@ -29,6 +31,7 @@ describe("average", () => {
   });
 });
 
+
 describe("capitalize", () => {
   [
     {description: "small beast, unaligned", expected: "Small beast, unaligned"},
@@ -39,6 +42,7 @@ describe("capitalize", () => {
   });
 });
 
+
 describe("italicize", () => {
   [
     {description: "Small beast, unaligned", expected: "//Small beast, unaligned//"},
@@ -48,6 +52,30 @@ describe("italicize", () => {
     });
   });
 });
+
+
+describe("ordinal", () => {
+  [
+    {value: 0, expected: "0th"},
+    {value: 1, expected: "1st"},
+    {value: 2, expected: "2nd"},
+    {value: 3, expected: "3rd"},
+    {value: 4, expected: "4th"},
+    {value: 11, expected: "11th"},
+    {value: 12, expected: "12th"},
+    {value: 13, expected: "13th"},
+    {value: 14, expected: "14th"},
+    {value: 21, expected: "21st"},
+    {value: 22, expected: "22nd"},
+    {value: 23, expected: "23rd"},
+    {value: 24, expected: "24th"},
+  ].forEach((example) => {
+    it(`should return "${example.expected}" for value "${example.value}"`, () => {
+      expect(dnd.ordinal(example.value)).toBe(example.expected);
+    });
+  });
+});
+
 
 describe("xp", () => {
   [

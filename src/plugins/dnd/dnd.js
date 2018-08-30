@@ -40,6 +40,7 @@ const CR_TO_XP = {
   "30": "155,000"
 };
 
+
 export class Spell {
   constructor(
     level,
@@ -115,6 +116,7 @@ export class Spell {
     return output.join("\n");
   }
 }
+
 
 export class StatBlock {
   constructor(
@@ -244,11 +246,13 @@ export class StatBlock {
 
 }
 
+
 export function ability(score) {
   let mod = Math.floor((score - 10)/2);
   let op = (mod >= 0) ? "+" : "−"; // minus sign (U+2212)
   return `${score} (${op}${Math.abs(mod)})`;
 }
+
 
 export function average(expr) {
   let regexp = /(\d+)?d(\d+)\s?(?:(-|\+)\s?(\d+))?/i;
@@ -278,15 +282,19 @@ export function average(expr) {
   return `${avg} (${nDice}d${nSides} ${op} ${mod})`;
 }
 
+
 export function capitalize(s) {
   return s.charAt(0).toLocaleUpperCase() + s.slice(1);
 }
+
 
 export function italicize(s) {
   return `//${s}//`;
 }
 
-function ordinal(n) {
+
+export function ordinal(n) {
+  // TODO: Test cast (or switch to TypeScript).
   let i = parseInt(n);
   let ones = i % 10;
   let tens = i % 100;
@@ -303,6 +311,7 @@ function ordinal(n) {
   return `${i}${ending}`;
 }
 
+
 function renderFields(i18n, fields, alwaysRender) {
   let output = [];
   for (let field of fields) {
@@ -313,6 +322,7 @@ function renderFields(i18n, fields, alwaysRender) {
   }
   return output;
 }
+
 
 export function xp(rating) {
   rating = rating.replace(/['"]/g, "");
