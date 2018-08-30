@@ -6,5 +6,5 @@
   "core-version": ">=5.0.0",
   "source": "https://github.com/benwebber/tiddlywiki-dnd",
   "plugin-type": "plugin",
-  "list": "README License Settings"
+  "list": "README License Changelog Settings"
 }

@@ -1,0 +1,28 @@
+title: $:/plugins/benwebber/dnd/Changelog
+
+! Unreleased
+
+!! Added
+
+* Added English (UK) and English (US) translations.
+* Added D&D icon from Font Awesome to plugin info block.
+* Set up Jest test harness, Travis CI, and Codecov.
+* Added creature view template.
+* Added spell macros, templates, and view templates.
+* Added toolbar buttons to create new creatures and spells.
+* Added modal update form for creatures and spells.
+
+!! Changed
+
+* Moved macro functionality to testable library.
+* Upgraded to ES6.
+* Create "field" creature tiddlers by default. (Store creature attributes as tiddler field values.)
+
+!! Fixed
+
+* Use proper minus sign for ability/roll modifiers.
+* `dnd.average`: Pass through unrecognized roll expressions (support arbitrary values).
+
+! 0.1.0 (2018-07-31)
+
+Initial release.
