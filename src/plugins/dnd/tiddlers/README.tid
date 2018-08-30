@@ -63,6 +63,21 @@ Calculates the average result of the specified roll.
 |`<<dnd.average "2d8 + 2">>`|<<dnd.average "2d8 + 2">>|
 |`<<dnd.average "2d8 - 2">>`|<<dnd.average "2d8 - 2">>|
 
+!! `dnd.check`
+
+Typeset an ability check, optionally including a skill and/or DC.
+
+The macro matches skill names by least ambiguous prefix.
+For example, `perc`, `perf`, and `pers` for Perception, Performance, and Persuasion, respectively.
+
+|! Call|! Output|
+|`<<dnd.check int>>`|<<dnd.check int>>|
+|`<<dnd.check int dc:15>>`|<<dnd.check int "" 15>>|
+|`<<dnd.check int inv>>`|<<dnd.check int inv>>|
+|`<<dnd.check int inv 18>>`|<<dnd.check int inv 18>>|
+|`<<dnd.check cha perf>>`|<<dnd.check cha perf>>|
+|`<<dnd.check cha pers>>`|<<dnd.check cha pers>>|
+
 !! `dnd.creature`
 
 Helper macro to create a standalone creature tiddler.

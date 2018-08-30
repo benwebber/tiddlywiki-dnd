@@ -82,6 +82,31 @@ describe("capitalize", () => {
 });
 
 
+describe("check", () => {
+  [
+    {args: ["cha"], expected: "Charisma"},
+    {args: ["CHA"], expected: "Charisma"},
+    {args: ["cha", "perf"], expected: "Charisma (Performance)"},
+    {args: ["CHA", "PERF"], expected: "Charisma (Performance)"},
+    {args: ["cha", "perf", 15], expected: "DC 15 Charisma (Performance)"},
+    // Unknown ability:
+    {args: ["foo"], expected: ""},
+    {args: ["foo", "perf"], expected: ""},
+    {args: ["foo", "perf", 15], expected: ""},
+    // Unknown skill:
+    {args: ["cha", "foo"], expected: "Charisma"},
+    {args: ["cha", "foo", 15], expected: "DC 15 Charisma"},
+    // Ambiguous skill:
+    {args: ["cha", "per"], expected: "Charisma"},
+    {args: ["cha", "per", 15], expected: "DC 15 Charisma"},
+  ].forEach((example) => {
+    it(`should return "${example.expected}" for (${example.args[0]}, ${example.args[1]}, ${example.args[2]})`, () => {
+      expect(dnd.check(...example.args)).toBe(example.expected);
+    });
+  });
+});
+
+
 describe("italicize", () => {
   [
     {description: "Small beast, unaligned", expected: "//Small beast, unaligned//"},

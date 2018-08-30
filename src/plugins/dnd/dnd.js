@@ -3,6 +3,16 @@ title: $:/plugins/benwebber/dnd/dnd.js
 type: application/javascript
 module-type: library
 \*/
+const ABILITIES = {
+  STR: "Strength",
+  DEX: "Dexterity",
+  CON: "Constitution",
+  INT: "Intelligence",
+  WIS: "Wisdom",
+  CHA: "Charisma",
+}
+
+
 const CR_TO_XP = {
   "0": "0",
   "1/8": "25",
@@ -39,6 +49,28 @@ const CR_TO_XP = {
   "29": "135,000",
   "30": "155,000"
 };
+
+
+const SKILLS = [
+  "Acrobatics",
+  "Animal Handling",
+  "Arcana",
+  "Athletics",
+  "Deception",
+  "History",
+  "Insight",
+  "Intimidation",
+  "Investigation",
+  "Medicine",
+  "Nature",
+  "Perception",
+  "Performance",
+  "Persuasion",
+  "Religion",
+  "Sleight of Hand",
+  "Stealth",
+  "Survival",
+]
 
 
 export class Spell {
@@ -287,6 +319,45 @@ export function capitalize(s) {
   return s.charAt(0).toLocaleUpperCase() + s.slice(1);
 }
 
+
+export function check(ability, skill, dc) {
+  ability = ability.toLocaleUpperCase();
+  let abilityRegexp = /^(STR|DEX|CON|INT|WIS|CHA).*/;
+  let match = ability.match(abilityRegexp);
+
+  if (!match) {
+    return "";
+  }
+
+  ability = ABILITIES[match[1]];
+  let fragments = [ability];
+
+  try {
+    skill = findMatches(skill.toLocaleLowerCase(), SKILLS.map((skill) => skill.toLocaleLowerCase()));
+  } catch (e) {
+    skill = null;
+  }
+
+  if (skill) {
+    fragments.push(`(${capitalize(skill)})`);
+  }
+  if (dc) {
+    fragments.unshift(`DC ${dc}`);
+  }
+  return fragments.join(" ");
+}
+
+
+function findMatches(prefix, choices) {
+  let matches = choices.filter((choice) => choice.startsWith(prefix));
+  if (matches.length == 0) {
+    return null;
+  } else if (matches.length == 1) {
+    return matches[0];
+  } else {
+    throw Error("too many matches");
+  }
+}
 
 export function italicize(s) {
   return `//${s}//`;
