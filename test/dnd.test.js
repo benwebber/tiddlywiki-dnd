@@ -1,5 +1,44 @@
 import * as dnd from "../src/plugins/dnd/dnd.js";
 
+import SpellFactory from "./factories/spell";
+import StatBlockFactory from "./factories/statblock";
+
+
+describe("Spell", () => {
+  [
+    {level: 0, school: "abjuration", ritual: false, expected: "abjuration cantrip"},
+    {level: 1, school: "conjuration", ritual: false, expected: "1st-level conjuration"},
+    {level: 2, school: "divination", ritual: true, expected: "2nd-level divination (ritual)"},
+  ].forEach((example) => {
+    it(`should return "${example.expected}" for level = ${example.level}, school = ${example.school}, ritual = ${example.ritual}`, () => {
+      const spell = SpellFactory.build({
+        level: example.level,
+        school: example.school,
+        ritual: example.ritual
+      });
+      expect(spell.description).toBe(example.expected);
+    });
+  });
+});
+
+
+describe("StatBlock", () => {
+  [
+    {size: "medium", expected: "medium"},
+    {size: "medium", type: "humanoid", tags: "any race", alignment: "any alignment", expected: "medium humanoid (any race), any alignment"},
+  ].forEach((example) => {
+    it(`should return "${example.expected}" for size = ${example.size}, type = ${example.type}, tags = ${example.tags}, alignment = ${example.alignment}`, () => {
+      const creature = StatBlockFactory.build({
+        size: example.size,
+        type: example.type,
+        tags: example.tags,
+        alignment: example.alignment,
+      });
+      expect(creature.description).toBe(example.expected);
+    });
+  });
+});
+
 
 describe("ability", () => {
   [
