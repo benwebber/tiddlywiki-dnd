@@ -40,6 +40,82 @@ const CR_TO_XP = {
   "30": "155,000"
 };
 
+export class Spell {
+  constructor(
+    level,
+    school,
+    cast,
+    ritual,
+    range,
+    verbal,
+    somatic,
+    material,
+    duration
+  ) {
+    this.level = parseInt(level);
+    this.school = school;
+    this.cast = cast;
+    this.ritual = ritual;
+    this.range = range;
+    this.verbal = verbal;
+    this.somatic = somatic;
+    this.material = material;
+    this.duration = duration;
+  }
+
+  get isCantrip() {
+    return !Number.isNaN(this.level) && this.level === 0;
+  }
+
+  get description() {
+    let descriptionFragments = [];
+    if (!Number.isNaN(this.level) && !this.isCantrip) {
+      descriptionFragments.push(`${ordinal(this.level)}-level`);
+    }
+    if (this.school) {
+      descriptionFragments.push(this.school);
+    }
+    if (this.isCantrip) {
+      descriptionFragments.push("cantrip");
+    }
+    let description = descriptionFragments.join(" ").trim();
+    if (this.ritual) {
+      description = `${description} (ritual)`;
+    }
+    return description;
+  }
+
+  render(i18n) {
+    let output = [
+      italicize(capitalize(this.description)),
+      "",
+    ];
+
+    let componentFragments = [];
+    if (this.verbal) {
+      componentFragments.push("V");
+    }
+    if (this.somatic) {
+      componentFragments.push("S");
+    }
+    if (this.material) {
+      componentFragments.push(`M (${this.material})`);
+    }
+    let components = componentFragments.join(", ");
+
+    let fields = [
+      {caption: "Spell/CastingTime", value: this.cast},
+      {caption: "Spell/Range", value: this.range},
+      {caption: "Spell/Components", value: components},
+      {caption: "Spell/Duration", value: this.duration}
+    ];
+    output = output.concat(renderFields(i18n, fields, true));
+    output.push("");
+
+    return output.join("\n");
+  }
+}
+
 export class StatBlock {
   constructor(
     size,
@@ -116,7 +192,7 @@ export class StatBlock {
       {caption: "StatBlock/HP", value: average(this.hp)},
       {caption: "StatBlock/Speed", value: this.speed},
     ];
-    output = output.concat(this._renderFields(i18n, fields, true));
+    output = output.concat(renderFields(i18n, fields, true));
     output.push("");
     output.push("---");
 
@@ -142,13 +218,13 @@ export class StatBlock {
       {caption: "StatBlock/ConditionResistances", value: this.cres},
       {caption: "StatBlock/ConditionVulnerabilities", value: this.cvul},
     ];
-    output = output.concat(this._renderFields(i18n, fields, false));
+    output = output.concat(renderFields(i18n, fields, false));
     fields = [
       {caption: "StatBlock/Senses", value: this.senses},
       {caption: "StatBlock/Languages", value: this.languages},
       {caption: "StatBlock/Challenge", value: xp(this.challenge)},
     ];
-    output = output.concat(this._renderFields(i18n, fields, true));
+    output = output.concat(renderFields(i18n, fields, true));
     output.push("");
     output.push("---");
 
@@ -166,16 +242,6 @@ export class StatBlock {
     ];
   }
 
-  _renderFields(i18n, fields, alwaysRender) {
-    let output = [];
-    for (let field of fields) {
-      let caption = i18n.getString(field.caption);
-      if (alwaysRender || field.value) {
-        output.push(`|!${caption} |${field.value} |`);
-      }
-    }
-    return output;
-  }
 }
 
 export function ability(score) {
@@ -218,6 +284,34 @@ export function capitalize(s) {
 
 export function italicize(s) {
   return `//${s}//`;
+}
+
+function ordinal(n) {
+  let i = parseInt(n);
+  let ones = i % 10;
+  let tens = i % 100;
+  let ending;
+  if (ones === 1 && tens !== 11) {
+    ending = "st";
+  } else if (ones === 2 && tens !== 12) {
+    ending = "nd";
+  } else if (ones === 3 && tens !== 13) {
+    ending = "rd";
+  } else {
+    ending = "th";
+  }
+  return `${i}${ending}`;
+}
+
+function renderFields(i18n, fields, alwaysRender) {
+  let output = [];
+  for (let field of fields) {
+    let caption = i18n.getString(field.caption);
+    if (alwaysRender || field.value) {
+      output.push(`|!${caption} |${field.value} |`);
+    }
+  }
+  return output;
 }
 
 export function xp(rating) {
