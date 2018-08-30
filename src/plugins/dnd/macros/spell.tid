@@ -1,7 +1,7 @@
 title: $:/plugins/benwebber/dnd/macros/spell
 tags: $:/tags/Macro
 
-\define actions()
+\define spell-actions()
 <!--
 If the user enters, then deletes a value in the form, the corresponding field
 will be empty. Delete empty fields.
@@ -22,5 +22,5 @@ will be empty. Delete empty fields.
 \define dnd.spell()
 {{||dnd.fspell}}
 
-<$button actions=<<actions>>>Edit <<currentTiddler>></$button>
+<$button actions=<<spell-actions>>>Edit <<currentTiddler>></$button>
 \end

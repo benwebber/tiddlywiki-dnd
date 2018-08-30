@@ -1,7 +1,7 @@
 title: $:/plugins/benwebber/dnd/macros/creature
 tags: $:/tags/Macro
 
-\define actions()
+\define creature-actions()
 <!--
 If the user enters, then deletes a value in the form, the corresponding field
 will be empty. Delete empty fields.
@@ -22,5 +22,5 @@ will be empty. Delete empty fields.
 \define dnd.creature()
 {{||dnd.fstatblock}}
 
-<$button actions=<<actions>>>Edit <<currentTiddler>></$button>
+<$button actions=<<creature-actions>>>Edit <<currentTiddler>></$button>
 \end
