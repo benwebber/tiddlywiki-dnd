@@ -40,6 +40,144 @@ const CR_TO_XP = {
   "30": "155,000"
 };
 
+export class StatBlock {
+  constructor(
+    size,
+    type,
+    alignment,
+    ac,
+    hp,
+    speed,
+    str,
+    dex,
+    con,
+    int,
+    wis,
+    cha,
+    senses,
+    languages,
+    challenge,
+    tags,
+    saves,
+    skills,
+    dimm,
+    dres,
+    dvul,
+    cimm,
+    cres,
+    cvul
+  ) {
+    this.size = size;
+    this.type = type;
+    this.alignment = alignment;
+    this.ac = ac;
+    this.hp = hp;
+    this.speed = speed;
+    this.str = str;
+    this.dex = dex;
+    this.con = con;
+    this.int = int;
+    this.wis = wis;
+    this.cha = cha;
+    this.senses = senses;
+    this.languages = languages;
+    this.challenge = challenge;
+    this.tags = tags;
+    this.saves = saves;
+    this.skills = skills;
+    this.dimm = dimm;
+    this.dres = dres;
+    this.dvul = dvul;
+    this.cimm = cimm;
+    this.cres = cres;
+    this.cvul = cvul;
+  }
+
+  get description() {
+    let descriptionFragments = [this.size, this.type];
+    if (this.tags) {
+      descriptionFragments.push(this._renderTags(this.tags));
+    }
+    let description = descriptionFragments.join(" ").trim();
+    if (this.alignment) {
+      description = `${description}, ${this.alignment}`;
+    }
+    return description;
+  }
+
+  render(i18n) {
+    let output = [
+      italicize(capitalize(this.description)),
+      "",
+    ];
+
+    let fields = [
+      {caption: "StatBlock/AC", value: this.ac},
+      {caption: "StatBlock/HP", value: average(this.hp)},
+      {caption: "StatBlock/Speed", value: this.speed},
+    ];
+    output = output.concat(this._renderFields(i18n, fields, true));
+    output.push("");
+    output.push("---");
+
+    let abilities = [
+      {caption: "StatBlock/STR", value: this.str},
+      {caption: "StatBlock/DEX", value: this.dex},
+      {caption: "StatBlock/CON", value: this.con},
+      {caption: "StatBlock/INT", value: this.int},
+      {caption: "StatBlock/WIS", value: this.wis},
+      {caption: "StatBlock/CHA", value: this.cha},
+    ];
+    output = output.concat(this._renderAbilities(i18n, abilities));
+    output.push("");
+    output.push("---");
+
+    fields = [
+      {caption: "StatBlock/Saves", value: this.saves},
+      {caption: "StatBlock/Skills", value: this.skills},
+      {caption: "StatBlock/DamageImmunities", value: this.dimm},
+      {caption: "StatBlock/DamageResistances", value: this.dres},
+      {caption: "StatBlock/DamageVulnerabilities", value: this.dvul},
+      {caption: "StatBlock/ConditionImmunities", value: this.cimm},
+      {caption: "StatBlock/ConditionResistances", value: this.cres},
+      {caption: "StatBlock/ConditionVulnerabilities", value: this.cvul},
+    ];
+    output = output.concat(this._renderFields(i18n, fields, false));
+    fields = [
+      {caption: "StatBlock/Senses", value: this.senses},
+      {caption: "StatBlock/Languages", value: this.languages},
+      {caption: "StatBlock/Challenge", value: xp(this.challenge)},
+    ];
+    output = output.concat(this._renderFields(i18n, fields, true));
+    output.push("");
+    output.push("---");
+
+    return output.join("\n");
+  }
+
+  _renderTags(tags) {
+    return tags ? `(${tags})` : "";
+  }
+
+  _renderAbilities(i18n, abilities) {
+    return [
+      "|! " + abilities.map((field) => i18n.getString(field.caption)).join("|! ") + " |",
+      "| " + abilities.map((field) => ability(field.value)).join(" | ") + " |"
+    ];
+  }
+
+  _renderFields(i18n, fields, alwaysRender) {
+    let output = [];
+    for (let field of fields) {
+      let caption = i18n.getString(field.caption);
+      if (alwaysRender || field.value) {
+        output.push(`|!${caption} |${field.value} |`);
+      }
+    }
+    return output;
+  }
+}
+
 export function ability(score) {
   let mod = Math.floor((score - 10)/2);
   let op = (mod >= 0) ? "+" : "−"; // minus sign (U+2212)
