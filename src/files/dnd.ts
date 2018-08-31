@@ -286,26 +286,27 @@ export function capitalize(s) {
 }
 
 
+// tslint:disable-next-line:no-shadowed-variable
 export function check(ability, skill, dc) {
-  ability = ability.toLocaleUpperCase();
   const abilityRegexp = /^(STR|DEX|CON|INT|WIS|CHA).*/;
-  const match = ability.match(abilityRegexp);
+  const match = ability.toLocaleUpperCase().match(abilityRegexp);
 
   if (!match) {
     return "";
   }
 
-  ability = ABILITIES[match[1]];
-  const fragments = [ability];
+  const abilityName = ABILITIES[match[1]];
+  const fragments = [abilityName];
 
+  let skillName: string;
   try {
-    skill = findMatches(skill.toLocaleLowerCase(), SKILLS.map((skill) => skill.toLocaleLowerCase()));
+    skillName = findMatches(skill.toLocaleLowerCase(), SKILLS.map((s) => s.toLocaleLowerCase()));
   } catch (e) {
-    skill = null;
+    skillName = null;
   }
 
-  if (skill) {
-    fragments.push(`(${capitalize(skill)})`);
+  if (skillName) {
+    fragments.push(`(${capitalize(skillName)})`);
   }
   if (dc) {
     fragments.unshift(`DC ${dc}`);
@@ -363,9 +364,9 @@ function renderFields(i18n, fields, alwaysRender) {
 
 export function xp(rating) {
   rating = rating.replace(/['"]/g, "");
-  const xp = CR_TO_XP[rating];
-  if (xp) {
-    return `${rating} (${xp} XP)`;
+  const points = CR_TO_XP[rating];
+  if (points) {
+    return `${rating} (${points} XP)`;
   }
   return `${rating}`;
 }
