@@ -21,11 +21,6 @@ https://benwebber.github.io/tiddlywiki-dnd/
 * `dnd.statblock`: Render a creature stat block (low-level).
 * `dnd.xp`: Calculate XP for a given challenge rating.
 
-### Templates
-
-* `dnd.dstatblock`: Render a data tiddler as a stat block.
-* `dnd.fstatblock`: Render a stat block using a tiddler's fields.
-
 ### View Templates
 
 * `Spell`: Automatically render a spell description for all tiddlers tagged `Spells`.

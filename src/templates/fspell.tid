@@ -1,4 +1,4 @@
-title: dnd.fspell
+title: $:/plugins/benwebber/dnd/templates/dnd.fspell
 
 <$macrocall
   $name="dnd.spellblock"

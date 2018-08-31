@@ -1,4 +1,4 @@
-title: dnd.fstatblock
+title: $:/plugins/benwebber/dnd/templates/dnd.fstatblock
 
 <$macrocall
   $name="dnd.statblock"

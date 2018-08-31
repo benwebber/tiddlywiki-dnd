@@ -165,28 +165,6 @@ Renders the experience points (XP) for a the given challenge rating (CR).
 |`<<dnd.xp 1/2>>`|<<dnd.xp 1/2>>|
 |`<<dnd.xp 5>>`|<<dnd.xp 5>>|
 
-! Templates
-
-!! `dnd.dstatblock`
-
-Calls the `dnd.statblock` macro with values from a data tiddler. The "d" stands for "data".
-
-```
-{{<tiddler>||dnd.dstatblock}}
-```
-
-!! `dnd.fstatblock`
-
-Calls the `dnd.statblock` macro with values from a tiddler's fields. The "f" stands for "field".
-
-```
-{{<tiddler>||dnd.fstatblock}}
-```
-
-The `dnd.creature` helper macro uses this template.
-
-Field names must start with `dnd.creature` (e.g., `dnd.creature.ac`, `dnd.creature.hp`, etc.).
-
 ! View Templates
 
 ~TiddlyWiki view templates automatically inject content into tiddlers that match certain criteria.

@@ -20,7 +20,7 @@ will be empty. Delete empty fields.
 \end
 
 \define dnd.creature()
-{{||dnd.fstatblock}}
+{{||$:/plugins/benwebber/dnd/templates/dnd.fstatblock}}
 
 <$button actions=<<creature-actions>>>Edit <<currentTiddler>></$button>
 \end
