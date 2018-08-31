@@ -3,7 +3,7 @@
 all:
 	mkdir -p build/
 	cp -r doc/* build/
-	babel --copy-files --out-dir build/ src/
+	babel --copy-files --out-dir build/plugins/dnd src/
 	tiddlywiki ./build --verbose --build
 
 clean:

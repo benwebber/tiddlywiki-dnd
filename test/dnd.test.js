@@ -1,4 +1,4 @@
-import * as dnd from "../src/plugins/dnd/dnd.js";
+import * as dnd from "../src/dnd";
 
 import SpellFactory from "./factories/spell";
 import StatBlockFactory from "./factories/statblock";
