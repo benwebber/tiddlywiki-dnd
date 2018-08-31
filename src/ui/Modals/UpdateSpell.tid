@@ -1,4 +1,4 @@
-title: $:/plugins/benwebber/dnd/forms/UpdateSpell
+title: $:/plugins/benwebber/dnd/ui/Modals/UpdateSpell
 subtitle: Editing <<tiddler>>
 
 \define input(field)

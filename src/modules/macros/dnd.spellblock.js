@@ -1,8 +1,3 @@
-/*\
-title: $:/plugins/benwebber/dnd/macros/spellblock.js
-type: application/javascript
-module-type: macro
-\*/
 import {I18N} from "$:/plugins/benwebber/dnd/i18n.js";
 import {Spell} from "$:/plugins/benwebber/dnd/dnd.js";
 

@@ -1,4 +1,4 @@
-import * as dnd from "../src/dnd";
+import * as dnd from "../src/files/dnd";
 
 import SpellFactory from "./factories/spell";
 import StatBlockFactory from "./factories/statblock";

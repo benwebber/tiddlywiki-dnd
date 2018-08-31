@@ -1,4 +1,4 @@
-title: $:/plugins/benwebber/dnd/forms/UpdateCreature
+title: $:/plugins/benwebber/dnd/ui/Modals/UpdateCreature
 subtitle: Editing <<tiddler>>
 
 \define input(field)

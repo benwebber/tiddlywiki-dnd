@@ -1,8 +1,3 @@
-/*\
-title: $:/plugins/benwebber/dnd/dnd.js
-type: application/javascript
-module-type: library
-\*/
 const ABILITIES = {
   STR: "Strength",
   DEX: "Dexterity",

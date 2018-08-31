@@ -1,8 +1,3 @@
-/*\
-title: $:/plugins/benwebber/dnd/i18n.js
-type: application/javascript
-module-type: library
-\*/
 const CAPTION_PATH = "$:/plugins/benwebber/dnd/i18n";
 const FALLBACK = "en";
 

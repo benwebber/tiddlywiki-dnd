@@ -1,0 +1,17 @@
+{
+  "directories": [
+    {
+      "path": ".",
+      "istiddlerfile": false,
+      "filesregexp": "^.*\\.js$",
+      "fields": {
+        "title": {
+          "source": "filename",
+          "prefix": "$:/plugins/benwebber/dnd/modules/macros/"
+        },
+        "type": "application/javascript",
+        "module-type": "macro"
+      }
+    }
+  ]
+}

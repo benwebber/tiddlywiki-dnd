@@ -14,7 +14,7 @@ will be empty. Delete empty fields.
 <!-- Open editor form. -->
 <$action-sendmessage
   $message="tm-modal"
-  $param="$:/plugins/benwebber/dnd/forms/UpdateCreature"
+  $param="$:/plugins/benwebber/dnd/ui/Modals/UpdateCreature"
   tiddler=<<currentTiddler>>
 />
 \end

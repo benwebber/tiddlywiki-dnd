@@ -1,0 +1,17 @@
+{
+  "directories": [
+    {
+      "path": ".",
+      "istiddlerfile": false,
+      "filesregexp": "^.*\\.js$",
+      "fields": {
+        "title": {
+          "source": "filename",
+          "prefix": "$:/plugins/benwebber/dnd/"
+        },
+        "type": "application/javascript",
+        "module-type": "library"
+      }
+    }
+  ]
+}

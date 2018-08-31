@@ -1,6 +1,6 @@
 import {Factory} from "rosie";
 
-import {Spell} from "../../src/dnd";
+import {Spell} from "../../src/files/dnd";
 
 
 export default new Factory()

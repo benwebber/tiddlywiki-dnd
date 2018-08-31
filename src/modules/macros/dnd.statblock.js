@@ -1,8 +1,3 @@
-/*\
-title: $:/plugins/benwebber/dnd/macros/statblock.js
-type: application/javascript
-module-type: macro
-\*/
 import {I18N} from "$:/plugins/benwebber/dnd/i18n.js";
 import {StatBlock} from "$:/plugins/benwebber/dnd/dnd.js";
 

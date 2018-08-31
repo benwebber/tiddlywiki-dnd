@@ -1,6 +1,6 @@
 import {Factory} from "rosie";
 
-import {StatBlock} from "../../src/dnd";
+import {StatBlock} from "../../src/files/dnd";
 
 
 export default new Factory()
