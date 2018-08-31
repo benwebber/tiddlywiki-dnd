@@ -86,13 +86,13 @@ export class Spell {
   ) {}
 
   get isCantrip() {
-    let nLevel = parseInt(this.level);
+    const nLevel = parseInt(this.level);
     return !isNaN(nLevel) && nLevel === 0;
   }
 
   get description() {
-    let nLevel = parseInt(this.level);
-    let descriptionFragments = [];
+    const nLevel = parseInt(this.level);
+    const descriptionFragments = [];
     if (!isNaN(nLevel) && !this.isCantrip) {
       descriptionFragments.push(`${ordinal(this.level)}-level`);
     }
@@ -115,7 +115,7 @@ export class Spell {
       "",
     ];
 
-    let componentFragments = [];
+    const componentFragments = [];
     if (this.verbal) {
       componentFragments.push("V");
     }
@@ -125,9 +125,9 @@ export class Spell {
     if (this.material) {
       componentFragments.push(`M (${this.material})`);
     }
-    let components = componentFragments.join(", ");
+    const components = componentFragments.join(", ");
 
-    let fields = [
+    const fields = [
       {caption: "Spell/CastingTime", value: this.cast},
       {caption: "Spell/Range", value: this.range},
       {caption: "Spell/Components", value: components},
@@ -170,7 +170,7 @@ export class StatBlock {
   ) {}
 
   get description() {
-    let descriptionFragments = [this.size, this.type];
+    const descriptionFragments = [this.size, this.type];
     if (this.tags) {
       descriptionFragments.push(this._renderTags(this.tags));
     }
@@ -196,7 +196,7 @@ export class StatBlock {
     output.push("");
     output.push("---");
 
-    let abilities = [
+    const abilities = [
       {caption: "StatBlock/STR", value: this.str},
       {caption: "StatBlock/DEX", value: this.dex},
       {caption: "StatBlock/CON", value: this.con},
@@ -246,24 +246,24 @@ export class StatBlock {
 
 
 export function ability(score) {
-  let mod = Math.floor((score - 10)/2);
-  let op = (mod >= 0) ? "+" : "−"; // minus sign (U+2212)
+  const mod = Math.floor((score - 10)/2);
+  const op = (mod >= 0) ? "+" : "−"; // minus sign (U+2212)
   return `${score} (${op}${Math.abs(mod)})`;
 }
 
 
 export function average(expr) {
-  let regexp = /(\d+)?d(\d+)\s?(?:(-|\+)\s?(\d+))?/i;
-  let match = expr.match(regexp);
+  const regexp = /(\d+)?d(\d+)\s?(?:(-|\+)\s?(\d+))?/i;
+  const match = expr.match(regexp);
 
   if (!match) {
     return expr;
   }
 
-  let nDice = parseInt(match[1]) || 1;
-  let nSides = parseInt(match[2]);
+  const nDice = parseInt(match[1]) || 1;
+  const nSides = parseInt(match[2]);
   let op = match[3];
-  let mod = parseInt(match[4]) || 0;
+  const mod = parseInt(match[4]) || 0;
   let avg;
 
   if (!op) {
@@ -288,15 +288,15 @@ export function capitalize(s) {
 
 export function check(ability, skill, dc) {
   ability = ability.toLocaleUpperCase();
-  let abilityRegexp = /^(STR|DEX|CON|INT|WIS|CHA).*/;
-  let match = ability.match(abilityRegexp);
+  const abilityRegexp = /^(STR|DEX|CON|INT|WIS|CHA).*/;
+  const match = ability.match(abilityRegexp);
 
   if (!match) {
     return "";
   }
 
   ability = ABILITIES[match[1]];
-  let fragments = [ability];
+  const fragments = [ability];
 
   try {
     skill = findMatches(skill.toLocaleLowerCase(), SKILLS.map((skill) => skill.toLocaleLowerCase()));
@@ -315,7 +315,7 @@ export function check(ability, skill, dc) {
 
 
 function findMatches(prefix, choices) {
-  let matches = choices.filter((choice) => choice.startsWith(prefix));
+  const matches = choices.filter((choice) => choice.startsWith(prefix));
   if (matches.length == 0) {
     return null;
   } else if (matches.length == 1) {
@@ -332,9 +332,9 @@ export function italicize(s) {
 
 export function ordinal(n) {
   // TODO: Test cast (or switch to TypeScript).
-  let i = parseInt(n);
-  let ones = i % 10;
-  let tens = i % 100;
+  const i = parseInt(n);
+  const ones = i % 10;
+  const tens = i % 100;
   let ending;
   if (ones === 1 && tens !== 11) {
     ending = "st";
@@ -350,9 +350,9 @@ export function ordinal(n) {
 
 
 function renderFields(i18n, fields, alwaysRender) {
-  let output = [];
-  for (let field of fields) {
-    let caption = i18n.getString(field.caption);
+  const output = [];
+  for (const field of fields) {
+    const caption = i18n.getString(field.caption);
     if (alwaysRender || field.value) {
       output.push(`|!${caption} |${field.value} |`);
     }
@@ -363,7 +363,7 @@ function renderFields(i18n, fields, alwaysRender) {
 
 export function xp(rating) {
   rating = rating.replace(/['"]/g, "");
-  let xp = CR_TO_XP[rating];
+  const xp = CR_TO_XP[rating];
   if (xp) {
     return `${rating} (${xp} XP)`;
   }

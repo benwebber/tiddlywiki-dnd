@@ -13,13 +13,13 @@ export class I18N {
   }
 
   getString(title) {
-    let paths = [
+    const paths = [
       `${CAPTION_PATH}/${this.code}`,
       `${CAPTION_PATH}/${this.family}`,
       `${CAPTION_PATH}/${FALLBACK}`,
     ];
-    for (let path of paths) {
-      let s = this.wiki.renderTiddler("text/plain", `${path}/${title}`);
+    for (const path of paths) {
+      const s = this.wiki.renderTiddler("text/plain", `${path}/${title}`);
       if (s !== "") {
         return s;
       }
