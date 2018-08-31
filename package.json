@@ -15,8 +15,6 @@
   "license": "MIT",
   "devDependencies": {
     "@types/jest": "^23.3.1",
-    "babel-cli": "^6.26.0",
-    "babel-preset-env": "^1.7.0",
     "jest": "^23.5.0",
     "rosie": "^2.0.1",
     "tiddlywiki": "^5.1.17",
