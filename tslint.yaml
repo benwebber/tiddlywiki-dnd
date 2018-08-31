@@ -1,7 +1,6 @@
 ---
 extends: 'tslint:recommended'
 rules:
-  no-consecutive-blank-lines: false
   indent:
     - true
     - spaces
@@ -9,6 +8,8 @@ rules:
   linebreak-style:
     - true
     - LF
+  max-classes-per-file: false
+  no-consecutive-blank-lines: false
   quotemark:
     - true
     - double
