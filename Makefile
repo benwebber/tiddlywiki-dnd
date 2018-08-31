@@ -12,4 +12,4 @@ lint:
 	eslint src/ test/
 
 test:
-	jest --env=node --coverage test
+	jest
