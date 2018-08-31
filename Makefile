@@ -17,7 +17,7 @@ index.html: $(SOURCES)
 	tiddlywiki ./build --verbose --build
 
 lint:
-	eslint src/ test/
+	tslint --format stylish src/**/*.ts test/**/*.ts
 
 test:
 	jest

@@ -1,4 +1,7 @@
-- repo: https://github.com/pre-commit/mirrors-eslint
-  rev: v5.4.0
+- repo: https://github.com/awebdeveloper/pre-commit-tslint
+  rev: v0.0.2
   hooks:
-    - id: eslint
+    - id: tslint
+      additional_dependencies:
+        - tslint@5
+        - typescript
