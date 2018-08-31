@@ -70,34 +70,26 @@ const SKILLS = [
 
 export class Spell {
   constructor(
-    level,
-    school,
-    cast,
-    ritual,
-    range,
-    verbal,
-    somatic,
-    material,
-    duration
-  ) {
-    this.level = parseInt(level);
-    this.school = school;
-    this.cast = cast;
-    this.ritual = ritual;
-    this.range = range;
-    this.verbal = verbal;
-    this.somatic = somatic;
-    this.material = material;
-    this.duration = duration;
-  }
+    public level: string,
+    public school: string,
+    public cast: string,
+    public ritual: boolean,
+    public range: string,
+    public verbal: boolean,
+    public somatic: boolean,
+    public material: string,
+    public duration: string,
+  ) {}
 
   get isCantrip() {
-    return !Number.isNaN(this.level) && this.level === 0;
+    let nLevel = parseInt(this.level);
+    return !isNaN(nLevel) && nLevel === 0;
   }
 
   get description() {
+    let nLevel = parseInt(this.level);
     let descriptionFragments = [];
-    if (!Number.isNaN(this.level) && !this.isCantrip) {
+    if (!isNaN(nLevel) && !this.isCantrip) {
       descriptionFragments.push(`${ordinal(this.level)}-level`);
     }
     if (this.school) {
@@ -147,56 +139,31 @@ export class Spell {
 
 export class StatBlock {
   constructor(
-    size,
-    type,
-    alignment,
-    ac,
-    hp,
-    speed,
-    str,
-    dex,
-    con,
-    int,
-    wis,
-    cha,
-    senses,
-    languages,
-    challenge,
-    tags,
-    saves,
-    skills,
-    dimm,
-    dres,
-    dvul,
-    cimm,
-    cres,
-    cvul
-  ) {
-    this.size = size;
-    this.type = type;
-    this.alignment = alignment;
-    this.ac = ac;
-    this.hp = hp;
-    this.speed = speed;
-    this.str = str;
-    this.dex = dex;
-    this.con = con;
-    this.int = int;
-    this.wis = wis;
-    this.cha = cha;
-    this.senses = senses;
-    this.languages = languages;
-    this.challenge = challenge;
-    this.tags = tags;
-    this.saves = saves;
-    this.skills = skills;
-    this.dimm = dimm;
-    this.dres = dres;
-    this.dvul = dvul;
-    this.cimm = cimm;
-    this.cres = cres;
-    this.cvul = cvul;
-  }
+    public size: string,
+    public type: string,
+    public alignment: string,
+    public ac: number,
+    public hp: string,
+    public speed: string,
+    public str: number,
+    public dex: number,
+    public con: number,
+    public int: number,
+    public wis: number,
+    public cha: number,
+    public senses: string,
+    public languages: string,
+    public challenge: string,
+    public tags: string,
+    public saves: string,
+    public skills: string,
+    public dimm: string,
+    public dres: string,
+    public dvul: string,
+    public cimm: string,
+    public cres: string,
+    public cvul: string,
+  ) {}
 
   get description() {
     let descriptionFragments = [this.size, this.type];

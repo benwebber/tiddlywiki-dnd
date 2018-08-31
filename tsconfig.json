@@ -1,0 +1,13 @@
+{
+  "compilerOptions": {
+    "outDir": "build/plugins/dnd",
+    "target": "es5",
+    "baseUrl": ".",
+    "paths": {
+      "$:/plugins/benwebber/dnd/*": ["src/files/*"]
+    }
+  },
+  "include": [
+    "./src/**/*"
+  ]
+}

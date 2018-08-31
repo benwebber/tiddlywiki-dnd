@@ -12,7 +12,8 @@ clean:
 index.html: $(SOURCES)
 	mkdir -p build/
 	cp -r doc/* build/
-	babel --copy-files --out-dir build/plugins/dnd src/
+	tsc
+	rsync -arv --exclude=*.ts src/ build/plugins/dnd
 	tiddlywiki ./build --verbose --build
 
 lint:

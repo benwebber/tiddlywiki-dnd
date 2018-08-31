@@ -32,8 +32,58 @@ export const params = [
   {name: "cvul"}, // Condition Vulnerabilities
 ];
 
-export function run(...attrs) {
+export function run(
+  size: string,
+  type: string,
+  alignment: string,
+  ac: number,
+  hp: string,
+  speed: string,
+  str: number,
+  dex: number,
+  con: number,
+  int: number,
+  wis: number,
+  cha: number,
+  senses: string,
+  languages: string,
+  challenge: string,
+  tags: string,
+  saves: string,
+  skills: string,
+  dimm: string,
+  dres: string,
+  dvul: string,
+  cimm: string,
+  cres: string,
+  cvul: string,
+) {
   let i18n = new I18N(this.wiki, this.getVariable("languageTitle"));
-  let statblock = new StatBlock(...attrs);
+  let statblock = new StatBlock(
+    size,
+    type,
+    alignment,
+    ac,
+    hp,
+    speed,
+    str,
+    dex,
+    con,
+    int,
+    wis,
+    cha,
+    senses,
+    languages,
+    challenge,
+    tags,
+    saves,
+    skills,
+    dimm,
+    dres,
+    dvul,
+    cimm,
+    cres,
+    cvul,
+  );
   return statblock.render(i18n);
 }

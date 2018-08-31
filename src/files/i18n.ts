@@ -2,6 +2,10 @@ const CAPTION_PATH = "$:/plugins/benwebber/dnd/i18n";
 const FALLBACK = "en";
 
 export class I18N {
+  wiki: any
+  code: string
+  family: string
+
   constructor(wiki, code) {
     this.wiki = wiki;
     this.code = code;
