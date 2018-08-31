@@ -2,8 +2,8 @@
   "directories": [
     {
       "path": ".",
-      "istiddlerfile": false,
-      "filesregexp": "^.*\\.js$",
+      "isTiddlerFile": false,
+      "filesRegExp": "^.*\\.js$",
       "fields": {
         "title": {
           "source": "filename",

@@ -10,10 +10,10 @@ clean:
 	$(RM) -r build/
 
 index.html: $(SOURCES)
-	mkdir -p build/
+	mkdir -p build/plugins/dnd
 	cp -r doc/* build/
+	cp -r src/* build/plugins/dnd/
 	tsc
-	rsync -arv --exclude=*.ts src/ build/plugins/dnd
 	tiddlywiki ./build --verbose --build
 
 lint:
