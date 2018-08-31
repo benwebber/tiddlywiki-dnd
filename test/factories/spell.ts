@@ -28,7 +28,7 @@ export default new Factory()
       factory.verbal,
       factory.somatic,
       factory.material,
-      factory.duration
+      factory.duration,
     );
   });
 /* tslint:enable */

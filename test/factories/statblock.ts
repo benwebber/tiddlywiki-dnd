@@ -51,7 +51,7 @@ export default new Factory()
       factory.dvul,
       factory.cimm,
       factory.cres,
-      factory.cvul
+      factory.cvul,
     );
   });
 /* tslint:enable */

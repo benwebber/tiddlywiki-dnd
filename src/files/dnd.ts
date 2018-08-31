@@ -45,7 +45,7 @@ const CR_TO_XP = {
   "27": "105,000",
   "28": "120,000",
   "29": "135,000",
-  "30": "155,000"
+  "30": "155,000",
 };
 /* tslint:enable */
 
@@ -131,7 +131,7 @@ export class Spell {
       {caption: "Spell/CastingTime", value: this.cast},
       {caption: "Spell/Range", value: this.range},
       {caption: "Spell/Components", value: components},
-      {caption: "Spell/Duration", value: this.duration}
+      {caption: "Spell/Duration", value: this.duration},
     ];
     output = output.concat(renderFields(i18n, fields, true));
     output.push("");
@@ -238,7 +238,7 @@ export class StatBlock {
   _renderAbilities(i18n, abilities) {
     return [
       "|! " + abilities.map((field) => i18n.getString(field.caption)).join("|! ") + " |",
-      "| " + abilities.map((field) => ability(field.value)).join(" | ") + " |"
+      "| " + abilities.map((field) => ability(field.value)).join(" | ") + " |",
     ];
   }
 

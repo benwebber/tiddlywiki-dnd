@@ -16,7 +16,7 @@ export class I18N {
     let paths = [
       `${CAPTION_PATH}/${this.code}`,
       `${CAPTION_PATH}/${this.family}`,
-      `${CAPTION_PATH}/${FALLBACK}`
+      `${CAPTION_PATH}/${FALLBACK}`,
     ];
     for (let path of paths) {
       let s = this.wiki.renderTiddler("text/plain", `${path}/${title}`);
