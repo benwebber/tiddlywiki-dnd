@@ -86,12 +86,12 @@ export class Spell {
   ) {}
 
   get isCantrip() {
-    const nLevel = parseInt(this.level);
+    const nLevel = parseInt(this.level, 10);
     return !isNaN(nLevel) && nLevel === 0;
   }
 
   get description() {
-    const nLevel = parseInt(this.level);
+    const nLevel = parseInt(this.level, 10);
     const descriptionFragments = [];
     if (!isNaN(nLevel) && !this.isCantrip) {
       descriptionFragments.push(`${ordinal(this.level)}-level`);
@@ -260,10 +260,10 @@ export function average(expr) {
     return expr;
   }
 
-  const nDice = parseInt(match[1]) || 1;
-  const nSides = parseInt(match[2]);
+  const nDice = parseInt(match[1], 10) || 1;
+  const nSides = parseInt(match[2], 10);
   let op = match[3];
-  const mod = parseInt(match[4]) || 0;
+  const mod = parseInt(match[4], 10) || 0;
   let avg;
 
   if (!op) {
@@ -332,7 +332,7 @@ export function italicize(s) {
 
 export function ordinal(n) {
   // TODO: Test cast (or switch to TypeScript).
-  const i = parseInt(n);
+  const i = parseInt(n, 10);
   const ones = i % 10;
   const tens = i % 100;
   let ending;
