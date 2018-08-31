@@ -1,4 +1,4 @@
-index.html
+build/
 coverage/
-lib/
+index.html
 node_modules/

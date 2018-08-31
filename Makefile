@@ -1,12 +1,14 @@
 .PHONY: all clean lint test
 
 all:
-	babel --copy-files --out-dir lib/ src/
-	tiddlywiki ./lib --verbose --build
+	mkdir -p build/
+	cp -r doc/* build/
+	babel --copy-files --out-dir build/ src/
+	tiddlywiki ./build --verbose --build
 
 clean:
 	$(RM) index.html
-	$(RM) -r lib/
+	$(RM) -r build/
 
 lint:
 	eslint src/ test/
