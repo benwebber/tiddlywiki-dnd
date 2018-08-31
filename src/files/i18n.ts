@@ -2,9 +2,9 @@ const CAPTION_PATH = "$:/plugins/benwebber/dnd/i18n";
 const FALLBACK = "en";
 
 export class I18N {
-  wiki: any;
-  code: string;
-  family: string;
+  public wiki: any;
+  public code: string;
+  public family: string;
 
   constructor(wiki, code) {
     this.wiki = wiki;
@@ -12,7 +12,7 @@ export class I18N {
     this.family = code.split("-"); // e.g. en from en-CA
   }
 
-  getString(title) {
+  public getString(title) {
     const paths = [
       `${CAPTION_PATH}/${this.code}`,
       `${CAPTION_PATH}/${this.family}`,

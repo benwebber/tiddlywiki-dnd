@@ -109,7 +109,7 @@ export class Spell {
     return description;
   }
 
-  render(i18n) {
+  public render(i18n) {
     let output = [
       italicize(capitalize(this.description)),
       "",
@@ -172,7 +172,7 @@ export class StatBlock {
   get description() {
     const descriptionFragments = [this.size, this.type];
     if (this.tags) {
-      descriptionFragments.push(this._renderTags(this.tags));
+      descriptionFragments.push(this.renderTags(this.tags));
     }
     let description = descriptionFragments.join(" ").trim();
     if (this.alignment) {
@@ -181,7 +181,7 @@ export class StatBlock {
     return description;
   }
 
-  render(i18n) {
+  public render(i18n) {
     let output = [
       italicize(capitalize(this.description)),
       "",
@@ -204,7 +204,7 @@ export class StatBlock {
       {caption: "StatBlock/WIS", value: this.wis},
       {caption: "StatBlock/CHA", value: this.cha},
     ];
-    output = output.concat(this._renderAbilities(i18n, abilities));
+    output = output.concat(this.renderAbilities(i18n, abilities));
     output.push("");
     output.push("---");
 
@@ -231,11 +231,11 @@ export class StatBlock {
     return output.join("\n");
   }
 
-  _renderTags(tags) {
+  private renderTags(tags) {
     return tags ? `(${tags})` : "";
   }
 
-  _renderAbilities(i18n, abilities) {
+  private renderAbilities(i18n, abilities) {
     return [
       "|! " + abilities.map((field) => i18n.getString(field.caption)).join("|! ") + " |",
       "| " + abilities.map((field) => ability(field.value)).join(" | ") + " |",
