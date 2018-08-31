@@ -3,6 +3,7 @@ import {Factory} from "rosie";
 import {StatBlock} from "../../src/files/dnd";
 
 
+/* tslint:disable:object-literal-sort-keys */
 export default new Factory()
   .attrs({
     size: "medium",
@@ -53,3 +54,4 @@ export default new Factory()
       factory.cvul
     );
   });
+/* tslint:enable */

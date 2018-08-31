@@ -2,7 +2,7 @@ import {Factory} from "rosie";
 
 import {Spell} from "../../src/files/dnd";
 
-
+/* tslint:disable:object-literal-sort-keys */
 export default new Factory()
   .attrs({
     level: 0,
@@ -31,3 +31,4 @@ export default new Factory()
       factory.duration
     );
   });
+/* tslint:enable */

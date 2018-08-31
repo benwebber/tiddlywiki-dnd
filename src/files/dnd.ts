@@ -1,3 +1,4 @@
+/* tslint:disable:object-literal-sort-keys */
 const ABILITIES = {
   STR: "Strength",
   DEX: "Dexterity",
@@ -6,8 +7,10 @@ const ABILITIES = {
   WIS: "Wisdom",
   CHA: "Charisma",
 };
+/* tslint:enable */
 
 
+/* tslint:disable:object-literal-sort-keys */
 const CR_TO_XP = {
   "0": "0",
   "1/8": "25",
@@ -44,6 +47,7 @@ const CR_TO_XP = {
   "29": "135,000",
   "30": "155,000"
 };
+/* tslint:enable */
 
 
 const SKILLS = [
