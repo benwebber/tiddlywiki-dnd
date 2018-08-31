@@ -5,26 +5,17 @@
 
 Manage *Dungeons & Dragons* campaigns with [TiddlyWiki](https://tiddlywiki.com/).
 
-## Demo and Download
+## Features
+
+* Calculate modifiers, rolls, and XP with useful macros.
+* Render stat blocks, spells, and checks like the core books.
+* Create stat block and spell tiddlers with a single click.
+
+## Demo, Documentation, and Download
 
 Check out the plugin page at:
 
 https://benwebber.github.io/tiddlywiki-dnd/
-
-## Features
-
-### Macros
-
-* `dnd.ability`: Calculate ability score modifiers.
-* `dnd.average`: Calculate average dice rolls.
-* `dnd.creature`: Create a standalone creature tiddler (high-level).
-* `dnd.statblock`: Render a creature stat block (low-level).
-* `dnd.xp`: Calculate XP for a given challenge rating.
-
-### View Templates
-
-* `Spell`: Automatically render a spell description for all tiddlers tagged `Spells`.
-* `StatBlock`: Automatically render a stat block for all tiddlers tagged `Creatures`.
 
 ## License
 

@@ -2,6 +2,8 @@ title: $:/plugins/benwebber/dnd/Changelog
 
 ! Unreleased
 
+! 1.0.0 (2018-08-31)
+
 !! Added
 
 * Added English (UK) and English (US) translations.
@@ -15,7 +17,7 @@ title: $:/plugins/benwebber/dnd/Changelog
 !! Changed
 
 * Moved macro functionality to testable library.
-* Upgraded to ES6.
+* Ported to TypeScript.
 * Create "field" creature tiddlers by default. (Store creature attributes as tiddler field values.)
 
 !! Fixed
