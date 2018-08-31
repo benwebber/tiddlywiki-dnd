@@ -271,7 +271,7 @@ export function average(expr) {
     return `${avg} (${nDice}d${nSides})`;
   }
 
-  if (op == "+") {
+  if (op === "+") {
     avg = Math.floor(nDice * (1 + nSides) / 2 + mod);
   } else {
     op = "−";
@@ -316,9 +316,9 @@ export function check(ability, skill, dc) {
 
 function findMatches(prefix, choices) {
   const matches = choices.filter((choice) => choice.startsWith(prefix));
-  if (matches.length == 0) {
+  if (matches.length === 0) {
     return null;
-  } else if (matches.length == 1) {
+  } else if (matches.length === 1) {
     return matches[0];
   } else {
     throw Error("too many matches");
