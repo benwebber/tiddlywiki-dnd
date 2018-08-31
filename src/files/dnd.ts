@@ -246,7 +246,7 @@ export class StatBlock {
 
 
 export function ability(score) {
-  const mod = Math.floor((score - 10)/2);
+  const mod = Math.floor((score - 10) / 2);
   const op = (mod >= 0) ? "+" : "−"; // minus sign (U+2212)
   return `${score} (${op}${Math.abs(mod)})`;
 }
@@ -267,15 +267,15 @@ export function average(expr) {
   let avg;
 
   if (!op) {
-    avg = Math.floor(nDice * (1 + nSides)/2 + mod);
+    avg = Math.floor(nDice * (1 + nSides) / 2 + mod);
     return `${avg} (${nDice}d${nSides})`;
   }
 
   if (op == "+") {
-    avg = Math.floor(nDice * (1 + nSides)/2 + mod);
+    avg = Math.floor(nDice * (1 + nSides) / 2 + mod);
   } else {
     op = "−";
-    avg = Math.floor(nDice * (1 + nSides)/2 - mod);
+    avg = Math.floor(nDice * (1 + nSides) / 2 - mod);
   }
   return `${avg} (${nDice}d${nSides} ${op} ${mod})`;
 }
