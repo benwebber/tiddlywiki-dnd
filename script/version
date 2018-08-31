@@ -4,7 +4,7 @@ IFS=$'\n\t'
 
 TEMPFILE="$(mktemp)"
 VERSION="$(jq -r '.version' package.json)"
-MANIFEST='src/plugins/dnd/plugin.info'
+MANIFEST='src/plugin.info'
 
 cleanup() {
   rm "${TEMPFILE}"
