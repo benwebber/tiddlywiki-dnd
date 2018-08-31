@@ -1,6 +1,3 @@
 {
-  "presets": ["env"],
-  "plugins": [
-    ["babel-plugin-preserve-comment-header", { pattern: "module-type" }]
-  ]
+  "presets": ["env"]
 }
