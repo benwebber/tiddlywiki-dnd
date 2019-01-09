@@ -5,6 +5,12 @@ icon: $:/core/images/options-button
 <$checkbox tiddler="$:/plugins/benwebber/dnd/config/$key$" field="text" checked="true" unchecked="false" default="true" />
 \end
 
+\define edit-setting(key)
+<$edit-text tiddler="$:/plugins/benwebber/dnd/config/$key$" field="text" tag="input" />
+\end
+
 |Version |{{$:/plugins/benwebber/dnd!!version}} |
-|Automatically render stat blocks for [[creature tiddlers|Creatures]] | <<render-boolean "ViewTemplates/StatBlock">> |
-|Automatically render spell blocks for [[spell tiddlers|Spells]] | <<render-boolean "ViewTemplates/Spell">> |
+|Tag for <$link to={{$:/plugins/benwebber/dnd/config/Tags/Creatures}}>creature tiddlers</$link> |<<edit-setting "Tags/Creatures">> |
+|Tag for <$link to={{$:/plugins/benwebber/dnd/config/Tags/Spells}}>spell tiddlers</$link> |<<edit-setting "Tags/Spells">> |
+|Automatically render stat blocks for <$link to={{$:/plugins/benwebber/dnd/config/Tags/Creatures}}>creature tiddlers</$link> | <<render-boolean "ViewTemplates/StatBlock">> |
+|Automatically render spell blocks for <$link to={{$:/plugins/benwebber/dnd/config/Tags/Spells}}>spell tiddlers</$link> | <<render-boolean "ViewTemplates/Spell">> |

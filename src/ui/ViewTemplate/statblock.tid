@@ -3,7 +3,7 @@ tags: $:/tags/ViewTemplate
 list-before: $:/core/ui/ViewTemplate/body
 
 <!-- Check tiddler tag. -->
-<$list filter="[<currentTiddler>tag[Creatures]]">
+<$list filter="[<currentTiddler>tag{$:/plugins/benwebber/dnd/config/Tags/Creatures}]">
 <!-- Check if user enabled view template; don't override <<currentTiddler>>. -->
 <$list
   filter="[title[$:/plugins/benwebber/dnd/config/ViewTemplates/StatBlock]field:text[true]]"

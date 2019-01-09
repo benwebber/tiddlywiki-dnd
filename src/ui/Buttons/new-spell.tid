@@ -5,7 +5,7 @@ tags: $:/tags/PageControls
 <$action-sendmessage
   $message="tm-new-tiddler"
   title="New Spell"
-  tags="Spells"
+  tags={{$:/plugins/benwebber/dnd/config/Tags/Spells}}
 />
 \end
 

@@ -176,8 +176,8 @@ For example, you might use a view template to style all tiddlers with a certain 
 This plugin ships with two view templates:
 
 |! Template |! Description |! Example |
-|`spell` |Automatically render a spell description for all tiddlers tagged [[Spells]]. |[[Alarm]] |
-|`statblock` |Automatically render a stat block for all tiddlers tagged [[Creatures]]. |[[Goblin]] |
+|`spell` |Automatically render a spell description for all tiddlers tagged <$link to={{$:/plugins/benwebber/dnd/config/Tags/Spells}}>{{$:/plugins/benwebber/dnd/config/Tags/Spells}}</$link>. |[[Alarm]] |
+|`statblock` |Automatically render a stat block for all tiddlers tagged <$link to={{$:/plugins/benwebber/dnd/config/Tags/Creatures}}>{{$:/plugins/benwebber/dnd/config/Tags/Creatures}}</$link>. |[[Goblin]] |
 
 Both templates are enabled by default.
-To disable them and use the equivalent macros manually, navigate to the plugin settings tiddler.
+To disable them and use the equivalent macros manually, navigate to the [[plugin settings tiddler|$:/plugins/benwebber/dnd]].
