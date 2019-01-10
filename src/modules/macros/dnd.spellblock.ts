@@ -1,4 +1,3 @@
-import {I18N} from "$:/plugins/benwebber/dnd/i18n.js";
 import {Spell} from "$:/plugins/benwebber/dnd/dnd.js";
 
 
@@ -27,8 +26,7 @@ export function run(
   material: string,
   duration: string,
 ) {
-  let i18n = new I18N(this.wiki, this.getVariable("languageTitle"));
-  let spell = new Spell(
+  const spell = new Spell(
     level,
     school,
     cast,
@@ -39,5 +37,5 @@ export function run(
     material,
     duration,
   );
-  return spell.render(i18n);
+  return spell.render();
 }

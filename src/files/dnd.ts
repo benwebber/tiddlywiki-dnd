@@ -109,7 +109,7 @@ export class Spell {
     return description;
   }
 
-  public render(i18n) {
+  public render() {
     let output = [
       italicize(capitalize(this.description)),
       "",
@@ -133,7 +133,7 @@ export class Spell {
       {caption: "Spell/Components", value: components},
       {caption: "Spell/Duration", value: this.duration},
     ];
-    output = output.concat(renderFields(i18n, fields, true));
+    output = output.concat(renderFields(fields, true));
     output.push("");
 
     return output.join("\n");
@@ -181,7 +181,7 @@ export class StatBlock {
     return description;
   }
 
-  public render(i18n) {
+  public render() {
     let output = [
       italicize(capitalize(this.description)),
       "",
@@ -192,7 +192,7 @@ export class StatBlock {
       {caption: "StatBlock/HP", value: average(this.hp)},
       {caption: "StatBlock/Speed", value: this.speed},
     ];
-    output = output.concat(renderFields(i18n, fields, true));
+    output = output.concat(renderFields(fields, true));
     output.push("");
     output.push("---");
 
@@ -204,7 +204,7 @@ export class StatBlock {
       {caption: "StatBlock/WIS", value: this.wis},
       {caption: "StatBlock/CHA", value: this.cha},
     ];
-    output = output.concat(this.renderAbilities(i18n, abilities));
+    output = output.concat(this.renderAbilities(abilities));
     output.push("");
     output.push("---");
 
@@ -218,13 +218,13 @@ export class StatBlock {
       {caption: "StatBlock/ConditionResistances", value: this.cres},
       {caption: "StatBlock/ConditionVulnerabilities", value: this.cvul},
     ];
-    output = output.concat(renderFields(i18n, fields, false));
+    output = output.concat(renderFields(fields, false));
     fields = [
       {caption: "StatBlock/Senses", value: this.senses},
       {caption: "StatBlock/Languages", value: this.languages},
       {caption: "StatBlock/Challenge", value: xp(this.challenge)},
     ];
-    output = output.concat(renderFields(i18n, fields, true));
+    output = output.concat(renderFields(fields, true));
     output.push("");
     output.push("---");
 
@@ -235,9 +235,9 @@ export class StatBlock {
     return tags ? `(${tags})` : "";
   }
 
-  private renderAbilities(i18n, abilities) {
+  private renderAbilities(abilities) {
     return [
-      "|! " + abilities.map((field) => i18n.getString(field.caption)).join("|! ") + " |",
+      "|! " + abilities.map((field) => `<<dnd.lingo "${field.caption}">>`).join("|! ") + " |",
       "| " + abilities.map((field) => ability(field.value)).join(" | ") + " |",
     ];
   }
@@ -350,12 +350,11 @@ export function ordinal(n) {
 }
 
 
-function renderFields(i18n, fields, alwaysRender) {
+function renderFields(fields, alwaysRender) {
   const output = [];
   for (const field of fields) {
-    const caption = i18n.getString(field.caption);
     if (alwaysRender || field.value) {
-      output.push(`|!${caption} |${field.value} |`);
+      output.push(`|!<<dnd.lingo "${field.caption}">> |${field.value} |`);
     }
   }
   return output;

@@ -1,4 +1,3 @@
-import {I18N} from "$:/plugins/benwebber/dnd/i18n.js";
 import {StatBlock} from "$:/plugins/benwebber/dnd/dnd.js";
 
 export const name = "dnd.statblock";
@@ -58,8 +57,7 @@ export function run(
   cres: string,
   cvul: string,
 ) {
-  let i18n = new I18N(this.wiki, this.getVariable("languageTitle"));
-  let statblock = new StatBlock(
+  const statblock = new StatBlock(
     size,
     type,
     alignment,
@@ -85,5 +83,5 @@ export function run(
     cres,
     cvul,
   );
-  return statblock.render(i18n);
+  return statblock.render();
 }
