@@ -38,26 +38,28 @@ const CR_TO_XP = {
 /* tslint:enable */
 
 
-const SKILLS = [
-  "Acrobatics",
-  "Animal Handling",
-  "Arcana",
-  "Athletics",
-  "Deception",
-  "History",
-  "Insight",
-  "Intimidation",
-  "Investigation",
-  "Medicine",
-  "Nature",
-  "Perception",
-  "Performance",
-  "Persuasion",
-  "Religion",
-  "Sleight of Hand",
-  "Stealth",
-  "Survival",
-];
+const SKILL_CODES_TO_CAPTIONS = {
+  ac: "Acrobatics",
+  an: "AnimalHandling",
+  ar: "Arcana",
+  at: "Athletics",
+  d: "Deception",
+  h: "History",
+  ins: "Insight",
+  int: "Intimidation",
+  inv: "Investigation",
+  m: "Medicine",
+  n: "Nature",
+  perc: "Perception",
+  perf: "Performance",
+  pers: "Persuasion",
+  r: "Religion",
+  sl: "SleightOfHand",
+  st: "Stealth",
+  su: "Survival",
+};
+const ABILITY_REGEX = /^(STR|DEX|CON|INT|WIS|CHA).*/i;
+const SKILL_REGEX = new RegExp(`^(${Object.keys(SKILL_CODES_TO_CAPTIONS).join("|")}).*`, "i");
 
 
 export class Spell {
@@ -278,25 +280,21 @@ export function capitalize(s) {
 
 // tslint:disable-next-line:no-shadowed-variable
 export function check(ability, skill, dc) {
-  const abilityRegexp = /^(STR|DEX|CON|INT|WIS|CHA).*/;
-  const match = ability.toLocaleUpperCase().match(abilityRegexp);
-
-  if (!match) {
+  const abilityMatch = ability.match(ABILITY_REGEX);
+  if (!abilityMatch) {
     return "";
   }
+  const abilityCode = abilityMatch[1].toLocaleUpperCase();
+  const fragments = [`<<dnd.lingo Ability/${abilityCode}>>`];
 
-  const fragments = [`<<dnd.lingo Ability/${match[1]}>>`];
-
-  let skillName: string;
-  try {
-    skillName = findMatches(skill.toLocaleLowerCase(), SKILLS.map((s) => s.toLocaleLowerCase()));
-  } catch (e) {
-    skillName = null;
+  if (skill) {
+    const skillMatch = skill.match(SKILL_REGEX);
+    if (skillMatch) {
+      const skillCode = skillMatch[1].toLocaleLowerCase();
+      fragments.push(`(<<dnd.lingo Skill/${SKILL_CODES_TO_CAPTIONS[skillCode]}>>)`);
+    }
   }
 
-  if (skillName) {
-    fragments.push(`(<<dnd.lingo Skill/${capitalize(skillName)}>>)`);
-  }
   if (dc) {
     fragments.unshift(`<<dnd.lingo Check/DC>> ${dc}`);
   }

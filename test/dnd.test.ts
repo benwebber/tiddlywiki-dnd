@@ -87,9 +87,16 @@ describe("check", () => {
   [
     {args: ["cha"], expected: "<<dnd.lingo Ability/CHA>>"},
     {args: ["CHA"], expected: "<<dnd.lingo Ability/CHA>>"},
+    {args: ["charisma"], expected: "<<dnd.lingo Ability/CHA>>"},
+    {args: ["Charisma"], expected: "<<dnd.lingo Ability/CHA>>"},
     {args: ["cha", "perf"], expected: "<<dnd.lingo Ability/CHA>> (<<dnd.lingo Skill/Performance>>)"},
     {args: ["CHA", "PERF"], expected: "<<dnd.lingo Ability/CHA>> (<<dnd.lingo Skill/Performance>>)"},
+    {args: ["cha", undefined, 15], expected: "<<dnd.lingo Check/DC>> 15 <<dnd.lingo Ability/CHA>>"},
     {args: ["cha", "perf", 15], expected: "<<dnd.lingo Check/DC>> 15 <<dnd.lingo Ability/CHA>> (<<dnd.lingo Skill/Performance>>)"},
+    {args: ["dex", "sl"], expected: "<<dnd.lingo Ability/DEX>> (<<dnd.lingo Skill/SleightOfHand>>)"},
+    {args: ["dex", "sleight"], expected: "<<dnd.lingo Ability/DEX>> (<<dnd.lingo Skill/SleightOfHand>>)"},
+    {args: ["dex", "sleight of hand"], expected: "<<dnd.lingo Ability/DEX>> (<<dnd.lingo Skill/SleightOfHand>>)"},
+    {args: ["dex", "Sleight of Hand"], expected: "<<dnd.lingo Ability/DEX>> (<<dnd.lingo Skill/SleightOfHand>>)"},
     // Unknown ability:
     {args: ["foo"], expected: ""},
     {args: ["foo", "perf"], expected: ""},
@@ -100,6 +107,8 @@ describe("check", () => {
     // Ambiguous skill:
     {args: ["cha", "per"], expected: "<<dnd.lingo Ability/CHA>>"},
     {args: ["cha", "per", 15], expected: "<<dnd.lingo Check/DC>> 15 <<dnd.lingo Ability/CHA>>"},
+    // Unusual combination:
+    {args: ["cha", "ath", 15], expected: "<<dnd.lingo Check/DC>> 15 <<dnd.lingo Ability/CHA>> (<<dnd.lingo Skill/Athletics>>)"},
   ].forEach((example) => {
     it(`should return "${example.expected}" for (${example.args[0]}, ${example.args[1]}, ${example.args[2]})`, () => {
       expect(dnd.check(...example.args)).toBe(example.expected);

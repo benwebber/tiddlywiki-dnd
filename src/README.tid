@@ -66,17 +66,57 @@ Calculates the average result of the specified roll.
 !! `dnd.check`
 
 Typeset an ability check, optionally including a skill and/or DC.
+This macro is not case-sensitive.
 
-The macro matches skill names by least ambiguous prefix.
+The macro matches English abbreviations of the ability names:
+
+| Ability | Code |h
+|<<dnd.lingo Ability/STR>> |`str` |
+|<<dnd.lingo Ability/DEX>> |`dex` |
+|<<dnd.lingo Ability/CON>> |`con` |
+|<<dnd.lingo Ability/INT>> |`int` |
+|<<dnd.lingo Ability/WIS>> |`wis` |
+|<<dnd.lingo Ability/CHA>> |`cha` |
+
+It matches English skill names by least ambiguous prefix.
 For example, `perc`, `perf`, and `pers` for Perception, Performance, and Persuasion, respectively.
 
-|! Call|! Output|
-|`<<dnd.check int>>`|<<dnd.check int>>|
-|`<<dnd.check int dc:15>>`|<<dnd.check int "" 15>>|
-|`<<dnd.check int inv>>`|<<dnd.check int inv>>|
-|`<<dnd.check int inv 18>>`|<<dnd.check int inv 18>>|
-|`<<dnd.check cha perf>>`|<<dnd.check cha perf>>|
-|`<<dnd.check cha pers>>`|<<dnd.check cha pers>>|
+| Skill | Least Ambiguous Prefix |h
+|<<dnd.lingo Skill/Acrobatics>> |`ac` |
+|<<dnd.lingo Skill/AnimalHandling>> |`an` |
+|<<dnd.lingo Skill/Arcana>> |`ar` |
+|<<dnd.lingo Skill/Athletics>> |`at` |
+|<<dnd.lingo Skill/Deception>> |`d` |
+|<<dnd.lingo Skill/History>> |`h` |
+|<<dnd.lingo Skill/Insight>> |`ins` |
+|<<dnd.lingo Skill/Intimidation>> |`int` |
+|<<dnd.lingo Skill/Investigation>> |`inv` |
+|<<dnd.lingo Skill/Medicine>> |`m` |
+|<<dnd.lingo Skill/Nature>> |`n` |
+|<<dnd.lingo Skill/Perception>> |`perc` |
+|<<dnd.lingo Skill/Performance>> |`perf` |
+|<<dnd.lingo Skill/Persuasion>> |`pers` |
+|<<dnd.lingo Skill/Religion>> |`r` |
+|<<dnd.lingo Skill/SleightOfHand>> |`sl` |
+|<<dnd.lingo Skill/Stealth>> |`st` |
+|<<dnd.lingo Skill/Survival>> |`su` |
+
+You can also use the full skill name, such as `<<dnd.check dex acrobatics>>` or `<<dnd.check wis "Animal Handling">>`.
+
+| Call | Output |h
+|`<<dnd.check int>>` |<<dnd.check int>> |
+|`<<dnd.check int dc:15>>` |<<dnd.check int dc:15>> |
+|`<<dnd.check int inv>>` |<<dnd.check int inv>> |
+|`<<dnd.check int inv 18>>` |<<dnd.check int inv 18>> |
+|`<<dnd.check cha perf>>` |<<dnd.check cha perf>> |
+|`<<dnd.check cha pers>>` |<<dnd.check cha pers>> |
+|`<<dnd.check wis su>>` |<<dnd.check wis su>> |
+|`<<dnd.check wis surv>>` |<<dnd.check wis surv>> |
+|`<<dnd.check wis survival>>` |<<dnd.check wis survival>> |
+|`<<dnd.check wis animal>>` |<<dnd.check wis animal>> |
+|`<<dnd.check wis "Animal Handling">>` |<<dnd.check wis "Animal Handling">> |
+
+Finally, the macro supports unusual ability and skill combinations, such as asking a player to make a <<dnd.check str int>> check (`<<dnd.check str int>>`).
 
 !! `dnd.creature`
 
