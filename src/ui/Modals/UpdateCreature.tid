@@ -1,5 +1,5 @@
 title: $:/plugins/benwebber/dnd/ui/Modals/UpdateCreature
-subtitle: Editing <<tiddler>>
+subtitle: <<dnd.lingo Modals/Subtitle>>
 
 \define input(field)
 <$edit-text tag=input tiddler=<<tiddler>> field=<<__field__>> />
@@ -7,31 +7,31 @@ subtitle: Editing <<tiddler>>
 
 \define select-size()
 <$select tiddler=<<tiddler>> field="dnd.creature.size">
-  <option value="tiny">Tiny</option>
-  <option value="small">Small</option>
-  <option value="medium">Medium</option>
-  <option value="large">Large</option>
-  <option value="huge">Huge</option>
-  <option value="gargantuan">Gargantuan</option>
+  <option value="tiny"><<dnd.lingo Creature/Size/Tiny>></option>
+  <option value="small"><<dnd.lingo Creature/Size/Small>></option>
+  <option value="medium"><<dnd.lingo Creature/Size/Medium>></option>
+  <option value="large"><<dnd.lingo Creature/Size/Large>></option>
+  <option value="huge"><<dnd.lingo Creature/Size/Huge>></option>
+  <option value="gargantuan"><<dnd.lingo Creature/Size/Gargantuan>></option>
 </$select>
 \end
 
 \define select-type()
 <$select tiddler=<<tiddler>> field="dnd.creature.type">
-  <option value="aberration">Aberration</option>
-  <option value="beast">Beast</option>
-  <option value="celestial">Celestial</option>
-  <option value="construct">Construct</option>
-  <option value="dragon">Dragon</option>
-  <option value="elemental">Elemental</option>
-  <option value="fey">Fey</option>
-  <option value="fiend">Fiend</option>
-  <option value="giant">Giant</option>
-  <option value="humanoid">Humanoid</option>
-  <option value="monstrosity">Monstrosity</option>
-  <option value="ooze">Ooze</option>
-  <option value="plant">Plant</option>
-  <option value="undead">Undead</option>
+  <option value="aberration"><<dnd.lingo Creature/Type/Aberration>></option>
+  <option value="beast"><<dnd.lingo Creature/Type/Beast>></option>
+  <option value="celestial"><<dnd.lingo Creature/Type/Celestial>></option>
+  <option value="construct"><<dnd.lingo Creature/Type/Construct>></option>
+  <option value="dragon"><<dnd.lingo Creature/Type/Dragon>></option>
+  <option value="elemental"><<dnd.lingo Creature/Type/Elemental>></option>
+  <option value="fey"><<dnd.lingo Creature/Type/Fey>></option>
+  <option value="fiend"><<dnd.lingo Creature/Type/Fiend>></option>
+  <option value="giant"><<dnd.lingo Creature/Type/Giant>></option>
+  <option value="humanoid"><<dnd.lingo Creature/Type/Humanoid>></option>
+  <option value="monstrosity"><<dnd.lingo Creature/Type/Monstrosity>></option>
+  <option value="ooze"><<dnd.lingo Creature/Type/Ooze>></option>
+  <option value="plant"><<dnd.lingo Creature/Type/Plant>></option>
+  <option value="undead"><<dnd.lingo Creature/Type/Undead>></option>
 </$select>
 \end
 
@@ -73,7 +73,7 @@ subtitle: Editing <<tiddler>>
 \define select-challenge()
 <$select tiddler=<<tiddler>> field="dnd.creature.challenge">>
   <option value="0"><<dnd.xp "0">></option>
-  <option value="0 (10 XP)"><<dnd.xp "0 (10 XP)">></option>
+  <option value="0 (10 XP)"><<dnd.xp "0 (10 <<dnd.lingo XP>>)">></option>
   <option value="1/8"><<dnd.xp "1/8">></option>
   <option value="1/4"><<dnd.xp "1/4">></option>
   <option value="1/2"><<dnd.xp "1/2">></option>
@@ -110,34 +110,34 @@ subtitle: Editing <<tiddler>>
 </$select>
 \end
 
-//Changes take effect immediately.//
+<<dnd.lingo Modals/Help>>
 
-|!Size |<<select-size>> |
-|!Type |<<select-type>> |
-|!Tags |<<input dnd.creature.tags>> |
-|!Alignment |<<input dnd.creature.alignment>> |
-
----
-
-|!Armour Class |<<input dnd.creature.ac>> |
-|!Hit Points |<<input dnd.creature.hp>> |
-|!Speed |<<input dnd.creature.speed>> |
+|!<<dnd.lingo StatBlock/Size>> |<<select-size>> |
+|!<<dnd.lingo StatBlock/Type>> |<<select-type>> |
+|!<<dnd.lingo StatBlock/Tags>> |<<input dnd.creature.tags>> |
+|!<<dnd.lingo StatBlock/Alignment>> |<<input dnd.creature.alignment>> |
 
 ---
 
-|! STR|! DEX|! CON|! INT|! WIS|! CHA|
+|!<<dnd.lingo StatBlock/AC>> |<<input dnd.creature.ac>> |
+|!<<dnd.lingo StatBlock/HP>> |<<input dnd.creature.hp>> |
+|!<<dnd.lingo StatBlock/Speed>> |<<input dnd.creature.speed>> |
+
+---
+
+| <<dnd.lingo StatBlock/STR>> | <<dnd.lingo StatBlock/DEX>> | <<dnd.lingo StatBlock/CON>> | <<dnd.lingo StatBlock/INT>> | <<dnd.lingo StatBlock/WIS>> | <<dnd.lingo StatBlock/CHA>> |h
 | <<select-ability dnd.creature.str>> | <<select-ability dnd.creature.dex>> | <<select-ability dnd.creature.con>> | <<select-ability dnd.creature.int>> | <<select-ability dnd.creature.wis>> | <<select-ability dnd.creature.cha>> |
 
 ---
 
-|!Saving Throws |<<input dnd.creature.saves>> |
-|!Skills |<<input dnd.creature.skills>> |
-|!Damage Immunities |<<input dnd.creature.dimm>> |
-|!Damage Resistances |<<input dnd.creature.dres>> |
-|!Damage Vulnerabilities |<<input dnd.creature.dvul>> |
-|!Condition Immunities |<<input dnd.creature.cimm>> |
-|!Condition Resistances |<<input dnd.creature.cres>> |
-|!Condition Vulnerabilities |<<input dnd.creature.cvul>> |
-|!Senses |<<input dnd.creature.senses>> |
-|!Languages |<<input dnd.creature.languages>> |
-|!Challenge |<<select-challenge>> |
+|!<<dnd.lingo StatBlock/SavingThrows>> |<<input dnd.creature.saves>> |
+|!<<dnd.lingo StatBlock/Skills>> |<<input dnd.creature.skills>> |
+|!<<dnd.lingo StatBlock/DamageImmunities>> |<<input dnd.creature.dimm>> |
+|!<<dnd.lingo StatBlock/DamageResistances>> |<<input dnd.creature.dres>> |
+|!<<dnd.lingo StatBlock/DamageVulnerabilities>> |<<input dnd.creature.dvul>> |
+|!<<dnd.lingo StatBlock/ConditionImmunities>> |<<input dnd.creature.cimm>> |
+|!<<dnd.lingo StatBlock/ConditionResistances>> |<<input dnd.creature.cres>> |
+|!<<dnd.lingo StatBlock/ConditionVulnerabilities>> |<<input dnd.creature.cvul>> |
+|!<<dnd.lingo StatBlock/Senses>> |<<input dnd.creature.senses>> |
+|!<<dnd.lingo StatBlock/Languages>> |<<input dnd.creature.languages>> |
+|!<<dnd.lingo StatBlock/Challenge>> |<<select-challenge>> |

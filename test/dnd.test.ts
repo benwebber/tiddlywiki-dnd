@@ -1,3 +1,4 @@
+/* tslint:disable:max-line-length object-literal-sort-keys */
 import * as dnd from "../src/files/dnd";
 
 import SpellFactory from "./factories/spell";
@@ -6,15 +7,15 @@ import StatBlockFactory from "./factories/statblock";
 
 describe("Spell", () => {
   [
-    {level: 0, school: "abjuration", ritual: false, expected: "abjuration cantrip"},
-    {level: 1, school: "conjuration", ritual: false, expected: "1st-level conjuration"},
-    {level: 2, school: "divination", ritual: true, expected: "2nd-level divination (ritual)"},
+    {level: 0, school: "abjuration", ritual: false, expected: "abjuration <<dnd.lingo Spell/CantripTag>>"},
+    {level: 1, school: "conjuration", ritual: false, expected: "1<<dnd.lingo Spell/LevelSuffix/1>>-level conjuration"},
+    {level: 2, school: "divination", ritual: true, expected: "2<<dnd.lingo Spell/LevelSuffix/2>>-level divination (<<dnd.lingo Spell/RitualTag>>)"},
   ].forEach((example) => {
     it(`should return "${example.expected}" for level = ${example.level}, school = ${example.school}, ritual = ${example.ritual}`, () => {
       const spell = SpellFactory.build({
         level: example.level,
         school: example.school,
-        ritual: example.ritual
+        ritual: example.ritual,
       });
       expect(spell.description).toBe(example.expected);
     });
@@ -84,21 +85,21 @@ describe("capitalize", () => {
 
 describe("check", () => {
   [
-    {args: ["cha"], expected: "Charisma"},
-    {args: ["CHA"], expected: "Charisma"},
-    {args: ["cha", "perf"], expected: "Charisma (Performance)"},
-    {args: ["CHA", "PERF"], expected: "Charisma (Performance)"},
-    {args: ["cha", "perf", 15], expected: "DC 15 Charisma (Performance)"},
+    {args: ["cha"], expected: "<<dnd.lingo Ability/CHA>>"},
+    {args: ["CHA"], expected: "<<dnd.lingo Ability/CHA>>"},
+    {args: ["cha", "perf"], expected: "<<dnd.lingo Ability/CHA>> (<<dnd.lingo Skill/Performance>>)"},
+    {args: ["CHA", "PERF"], expected: "<<dnd.lingo Ability/CHA>> (<<dnd.lingo Skill/Performance>>)"},
+    {args: ["cha", "perf", 15], expected: "<<dnd.lingo Check/DC>> 15 <<dnd.lingo Ability/CHA>> (<<dnd.lingo Skill/Performance>>)"},
     // Unknown ability:
     {args: ["foo"], expected: ""},
     {args: ["foo", "perf"], expected: ""},
     {args: ["foo", "perf", 15], expected: ""},
     // Unknown skill:
-    {args: ["cha", "foo"], expected: "Charisma"},
-    {args: ["cha", "foo", 15], expected: "DC 15 Charisma"},
+    {args: ["cha", "foo"], expected: "<<dnd.lingo Ability/CHA>>"},
+    {args: ["cha", "foo", 15], expected: "<<dnd.lingo Check/DC>> 15 <<dnd.lingo Ability/CHA>>"},
     // Ambiguous skill:
-    {args: ["cha", "per"], expected: "Charisma"},
-    {args: ["cha", "per", 15], expected: "DC 15 Charisma"},
+    {args: ["cha", "per"], expected: "<<dnd.lingo Ability/CHA>>"},
+    {args: ["cha", "per", 15], expected: "<<dnd.lingo Check/DC>> 15 <<dnd.lingo Ability/CHA>>"},
   ].forEach((example) => {
     it(`should return "${example.expected}" for (${example.args[0]}, ${example.args[1]}, ${example.args[2]})`, () => {
       expect(dnd.check(...example.args)).toBe(example.expected);
@@ -118,35 +119,12 @@ describe("italicize", () => {
 });
 
 
-describe("ordinal", () => {
-  [
-    {value: 0, expected: "0th"},
-    {value: 1, expected: "1st"},
-    {value: 2, expected: "2nd"},
-    {value: 3, expected: "3rd"},
-    {value: 4, expected: "4th"},
-    {value: 11, expected: "11th"},
-    {value: 12, expected: "12th"},
-    {value: 13, expected: "13th"},
-    {value: 14, expected: "14th"},
-    {value: 21, expected: "21st"},
-    {value: 22, expected: "22nd"},
-    {value: 23, expected: "23rd"},
-    {value: 24, expected: "24th"},
-  ].forEach((example) => {
-    it(`should return "${example.expected}" for value "${example.value}"`, () => {
-      expect(dnd.ordinal(example.value)).toBe(example.expected);
-    });
-  });
-});
-
-
 describe("xp", () => {
   [
-    {rating: "0", expected: "0 (0 XP)"},
-    {rating: "1", expected: "1 (200 XP)"},
-    {rating: "10", expected: "10 (5,900 XP)"},
-    {rating: "30", expected: "30 (155,000 XP)"},
+    {rating: "0", expected: "0 (0 <<dnd.lingo XP>>)"},
+    {rating: "1", expected: "1 (200 <<dnd.lingo XP>>)"},
+    {rating: "10", expected: "10 (5,900 <<dnd.lingo XP>>)"},
+    {rating: "30", expected: "30 (155,000 <<dnd.lingo XP>>)"},
   ].forEach((example) => {
     it(`should return "${example.expected}" for rating "${example.rating}"`, () => {
       expect(dnd.xp(example.rating)).toBe(example.expected);
@@ -154,9 +132,9 @@ describe("xp", () => {
   });
 
   [
-    {rating: "1/2", expected: "1/2 (100 XP)"},
-    {rating: "'1/2'", expected: "1/2 (100 XP)"},
-    {rating: '"1/2"', expected: "1/2 (100 XP)"}, // eslint-disable-line
+    {rating: "1/2", expected: "1/2 (100 <<dnd.lingo XP>>)"},
+    {rating: "'1/2'", expected: "1/2 (100 <<dnd.lingo XP>>)"},
+    {rating: '"1/2"', expected: "1/2 (100 <<dnd.lingo XP>>)"}, // eslint-disable-line
   ].forEach((example) => {
     it(`should strip quotes and return "${example.expected}" for rating "${example.rating}"`, () => {
       expect(dnd.xp(example.rating)).toBe(example.expected);

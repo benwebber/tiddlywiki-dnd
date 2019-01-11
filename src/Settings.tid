@@ -9,8 +9,8 @@ icon: $:/core/images/options-button
 <$edit-text tiddler="$:/plugins/benwebber/dnd/config/$key$" field="text" tag="input" />
 \end
 
-|Version |{{$:/plugins/benwebber/dnd!!version}} |
-|Tag for <$link to={{$:/plugins/benwebber/dnd/config/Tags/Creatures}}>creature tiddlers</$link> |<<edit-setting "Tags/Creatures">> |
-|Tag for <$link to={{$:/plugins/benwebber/dnd/config/Tags/Spells}}>spell tiddlers</$link> |<<edit-setting "Tags/Spells">> |
-|Automatically render stat blocks for <$link to={{$:/plugins/benwebber/dnd/config/Tags/Creatures}}>creature tiddlers</$link> | <<render-boolean "ViewTemplates/StatBlock">> |
-|Automatically render spell blocks for <$link to={{$:/plugins/benwebber/dnd/config/Tags/Spells}}>spell tiddlers</$link> | <<render-boolean "ViewTemplates/Spell">> |
+|<<dnd.lingo Settings/Version>> |{{$:/plugins/benwebber/dnd!!version}} |
+|<<dnd.lingo Settings/CreatureTag>> |<<edit-setting "Tags/Creatures">> |
+|<<dnd.lingo Settings/SpellTag>> |<<edit-setting "Tags/Spells">> |
+|<<dnd.lingo Settings/RenderCreatures>> | <<render-boolean "ViewTemplates/StatBlock">> |
+|<<dnd.lingo Settings/RenderSpells>> | <<render-boolean "ViewTemplates/Spell">> |

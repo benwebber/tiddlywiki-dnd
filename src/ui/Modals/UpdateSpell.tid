@@ -1,5 +1,5 @@
 title: $:/plugins/benwebber/dnd/ui/Modals/UpdateSpell
-subtitle: Editing <<tiddler>>
+subtitle: <<dnd.lingo Modals/Subtitle>>
 
 \define input(field)
 <$edit-text tag=input tiddler=<<tiddler>> field=<<__field__>> />
@@ -22,22 +22,22 @@ subtitle: Editing <<tiddler>>
 
 \define select-school()
 <$select tiddler=<<tiddler>> field="dnd.spell.school">
-  <option value="abjuration">Abjuration</option>
-  <option value="conjuration">Conjuration</option>
-  <option value="divination">Divination</option>
-  <option value="enchantment">Enchantment</option>
-  <option value="evocation">Evocation</option>
-  <option value="illusion">Illusion</option>
-  <option value="necromancy">Necromancy</option>
-  <option value="transmutation">Transmutation</option>
+  <option value="abjuration"><<dnd.lingo Spell/School/Abjuration>></option>
+  <option value="conjuration"><<dnd.lingo Spell/School/Conjuration>></option>
+  <option value="divination"><<dnd.lingo Spell/School/Divination>></option>
+  <option value="enchantment"><<dnd.lingo Spell/School/Enchantment>></option>
+  <option value="evocation"><<dnd.lingo Spell/School/Evocation>></option>
+  <option value="illusion"><<dnd.lingo Spell/School/Illusion>></option>
+  <option value="necromancy"><<dnd.lingo Spell/School/Necromancy>></option>
+  <option value="transmutation"><<dnd.lingo Spell/School/Transmutation>></option>
 </$select>
 \end
 
-//Changes take effect immediately.//
+<<dnd.lingo Modals/Help>>
 
-|!Level |<<select-level>> |
-|!School |<<select-school>> |
-|!Casting Time |<<input dnd.spell.cast>> <$checkbox tiddler=<<tiddler>> field="dnd.spell.ritual" checked="true" unchecked="" default=""> Ritual</$checkbox> |
-|!Range |<<input dnd.spell.range>> |
-|!Duration |<<input dnd.spell.duration>> |
-|!Components |<$checkbox tiddler=<<tiddler>> field="dnd.spell.verbal" checked="true" unchecked="" default=""> V</$checkbox> <$checkbox tiddler=<<tiddler>> field="dnd.spell.somatic" checked="true" unchecked="" default=""> S</$checkbox> M: <<input dnd.spell.material>> |
+|!<<dnd.lingo Spell/Level>> |<<select-level>> |
+|!<<dnd.lingo Spell/School>> |<<select-school>> |
+|!<<dnd.lingo Spell/CastingTime>> |<<input dnd.spell.cast>> <$checkbox tiddler=<<tiddler>> field="dnd.spell.ritual" checked="true" unchecked="" default=""> <<dnd.lingo Spell/Ritual>></$checkbox> |
+|!<<dnd.lingo Spell/Range>> |<<input dnd.spell.range>> |
+|!<<dnd.lingo Spell/Duration>> |<<input dnd.spell.duration>> |
+|!<<dnd.lingo Spell/Components>> |<$checkbox tiddler=<<tiddler>> field="dnd.spell.verbal" checked="true" unchecked="" default=""> <<dnd.lingo Spell/Verbal>></$checkbox> <$checkbox tiddler=<<tiddler>> field="dnd.spell.somatic" checked="true" unchecked="" default=""> <<dnd.lingo Spell/Somatic>></$checkbox> <<dnd.lingo Spell/Material>>: <<input dnd.spell.material>> |

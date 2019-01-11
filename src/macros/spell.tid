@@ -22,5 +22,5 @@ will be empty. Delete empty fields.
 \define dnd.spell()
 {{||$:/plugins/benwebber/dnd/templates/dnd.fspell}}
 
-<$button actions=<<spell-actions>>>Edit <<currentTiddler>></$button>
+<$button actions=<<spell-actions>>><<dnd.lingo EditCurrentTiddler>></$button>
 \end

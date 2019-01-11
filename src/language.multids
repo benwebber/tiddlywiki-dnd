@@ -1,5 +1,106 @@
 title: $:/plugins/benwebber/dnd/language/
 
+Ability/STR: Strength
+Ability/DEX: Dexterity
+Ability/CON: Constitution
+Ability/INT: Intelligence
+Ability/WIS: Wisdom
+Ability/CHA: Charisma
+
+Buttons/NewCreature/Text: new creature
+Buttons/NewCreature/Title: New Creature
+Buttons/NewCreature/Tooltip: Create a new creature
+Buttons/NewSpell/Text: new spell
+Buttons/NewSpell/Title: New Spell
+Buttons/NewSpell/Tooltip: Create a new spell
+
+Check/DC: DC
+
+EditCurrentTiddler: Edit <<currentTiddler>>
+
+Creature/Size/Tiny: Tiny
+Creature/Size/Small: Small
+Creature/Size/Medium: Medium
+Creature/Size/Large: Large
+Creature/Size/Huge: Huge
+Creature/Size/Gargantuan: Gargantuan
+Creature/Type/Aberration: Aberration
+Creature/Type/Beast: Beast
+Creature/Type/Celestial: Celestial
+Creature/Type/Construct: Construct
+Creature/Type/Dragon: Dragon
+Creature/Type/Elemental: Elemental
+Creature/Type/Fey: Fey
+Creature/Type/Fiend: Fiend
+Creature/Type/Giant: Giant
+Creature/Type/Humanoid: Humanoid
+Creature/Type/Monstrosity: Monstrosity
+Creature/Type/Ooze: Ooze
+Creature/Type/Plant: Plant
+Creature/Type/Undead: Undead
+
+Modals/Subtitle: Editing <<tiddler>>
+Modals/Help: //Changes take effect immediately.//
+
+Settings/Version: Version
+Settings/CreatureTag: Tag for creature tiddlers
+Settings/SpellTag: Tag for spell tiddlers
+Settings/RenderCreatures: Automatically render stat blocks for creature tiddlers
+Settings/RenderSpells: Automatically render stat blocks for spell tiddlers
+
+Skill/Acrobatics: Acrobatics
+Skill/AnimalHandling: Animal Handling
+Skill/Arcana: Arcana
+Skill/Athletics: Athletics
+Skill/Deception: Deception
+Skill/History: History
+Skill/Insight: Insight
+Skill/Intimidation: Intimidation
+Skill/Investigation: Investigation
+Skill/Medicine: Medicine
+Skill/Nature: Nature
+Skill/Perception: Perception
+Skill/Performance: Performance
+Skill/Persuasion: Persuasion
+Skill/Religion: Religion
+Skill/SleightOfHand: Sleight of Hand
+Skill/Stealth: Stealth
+Skill/Survival: Survival
+
+Spell/Level: Level
+Spell/LevelSuffix/1: st
+Spell/LevelSuffix/2: nd
+Spell/LevelSuffix/3: rd
+Spell/LevelSuffix/4: th
+Spell/LevelSuffix/5: th
+Spell/LevelSuffix/6: th
+Spell/LevelSuffix/7: th
+Spell/LevelSuffix/8: th
+Spell/LevelSuffix/9: th
+Spell/School: School
+Spell/CastingTime: Casting Time
+Spell/Range: Range
+Spell/Duration: Duration
+Spell/Components: Components
+Spell/School/Abjuration: Abjuration
+Spell/School/Conjuration: Conjuration
+Spell/School/Divination: Divination
+Spell/School/Enchantment: Enchantment
+Spell/School/Evocation: Evocation
+Spell/School/Illusion: Illusion
+Spell/School/Necromancy: Necromancy
+Spell/School/Transmutation: Transmutation
+Spell/Ritual: Ritual
+Spell/RitualTag: ritual
+Spell/CantripTag: cantrip
+Spell/Verbal: V
+Spell/Somatic: S
+Spell/Material: M
+
+StatBlock/Size: Size
+StatBlock/Type: Type
+StatBlock/Tags: Tags
+StatBlock/Alignment: Alignment
 StatBlock/AC: Armour Class
 StatBlock/HP: Hit Points
 StatBlock/Speed: Speed
@@ -9,6 +110,7 @@ StatBlock/CON: CON
 StatBlock/INT: INT
 StatBlock/WIS: WIS
 StatBlock/CHA: CHA
+StatBlock/SavingThrows: Saving Throws
 StatBlock/Senses: Senses
 StatBlock/Languages: Languages
 StatBlock/Challenge: Challenge
@@ -20,7 +122,5 @@ StatBlock/DamageVulnerabilities: Damage Vulnerabilities
 StatBlock/ConditionImmunities: Condition Immunities
 StatBlock/ConditionResistances: Condition Resistances
 StatBlock/ConditionVulnerabilities: Condition Vulnerabilities
-Spell/CastingTime: Casting Time
-Spell/Range: Range
-Spell/Components: Components
-Spell/Duration: Duration
+
+XP: XP

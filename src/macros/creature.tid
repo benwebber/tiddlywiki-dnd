@@ -22,5 +22,5 @@ will be empty. Delete empty fields.
 \define dnd.creature()
 {{||$:/plugins/benwebber/dnd/templates/dnd.fstatblock}}
 
-<$button actions=<<creature-actions>>>Edit <<currentTiddler>></$button>
+<$button actions=<<creature-actions>>><<dnd.lingo EditCurrentTiddler>></$button>
 \end

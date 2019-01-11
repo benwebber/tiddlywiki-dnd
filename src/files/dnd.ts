@@ -1,16 +1,4 @@
 /* tslint:disable:object-literal-sort-keys */
-const ABILITIES = {
-  STR: "Strength",
-  DEX: "Dexterity",
-  CON: "Constitution",
-  INT: "Intelligence",
-  WIS: "Wisdom",
-  CHA: "Charisma",
-};
-/* tslint:enable */
-
-
-/* tslint:disable:object-literal-sort-keys */
 const CR_TO_XP = {
   "0": "0",
   "1/8": "25",
@@ -91,20 +79,21 @@ export class Spell {
   }
 
   get description() {
+    // TODO: Translate stored school, level values in description.
     const nLevel = parseInt(this.level, 10);
     const descriptionFragments = [];
     if (!isNaN(nLevel) && !this.isCantrip) {
-      descriptionFragments.push(`${ordinal(this.level)}-level`);
+      descriptionFragments.push(`${this.level}<<dnd.lingo Spell/LevelSuffix/${this.level}>>-level`);
     }
     if (this.school) {
       descriptionFragments.push(this.school);
     }
     if (this.isCantrip) {
-      descriptionFragments.push("cantrip");
+      descriptionFragments.push("<<dnd.lingo Spell/CantripTag>>");
     }
     let description = descriptionFragments.join(" ").trim();
     if (this.ritual) {
-      description = `${description} (ritual)`;
+      description = `${description} (<<dnd.lingo Spell/RitualTag>>)`;
     }
     return description;
   }
@@ -117,13 +106,13 @@ export class Spell {
 
     const componentFragments = [];
     if (this.verbal) {
-      componentFragments.push("V");
+      componentFragments.push("<<dnd.lingo Spell/Verbal>>");
     }
     if (this.somatic) {
-      componentFragments.push("S");
+      componentFragments.push("<<dnd.lingo Spell/Somatic>>");
     }
     if (this.material) {
-      componentFragments.push(`M (${this.material})`);
+      componentFragments.push(`<<dnd.lingo Spell/Material>> (${this.material})`);
     }
     const components = componentFragments.join(", ");
 
@@ -170,6 +159,7 @@ export class StatBlock {
   ) {}
 
   get description() {
+    // TODO: Translate stored size, type values in description.
     const descriptionFragments = [this.size, this.type];
     if (this.tags) {
       descriptionFragments.push(this.renderTags(this.tags));
@@ -237,7 +227,7 @@ export class StatBlock {
 
   private renderAbilities(abilities) {
     return [
-      "|! " + abilities.map((field) => `<<dnd.lingo "${field.caption}">>`).join("|! ") + " |",
+      "| " + abilities.map((field) => `<<dnd.lingo ${field.caption}>>`).join(" | ") + " |h",
       "| " + abilities.map((field) => ability(field.value)).join(" | ") + " |",
     ];
   }
@@ -295,8 +285,7 @@ export function check(ability, skill, dc) {
     return "";
   }
 
-  const abilityName = ABILITIES[match[1]];
-  const fragments = [abilityName];
+  const fragments = [`<<dnd.lingo Ability/${match[1]}>>`];
 
   let skillName: string;
   try {
@@ -306,10 +295,10 @@ export function check(ability, skill, dc) {
   }
 
   if (skillName) {
-    fragments.push(`(${capitalize(skillName)})`);
+    fragments.push(`(<<dnd.lingo Skill/${capitalize(skillName)}>>)`);
   }
   if (dc) {
-    fragments.unshift(`DC ${dc}`);
+    fragments.unshift(`<<dnd.lingo Check/DC>> ${dc}`);
   }
   return fragments.join(" ");
 }
@@ -331,30 +320,11 @@ export function italicize(s) {
 }
 
 
-export function ordinal(n) {
-  // TODO: Test cast (or switch to TypeScript).
-  const i = parseInt(n, 10);
-  const ones = i % 10;
-  const tens = i % 100;
-  let ending;
-  if (ones === 1 && tens !== 11) {
-    ending = "st";
-  } else if (ones === 2 && tens !== 12) {
-    ending = "nd";
-  } else if (ones === 3 && tens !== 13) {
-    ending = "rd";
-  } else {
-    ending = "th";
-  }
-  return `${i}${ending}`;
-}
-
-
 function renderFields(fields, alwaysRender) {
   const output = [];
   for (const field of fields) {
     if (alwaysRender || field.value) {
-      output.push(`|!<<dnd.lingo "${field.caption}">> |${field.value} |`);
+      output.push(`|!<<dnd.lingo ${field.caption}>> |${field.value} |`);
     }
   }
   return output;
@@ -365,7 +335,7 @@ export function xp(rating) {
   rating = rating.replace(/['"]/g, "");
   const points = CR_TO_XP[rating];
   if (points) {
-    return `${rating} (${points} XP)`;
+    return `${rating} (${points} <<dnd.lingo XP>>)`;
   }
   return `${rating}`;
 }
