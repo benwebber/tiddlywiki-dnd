@@ -126,38 +126,3 @@ describe("italicize", () => {
     });
   });
 });
-
-
-describe("xp", () => {
-  [
-    {rating: "0", expected: "0 (0 <<dnd.lingo XP>>)"},
-    {rating: "1", expected: "1 (200 <<dnd.lingo XP>>)"},
-    {rating: "10", expected: "10 (5,900 <<dnd.lingo XP>>)"},
-    {rating: "30", expected: "30 (155,000 <<dnd.lingo XP>>)"},
-  ].forEach((example) => {
-    it(`should return "${example.expected}" for rating "${example.rating}"`, () => {
-      expect(dnd.xp(example.rating)).toBe(example.expected);
-    });
-  });
-
-  [
-    {rating: "1/2", expected: "1/2 (100 <<dnd.lingo XP>>)"},
-    {rating: "'1/2'", expected: "1/2 (100 <<dnd.lingo XP>>)"},
-    {rating: '"1/2"', expected: "1/2 (100 <<dnd.lingo XP>>)"}, // eslint-disable-line
-  ].forEach((example) => {
-    it(`should strip quotes and return "${example.expected}" for rating "${example.rating}"`, () => {
-      expect(dnd.xp(example.rating)).toBe(example.expected);
-    });
-  });
-
-  [
-    {rating: "0 (10 XP)", expected: "0 (10 XP)"},
-    {rating: "10 (5000 XP)", expected: "10 (5000 XP)"},
-    {rating: "40", expected: "40"},
-    {rating: "40 (255,000 XP)", expected: "40 (255,000 XP)"},
-  ].forEach((example) => {
-    it(`should return "${example.expected}" for arbitrary rating "${example.rating}"`, () => {
-      expect(dnd.xp(example.rating)).toBe(example.expected);
-    });
-  });
-});

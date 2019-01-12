@@ -1,39 +1,39 @@
 /* tslint:disable:object-literal-sort-keys */
 const CR_TO_XP = {
-  "0": "0",
-  "1/8": "25",
-  "1/4": "50",
-  "1/2": "100",
-  "1": "200",
-  "2": "450",
-  "3": "700",
-  "4": "1,100",
-  "5": "1,800",
-  "6": "2,300",
-  "7": "2,900",
-  "8": "3,900",
-  "9": "5,000",
-  "10": "5,900",
-  "11": "7,200",
-  "12": "8,400",
-  "13": "10,000",
-  "14": "11,500",
-  "15": "13,000",
-  "16": "15,000",
-  "17": "18,000",
-  "18": "20,000",
-  "19": "22,000",
-  "20": "25,000",
-  "21": "33,000",
-  "22": "41,000",
-  "23": "50,000",
-  "24": "62,000",
-  "25": "75,000",
-  "26": "90,000",
-  "27": "105,000",
-  "28": "120,000",
-  "29": "135,000",
-  "30": "155,000",
+  "0": 0,
+  "1/8": 25,
+  "1/4": 50,
+  "1/2": 100,
+  "1": 200,
+  "2": 450,
+  "3": 700,
+  "4": 1100,
+  "5": 1800,
+  "6": 2300,
+  "7": 2900,
+  "8": 3900,
+  "9": 5000,
+  "10": 5900,
+  "11": 7200,
+  "12": 8400,
+  "13": 10000,
+  "14": 11500,
+  "15": 13000,
+  "16": 15000,
+  "17": 18000,
+  "18": 20000,
+  "19": 22000,
+  "20": 25000,
+  "21": 33000,
+  "22": 41000,
+  "23": 50000,
+  "24": 62000,
+  "25": 75000,
+  "26": 90000,
+  "27": 105000,
+  "28": 120000,
+  "29": 135000,
+  "30": 155000,
 };
 /* tslint:enable */
 
@@ -211,10 +211,18 @@ export class StatBlock {
       {caption: "StatBlock/ConditionVulnerabilities", value: this.cvul},
     ];
     output = output.concat(renderFields(fields, false));
+
+    // Does the challenge field embed XP?
+    const challengeRegexp = /(\d+)\s+(\d+)?/;
+    const challengeMatch = this.challenge.match(challengeRegexp);
+    let challengeMacro = `<<dnd.xp "${this.challenge}">>`;
+    if (challengeMatch && challengeMatch[2]) {
+      challengeMacro = `<<dnd.xp "${challengeMatch[1]}" "${challengeMatch[2]}">>`;
+    }
     fields = [
       {caption: "StatBlock/Senses", value: this.senses},
       {caption: "StatBlock/Languages", value: this.languages},
-      {caption: "StatBlock/Challenge", value: xp(this.challenge)},
+      {caption: "StatBlock/Challenge", value: challengeMacro},
     ];
     output = output.concat(renderFields(fields, true));
     output.push("");
@@ -329,11 +337,7 @@ function renderFields(fields, alwaysRender) {
 }
 
 
-export function xp(rating) {
+export function getXP(rating) {
   rating = rating.replace(/['"]/g, "");
-  const points = CR_TO_XP[rating];
-  if (points) {
-    return `${rating} (${points} <<dnd.lingo XP>>)`;
-  }
-  return `${rating}`;
+  return CR_TO_XP[rating];
 }

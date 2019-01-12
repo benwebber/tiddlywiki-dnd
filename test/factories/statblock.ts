@@ -20,7 +20,7 @@ export default new Factory()
     cha: 10,
     senses: "passive Perception 10",
     languages: "any one language (usually Common)",
-    challenge: "0 (10 XP)",
+    challenge: "0 10",
     tags: "any race",
   })
   .after((factory) => {

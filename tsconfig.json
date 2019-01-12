@@ -5,7 +5,10 @@
     "baseUrl": ".",
     "paths": {
       "$:/plugins/benwebber/dnd/*": ["src/files/*"]
-    }
+    },
+    "lib": [
+      "es2015"
+    ]
   },
   "include": [
     "./src/**/*"

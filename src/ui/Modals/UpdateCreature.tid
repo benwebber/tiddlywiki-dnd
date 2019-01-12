@@ -73,7 +73,7 @@ subtitle: <<dnd.lingo Modals/Subtitle>>
 \define select-challenge()
 <$select tiddler=<<tiddler>> field="dnd.creature.challenge">>
   <option value="0"><<dnd.xp "0">></option>
-  <option value="0 (10 XP)"><<dnd.xp "0 (10 <<dnd.lingo XP>>)">></option>
+  <option value="0 10"><<dnd.xp "0" "10">></option>
   <option value="1/8"><<dnd.xp "1/8">></option>
   <option value="1/4"><<dnd.xp "1/4">></option>
   <option value="1/2"><<dnd.xp "1/2">></option>
