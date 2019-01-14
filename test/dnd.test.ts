@@ -115,14 +115,3 @@ describe("check", () => {
     });
   });
 });
-
-
-describe("italicize", () => {
-  [
-    {description: "Small beast, unaligned", expected: "//Small beast, unaligned//"},
-  ].forEach((example) => {
-    it(`should return "${example.expected}" for description "${example.description}"`, () => {
-      expect(dnd.italicize(example.description)).toBe(example.expected);
-    });
-  });
-});

@@ -1,8 +1,0 @@
-title: $:/plugins/benwebber/dnd/macros/core
-tags: $:/tags/Macro
-
-\define get-model-name() {{$:/temp/dnd/CreateCreature/view/title}}/Data
-
-\define get-view-name() {{$:/temp/dnd/CreateCreature/view/title}}
-
-\define link(tiddler) [[$tiddler$]]

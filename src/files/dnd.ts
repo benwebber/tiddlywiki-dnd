@@ -102,7 +102,7 @@ export class Spell {
 
   public render() {
     let output = [
-      italicize(capitalize(this.description)),
+      `//${capitalize(this.description)}//`,
       "",
     ];
 
@@ -175,7 +175,7 @@ export class StatBlock {
 
   public render() {
     let output = [
-      italicize(capitalize(this.description)),
+      `//${capitalize(this.description)}//`,
       "",
     ];
 
@@ -307,22 +307,6 @@ export function check(ability, skill, dc) {
     fragments.unshift(`<<dnd.lingo Check/DC>> ${dc}`);
   }
   return fragments.join(" ");
-}
-
-
-function findMatches(prefix, choices) {
-  const matches = choices.filter((choice) => choice.startsWith(prefix));
-  if (matches.length === 0) {
-    return null;
-  } else if (matches.length === 1) {
-    return matches[0];
-  } else {
-    throw Error("too many matches");
-  }
-}
-
-export function italicize(s) {
-  return `//${s}//`;
 }
 
 
