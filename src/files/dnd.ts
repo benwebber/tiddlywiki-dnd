@@ -80,29 +80,9 @@ export class Spell {
     return !isNaN(nLevel) && nLevel === 0;
   }
 
-  get description() {
-    // TODO: Translate stored school, level values in description.
-    const nLevel = parseInt(this.level, 10);
-    const descriptionFragments = [];
-    if (!isNaN(nLevel) && !this.isCantrip) {
-      descriptionFragments.push(`${this.level}<<dnd.lingo Spell/LevelSuffix/${this.level}>>-level`);
-    }
-    if (this.school) {
-      descriptionFragments.push(this.school);
-    }
-    if (this.isCantrip) {
-      descriptionFragments.push("<<dnd.lingo Spell/CantripTag>>");
-    }
-    let description = descriptionFragments.join(" ").trim();
-    if (this.ritual) {
-      description = `${description} (<<dnd.lingo Spell/RitualTag>>)`;
-    }
-    return description;
-  }
-
   public render() {
     let output = [
-      `//${capitalize(this.description)}//`,
+      `//<<dnd.spell.description ${this.level} ${this.school} ${this.ritual}>>//`,
       "",
     ];
 

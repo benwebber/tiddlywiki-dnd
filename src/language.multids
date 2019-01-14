@@ -67,6 +67,9 @@ Skill/SleightOfHand: Sleight of Hand
 Skill/Stealth: Stealth
 Skill/Survival: Survival
 
+Spell/DescriptionFormat/Default: $level$$levelSuffix$-level $school$
+Spell/DescriptionFormat/Ritual: $level$$levelSuffix$-level $school$ (ritual)
+Spell/DescriptionFormat/Cantrip: $School$ cantrip
 Spell/Level: Level
 Spell/LevelSuffix/1: st
 Spell/LevelSuffix/2: nd
@@ -91,8 +94,6 @@ Spell/School/Illusion: Illusion
 Spell/School/Necromancy: Necromancy
 Spell/School/Transmutation: Transmutation
 Spell/Ritual: Ritual
-Spell/RitualTag: ritual
-Spell/CantripTag: cantrip
 Spell/Verbal: V
 Spell/Somatic: S
 Spell/Material: M

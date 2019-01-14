@@ -5,24 +5,6 @@ import SpellFactory from "./factories/spell";
 import StatBlockFactory from "./factories/statblock";
 
 
-describe("Spell", () => {
-  [
-    {level: 0, school: "abjuration", ritual: false, expected: "abjuration <<dnd.lingo Spell/CantripTag>>"},
-    {level: 1, school: "conjuration", ritual: false, expected: "1<<dnd.lingo Spell/LevelSuffix/1>>-level conjuration"},
-    {level: 2, school: "divination", ritual: true, expected: "2<<dnd.lingo Spell/LevelSuffix/2>>-level divination (<<dnd.lingo Spell/RitualTag>>)"},
-  ].forEach((example) => {
-    it(`should return "${example.expected}" for level = ${example.level}, school = ${example.school}, ritual = ${example.ritual}`, () => {
-      const spell = SpellFactory.build({
-        level: example.level,
-        school: example.school,
-        ritual: example.ritual,
-      });
-      expect(spell.description).toBe(example.expected);
-    });
-  });
-});
-
-
 describe("StatBlock", () => {
   [
     {size: "medium", expected: "medium"},
