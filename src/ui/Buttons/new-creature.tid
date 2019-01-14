@@ -4,16 +4,22 @@ tags: $:/tags/PageControls
 \define actions()
 <$action-sendmessage
   $message="tm-new-tiddler"
-  title=<<dnd.lingo Buttons/NewCreature/Title>>
+  title=<<title>>
   tags={{$:/plugins/benwebber/dnd/config/Tags/Creatures}}
 />
 \end
 
-<$button actions=<<actions>> class=<<tv-config-toolbar-class>> tooltip=<<dnd.lingo Buttons/NewCreature/Tooltip>>>
+<$wikify name="text" text=<<dnd.lingo Buttons/NewCreature/Text>>>
+<$wikify name="title" text=<<dnd.lingo Buttons/NewCreature/Title>>>
+<$wikify name="tooltip" text=<<dnd.lingo Buttons/NewCreature/Tooltip>>>
+<$button actions=<<actions>> class=<<tv-config-toolbar-class>> tooltip=<<tooltip>>>
 <$list filter="[<tv-config-toolbar-icons>prefix[yes]]">
 {{$:/plugins/benwebber/dnd/images/new-creature}}
 </$list>
 <$list filter="[<tv-config-toolbar-text>prefix[yes]]">
-<span class="tc-btn-text"><$text text=<<dnd.lingo Buttons/NewCreature/Text>>/></span>
+<span class="tc-btn-text"><$text text=<<text>>/></span>
 </$list>
 </$button>
+</$wikify>
+</$wikify>
+</$wikify>

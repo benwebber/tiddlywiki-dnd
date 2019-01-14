@@ -16,7 +16,7 @@ Buttons/NewSpell/Tooltip: Create a new spell
 
 Check/DC: DC
 
-EditCurrentTiddler: Edit <<currentTiddler>>
+EditCurrentTiddler: Edit <<sourceTiddler>>
 
 Creature/Size/Tiny: Tiny
 Creature/Size/Small: Small
