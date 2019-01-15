@@ -9,6 +9,7 @@ clean:
 	$(RM) -r build/
 
 index.html: $(SOURCES)
+	tsc --version
 	mkdir -p build/plugins/dnd
 	cp -r doc/* build/
 	cp -r src/* build/plugins/dnd/
@@ -19,4 +20,7 @@ lint:
 	tslint --format stylish src/**/*.ts test/**/*.ts
 
 test:
+	tsc --version
+	jest --version
+	npm show ts-jest version
 	jest
