@@ -1,7 +1,6 @@
 .PHONY: all clean lint test
 
-SOURCES := $(wildcard doc/* src/*)
-
+SOURCES := $(shell find doc src)
 
 all: index.html
 
