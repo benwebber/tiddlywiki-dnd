@@ -2,6 +2,15 @@ title: $:/plugins/benwebber/dnd/Changelog
 
 ! Unreleased
 
+!! Added
+
+* Added `dnd.lingo` macro to look up language strings bundled with plugin.
+
+!! Changed
+
+* Refactored localization code to work with core language switcher. Nearly all
+user-facing strings use this framework now.
+
 !! Removed
 
 * Replaced `dnd.dspell` and `dnd.fspell` templates with a single template that determines the input tiddler's type.
