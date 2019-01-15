@@ -20,7 +20,7 @@ will be empty. Delete empty fields.
 \end
 
 \define dnd.spell()
-{{||$:/plugins/benwebber/dnd/templates/dnd.fspell}}
+{{||$:/plugins/benwebber/dnd/templates/dnd.spell}}
 
 <$set name="sourceTiddler" value=<<currentTiddler>>>
 <$button actions=<<spell-actions>>><<dnd.lingo EditCurrentTiddler>></$button>

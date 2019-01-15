@@ -1,0 +1,78 @@
+title: $:/plugins/benwebber/dnd/templates/dnd.statblock
+
+\define field-statblock()
+
+<$macrocall
+  $name="dnd.statblock"
+  size={{!!dnd.creature.size}}
+  type={{!!dnd.creature.type}}
+  tags={{!!dnd.creature.tags}}
+  alignment={{!!dnd.creature.alignment}}
+  ac={{!!dnd.creature.ac}}
+  hp={{!!dnd.creature.hp}}
+  speed={{!!dnd.creature.speed}}
+  str={{!!dnd.creature.str}}
+  dex={{!!dnd.creature.dex}}
+  con={{!!dnd.creature.con}}
+  int={{!!dnd.creature.int}}
+  wis={{!!dnd.creature.wis}}
+  cha={{!!dnd.creature.cha}}
+  saves={{!!dnd.creature.saves}}
+  skills={{!!dnd.creature.skills}}
+  dimm={{!!dnd.creature.dimm}}
+  dres={{!!dnd.creature.dres}}
+  dvul={{!!dnd.creature.dvul}}
+  cimm={{!!dnd.creature.cimm}}
+  cres={{!!dnd.creature.cres}}
+  cvul={{!!dnd.creature.cvul}}
+  senses={{!!dnd.creature.senses}}
+  languages={{!!dnd.creature.languages}}
+  challenge={{!!dnd.creature.challenge}}
+/>
+
+\end
+
+\define data-statblock()
+
+<$macrocall
+  $name="dnd.statblock"
+  size={{##size}}
+  type={{##type}}
+  tags={{##tags}}
+  alignment={{##alignment}}
+  ac={{##ac}}
+  hp={{##hp}}
+  speed={{##speed}}
+  str={{##str}}
+  dex={{##dex}}
+  con={{##con}}
+  int={{##int}}
+  wis={{##wis}}
+  cha={{##cha}}
+  saves={{##saves}}
+  skills={{##skills}}
+  dimm={{##dimm}}
+  dres={{##dres}}
+  dvul={{##dvul}}
+  cimm={{##cimm}}
+  cres={{##cres}}
+  cvul={{##cvul}}
+  senses={{##senses}}
+  languages={{##languages}}
+  challenge={{##challenge}}
+/>
+
+\end
+
+<$reveal type="match" state="!!type" text="text/vnd.tiddlywiki" default="text/vnd.tiddlywiki">
+
+<<field-statblock>>
+</$reveal>
+<$reveal type="match" state="!!type" text="application/x-tiddler-dictionary">
+
+<<data-statblock>>
+</$reveal>
+<$reveal type="match" state="!!type" text="application/json">
+
+<<data-statblock>>
+</$reveal>

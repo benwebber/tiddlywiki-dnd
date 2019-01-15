@@ -1,0 +1,49 @@
+title: $:/plugins/benwebber/dnd/templates/dnd.spell
+
+\define field-spell()
+
+<$macrocall
+  $name="dnd.spellblock"
+  level={{!!dnd.spell.level}}
+  school={{!!dnd.spell.school}}
+  cast={{!!dnd.spell.cast}}
+  ritual={{!!dnd.spell.ritual}}
+  range={{!!dnd.spell.range}}
+  verbal={{!!dnd.spell.verbal}}
+  somatic={{!!dnd.spell.somatic}}
+  material={{!!dnd.spell.material}}
+  duration={{!!dnd.spell.duration}}
+/>
+
+\end
+
+\define data-spell()
+
+<$macrocall
+  $name="dnd.spellblock"
+  level={{##level}}
+  school={{##school}}
+  cast={{##cast}}
+  ritual={{##ritual}}
+  range={{##range}}
+  components={{##components}}
+  verbal={{##verbal}}
+  somatic={{##somatic}}
+  material={{##material}}
+  duration={{##duration}}
+/>
+
+\end
+
+<$reveal type="match" state="!!type" text="text/vnd.tiddlywiki" default="text/vnd.tiddlywiki">
+
+<<field-spell>>
+</$reveal>
+<$reveal type="match" state="!!type" text="application/x-tiddler-dictionary">
+
+<<data-spell>>
+</$reveal>
+<$reveal type="match" state="!!type" text="application/json">
+
+<<data-spell>>
+</$reveal>

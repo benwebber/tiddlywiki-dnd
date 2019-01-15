@@ -122,7 +122,7 @@ Finally, the macro supports unusual ability and skill combinations, such as aski
 
 Helper macro to create a standalone creature tiddler.
 
-This macro uses the [[dnd.fstatblock|$:/plugins/benwebber/dnd/templates/dnd.fstatblock]] template, so the creature's stats will be stored as tiddler fields.
+This macro uses the [[dnd.statblock|$:/plugins/benwebber/dnd/templates/dnd.statblock]] template and stores the creature's attributes as tiddler fields.
 It also adds a convenient button to edit the stats.
 
 It is ''not'' necessary to use this macro if you use the automatic view template.
@@ -131,7 +131,7 @@ It is ''not'' necessary to use this macro if you use the automatic view template
 
 Helper macro to create a standalone spell tiddler.
 
-This macro uses the [[dnd.fspell|$:/plugins/benwebber/dnd/templates/dnd.fspell]] template, so the spell's attributes will be stored as tiddler fields.
+This macro uses the [[dnd.spell|$:/plugins/benwebber/dnd/templates/dnd.spell]] template and stores the spell's attributes as tiddler fields.
 It also adds a convenient button to edit the attributes.
 
 It is ''not'' necessary to use this macro if you use the automatic view template.
