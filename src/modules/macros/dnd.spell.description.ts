@@ -9,14 +9,15 @@ export const params = [
 export function run(
   level: string,
   school: string,
-  ritual: boolean,
+  ritual: string,
 ) {
+  const isRitual = ritual === "true";
   // tslint:disable no-shadowed-variable
   const isCantrip = (level) => parseInt(level, 10) === 0;
   let template: string;
   if (isCantrip(level)) {
     template = "Spell/DescriptionFormat/Cantrip";
-  } else if (ritual) {
+  } else if (isRitual) {
     template = "Spell/DescriptionFormat/Ritual";
   } else {
     template = "Spell/DescriptionFormat/Default";

@@ -35,15 +35,15 @@ export function run(
   size: string,
   type: string,
   alignment: string,
-  ac: number,
+  ac: string,
   hp: string,
   speed: string,
-  str: number,
-  dex: number,
-  con: number,
-  int: number,
-  wis: number,
-  cha: number,
+  str: string,
+  dex: string,
+  con: string,
+  int: string,
+  wis: string,
+  cha: string,
   senses: string,
   languages: string,
   challenge: string,
@@ -57,19 +57,26 @@ export function run(
   cres: string,
   cvul: string,
 ) {
+  const nAC = Number.parseInt(ac, 10);
+  const nStr = Number.parseInt(str, 10);
+  const nDex = Number.parseInt(dex, 10);
+  const nCon = Number.parseInt(con, 10);
+  const nInt = Number.parseInt(int, 10);
+  const nWis = Number.parseInt(wis, 10);
+  const nCha = Number.parseInt(cha, 10);
   const statblock = new StatBlock(
     size,
     type,
     alignment,
-    ac,
+    nAC,
     hp,
     speed,
-    str,
-    dex,
-    con,
-    int,
-    wis,
-    cha,
+    nStr,
+    nDex,
+    nCon,
+    nInt,
+    nWis,
+    nCha,
     senses,
     languages,
     challenge,

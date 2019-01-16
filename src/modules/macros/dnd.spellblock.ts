@@ -19,21 +19,25 @@ export function run(
   level: string,
   school: string,
   cast: string,
-  ritual: boolean,
+  ritual: string,
   range: string,
-  verbal: boolean,
-  somatic: boolean,
+  verbal: string,
+  somatic: string,
   material: string,
   duration: string,
 ) {
+  const isRitual = ritual === "true";
+  const isSomatic = somatic === "true";
+  const isVerbal = verbal === "true";
+  const nLevel = Number.parseInt(level, 10);
   const spell = new Spell(
-    level,
+    nLevel,
     school,
     cast,
-    ritual,
+    isRitual,
     range,
-    verbal,
-    somatic,
+    isVerbal,
+    isSomatic,
     material,
     duration,
   );

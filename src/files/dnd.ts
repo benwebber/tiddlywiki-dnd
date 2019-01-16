@@ -64,7 +64,7 @@ const SKILL_REGEX = new RegExp(`^(${Object.keys(SKILL_CODES_TO_CAPTIONS).join("|
 
 export class Spell {
   constructor(
-    public level: string,
+    public level: number,
     public school: string,
     public cast: string,
     public ritual: boolean,
@@ -76,13 +76,13 @@ export class Spell {
   ) {}
 
   get isCantrip() {
-    const nLevel = parseInt(this.level, 10);
-    return !isNaN(nLevel) && nLevel === 0;
+    return !isNaN(this.level) && this.level === 0;
   }
 
   public render() {
+    const descriptionLevel = Number.isNaN(this.level) ? "" : this.level;
     let output = [
-      `//<<dnd.spell.description ${this.level} ${this.school} ${this.ritual}>>//`,
+      `//<<dnd.spell.description level:"${descriptionLevel}" school:"${this.school}" ritual:"${this.ritual}">>//`,
       "",
     ];
 
