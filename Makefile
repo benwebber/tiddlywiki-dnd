@@ -10,6 +10,7 @@ clean:
 
 index.html: $(SOURCES)
 	tsc --version
+	tiddlywiki --version
 	mkdir -p build/plugins/dnd
 	cp -r doc/* build/
 	cp -r src/* build/plugins/dnd/
