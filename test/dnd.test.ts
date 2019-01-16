@@ -93,7 +93,8 @@ describe("check", () => {
     {args: ["cha", "ath", 15], expected: "<<dnd.lingo Check/DC>> 15 <<dnd.lingo Ability/CHA>> (<<dnd.lingo Skill/Athletics>>)"},
   ].forEach((example) => {
     it(`should return "${example.expected}" for (${example.args[0]}, ${example.args[1]}, ${example.args[2]})`, () => {
-      expect(dnd.check(...example.args)).toBe(example.expected);
+      const [ability, skill, dc] = example.args;
+      expect(dnd.check(ability, skill, dc)).toBe(example.expected);
     });
   });
 });
