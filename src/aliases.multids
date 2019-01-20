@@ -1,0 +1,7 @@
+title: $:/plugins/benwebber/dnd/
+
+# Deprecated in 1.1.0; remove in 2.0.0.
+templates/dnd.dspell: {{||$:/plugins/benwebber/dnd/templates/dnd.spell}}
+templates/dnd.fspell: {{||$:/plugins/benwebber/dnd/templates/dnd.spell}}
+templates/dnd.dstatblock: {{||$:/plugins/benwebber/dnd/templates/dnd.statblock}}
+templates/dnd.fstatblock: {{||$:/plugins/benwebber/dnd/templates/dnd.statblock}}

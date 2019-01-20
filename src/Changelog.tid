@@ -13,15 +13,15 @@ title: $:/plugins/benwebber/dnd/Changelog
 * Make creature and spell tags configurable (<<issue 3>>).
 * Refactored localization code to work with core language switcher. Nearly all user-facing strings use this framework now (<<issue 2>>).
 
+!! Deprecated
+
+* Deprecated `dnd.dspell` and `dnd.fspell` in favour of a single template that determines the input tiddler's type. These templates will be removed in 2.0.0.
+* Deprecated `dnd.dstatblock` and `dnd.fstatblock` in favour of a single template that determines the input tiddler's type. These templates will be removed in 2.0.0.
+
 !! Fixed
 
 * `dnd.check` macro supports skills with spaces in the name (Animal Handling and Sleight of Hand).
 * Macros which expect boolean values now only consider the string "true" true (<<issue 5>>).
-
-!! Removed
-
-* Replaced `dnd.dspell` and `dnd.fspell` templates with a single template that determines the input tiddler's type.
-* Replaced `dnd.dstatblock` and `dnd.fstatblock` templates with a single template that determines the input tiddler's type.
 
 ! 1.0.0 (2018-08-31)
 
