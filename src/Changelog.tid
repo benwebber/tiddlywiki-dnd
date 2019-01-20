@@ -1,8 +1,11 @@
 title: $:/plugins/benwebber/dnd/Changelog
 
+\define latest() 1.0.0
+\define unreleased() [[Unreleased|https://github.com/benwebber/tiddlywiki-dnd/compare/v$(latest)$..HEAD]]
 \define issue(number) [[#$number$|https://github.com/benwebber/tiddlywiki-dnd/issues/$number$]]
+\define release(version) [[$version$|https://github.com/benwebber/tiddlywiki-dnd/releases/tag/v$version$]]
 
-! Unreleased
+! <<unreleased>>
 
 !! Added
 
@@ -23,7 +26,7 @@ title: $:/plugins/benwebber/dnd/Changelog
 * `dnd.check` macro supports skills with spaces in the name (Animal Handling and Sleight of Hand).
 * Macros which expect boolean values now only consider the string "true" true (<<issue 5>>).
 
-! 1.0.0 (2018-08-31)
+! <<release 1.0.0>> (2018-08-31)
 
 !! Added
 
@@ -38,14 +41,14 @@ title: $:/plugins/benwebber/dnd/Changelog
 !! Changed
 
 * Moved macro functionality to testable library.
-* Ported to TypeScript.
-* Create "field" creature tiddlers by default. (Store creature attributes as tiddler field values.)
+* Ported to ~TypeScript.
+* Store creature attributes as tiddler field values by default.
 
 !! Fixed
 
 * Use proper minus sign for ability/roll modifiers.
 * `dnd.average`: Pass through unrecognized roll expressions (support arbitrary values).
 
-! 0.1.0 (2018-07-31)
+! <<release 0.1.0>> (2018-07-31)
 
 Initial release.
