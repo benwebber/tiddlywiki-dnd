@@ -1,4 +1,5 @@
 title: $:/plugins/benwebber/dnd/
+tags: $:/plugins/benwebber/dnd/Tags/Deprecated
 
 # Deprecated in 1.1.0; remove in 2.0.0.
 templates/dnd.dspell: {{||$:/plugins/benwebber/dnd/templates/dnd.spell}}
