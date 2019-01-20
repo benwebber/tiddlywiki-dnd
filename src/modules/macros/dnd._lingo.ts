@@ -1,6 +1,6 @@
 declare const $tw: any;
 
-export const name = "dnd.lingo";
+export const name = "dnd._lingo";
 export const params = [
   {name: "title"},
 ];

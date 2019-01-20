@@ -9,9 +9,9 @@ tags: $:/tags/PageControls
 />
 \end
 
-<$wikify name="text" text=<<dnd.lingo Buttons/NewCreature/Text>>>
-<$wikify name="title" text=<<dnd.lingo Buttons/NewCreature/Title>>>
-<$wikify name="tooltip" text=<<dnd.lingo Buttons/NewCreature/Tooltip>>>
+<$wikify name="text" text=<<dnd._lingo Buttons/NewCreature/Text>>>
+<$wikify name="title" text=<<dnd._lingo Buttons/NewCreature/Title>>>
+<$wikify name="tooltip" text=<<dnd._lingo Buttons/NewCreature/Tooltip>>>
 <$button actions=<<actions>> class=<<tv-config-toolbar-class>> tooltip=<<tooltip>>>
 <$list filter="[<tv-config-toolbar-icons>prefix[yes]]">
 {{$:/plugins/benwebber/dnd/images/new-creature}}

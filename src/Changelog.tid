@@ -7,10 +7,6 @@ title: $:/plugins/benwebber/dnd/Changelog
 
 ! <<unreleased>>
 
-!! Added
-
-* Added `dnd.lingo` macro to look up language strings bundled with plugin.
-
 !! Changed
 
 * Make creature and spell tags configurable (<<issue 3>>).

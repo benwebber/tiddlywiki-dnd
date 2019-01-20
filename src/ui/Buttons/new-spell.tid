@@ -9,9 +9,9 @@ tags: $:/tags/PageControls
 />
 \end
 
-<$wikify name="text" text=<<dnd.lingo Buttons/NewSpell/Text>>>
-<$wikify name="title" text=<<dnd.lingo Buttons/NewSpell/Title>>>
-<$wikify name="tooltip" text=<<dnd.lingo Buttons/NewSpell/Tooltip>>>
+<$wikify name="text" text=<<dnd._lingo Buttons/NewSpell/Text>>>
+<$wikify name="title" text=<<dnd._lingo Buttons/NewSpell/Title>>>
+<$wikify name="tooltip" text=<<dnd._lingo Buttons/NewSpell/Tooltip>>>
 <$button actions=<<actions>> class=<<tv-config-toolbar-class>> tooltip=<<tooltip>>>
 <$list filter="[<tv-config-toolbar-icons>prefix[yes]]">
 {{$:/plugins/benwebber/dnd/images/new-spell}}

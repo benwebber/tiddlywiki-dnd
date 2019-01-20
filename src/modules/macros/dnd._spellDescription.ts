@@ -22,17 +22,17 @@ export function run(
   } else {
     template = "Spell/DescriptionFormat/Default";
   }
-  const format = this.wiki.renderText("text/plain", "text/vnd.tiddlywiki", `<<dnd.lingo ${template}>>`);
+  const format = this.wiki.renderText("text/plain", "text/vnd.tiddlywiki", `<<dnd._lingo ${template}>>`);
   const schoolName = this.wiki.renderText(
     "text/plain",
     "text/vnd.tiddlywiki",
-    `<<dnd.lingo Spell/School/${capitalize(school)}>>`,
+    `<<dnd._lingo Spell/School/${capitalize(school)}>>`,
   );
 
   const replacements = {
     School: schoolName,
     level,
-    levelSuffix: `<<dnd.lingo Spell/LevelSuffix/${level}>>`,
+    levelSuffix: `<<dnd._lingo Spell/LevelSuffix/${level}>>`,
     school: schoolName.toLocaleLowerCase(),
   };
   const rendered = format.replace(/\$(\w+)\$/g, (_, key) => replacements[key]);

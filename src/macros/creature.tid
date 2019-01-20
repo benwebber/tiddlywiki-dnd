@@ -23,6 +23,6 @@ will be empty. Delete empty fields.
 {{||$:/plugins/benwebber/dnd/templates/dnd.statblock}}
 
 <$set name="sourceTiddler" value=<<currentTiddler>>>
-<$button actions=<<creature-actions>>><<dnd.lingo EditCurrentTiddler>></$button>
+<$button actions=<<creature-actions>>><<dnd._lingo EditCurrentTiddler>></$button>
 </$set>
 \end

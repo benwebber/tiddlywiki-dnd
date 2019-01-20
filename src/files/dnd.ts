@@ -88,13 +88,13 @@ export class Spell {
 
     const componentFragments = [];
     if (this.verbal) {
-      componentFragments.push("<<dnd.lingo Spell/Verbal>>");
+      componentFragments.push("<<dnd._lingo Spell/Verbal>>");
     }
     if (this.somatic) {
-      componentFragments.push("<<dnd.lingo Spell/Somatic>>");
+      componentFragments.push("<<dnd._lingo Spell/Somatic>>");
     }
     if (this.material) {
-      componentFragments.push(`<<dnd.lingo Spell/Material>> (${this.material})`);
+      componentFragments.push(`<<dnd._lingo Spell/Material>> (${this.material})`);
     }
     const components = componentFragments.join(", ");
 
@@ -217,7 +217,7 @@ export class StatBlock {
 
   private renderAbilities(abilities) {
     return [
-      "| " + abilities.map((field) => `<<dnd.lingo ${field.caption}>>`).join(" | ") + " |h",
+      "| " + abilities.map((field) => `<<dnd._lingo ${field.caption}>>`).join(" | ") + " |h",
       "| " + abilities.map((field) => ability(field.value)).join(" | ") + " |",
     ];
   }
@@ -273,18 +273,18 @@ export function check(ability, skill, dc) {
     return "";
   }
   const abilityCode = abilityMatch[1].toLocaleUpperCase();
-  const fragments = [`<<dnd.lingo Ability/${abilityCode}>>`];
+  const fragments = [`<<dnd._lingo Ability/${abilityCode}>>`];
 
   if (skill) {
     const skillMatch = skill.match(SKILL_REGEX);
     if (skillMatch) {
       const skillCode = skillMatch[1].toLocaleLowerCase();
-      fragments.push(`(<<dnd.lingo Skill/${SKILL_CODES_TO_CAPTIONS[skillCode]}>>)`);
+      fragments.push(`(<<dnd._lingo Skill/${SKILL_CODES_TO_CAPTIONS[skillCode]}>>)`);
     }
   }
 
   if (dc) {
-    fragments.unshift(`<<dnd.lingo Check/DC>> ${dc}`);
+    fragments.unshift(`<<dnd._lingo Check/DC>> ${dc}`);
   }
   return fragments.join(" ");
 }
@@ -294,7 +294,7 @@ function renderFields(fields, alwaysRender) {
   const output = [];
   for (const field of fields) {
     if (alwaysRender || field.value) {
-      output.push(`|!<<dnd.lingo ${field.caption}>> |${field.value} |`);
+      output.push(`|!<<dnd._lingo ${field.caption}>> |${field.value} |`);
     }
   }
   return output;

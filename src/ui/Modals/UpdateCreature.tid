@@ -1,5 +1,5 @@
 title: $:/plugins/benwebber/dnd/ui/Modals/UpdateCreature
-subtitle: <<dnd.lingo Modals/Subtitle>>
+subtitle: <<dnd._lingo Modals/Subtitle>>
 
 \define input(field)
 <$edit-text tag=input tiddler=<<tiddler>> field=<<__field__>> />
@@ -7,31 +7,31 @@ subtitle: <<dnd.lingo Modals/Subtitle>>
 
 \define select-size()
 <$select tiddler=<<tiddler>> field="dnd.creature.size">
-  <option value="tiny"><<dnd.lingo Creature/Size/Tiny>></option>
-  <option value="small"><<dnd.lingo Creature/Size/Small>></option>
-  <option value="medium"><<dnd.lingo Creature/Size/Medium>></option>
-  <option value="large"><<dnd.lingo Creature/Size/Large>></option>
-  <option value="huge"><<dnd.lingo Creature/Size/Huge>></option>
-  <option value="gargantuan"><<dnd.lingo Creature/Size/Gargantuan>></option>
+  <option value="tiny"><<dnd._lingo Creature/Size/Tiny>></option>
+  <option value="small"><<dnd._lingo Creature/Size/Small>></option>
+  <option value="medium"><<dnd._lingo Creature/Size/Medium>></option>
+  <option value="large"><<dnd._lingo Creature/Size/Large>></option>
+  <option value="huge"><<dnd._lingo Creature/Size/Huge>></option>
+  <option value="gargantuan"><<dnd._lingo Creature/Size/Gargantuan>></option>
 </$select>
 \end
 
 \define select-type()
 <$select tiddler=<<tiddler>> field="dnd.creature.type">
-  <option value="aberration"><<dnd.lingo Creature/Type/Aberration>></option>
-  <option value="beast"><<dnd.lingo Creature/Type/Beast>></option>
-  <option value="celestial"><<dnd.lingo Creature/Type/Celestial>></option>
-  <option value="construct"><<dnd.lingo Creature/Type/Construct>></option>
-  <option value="dragon"><<dnd.lingo Creature/Type/Dragon>></option>
-  <option value="elemental"><<dnd.lingo Creature/Type/Elemental>></option>
-  <option value="fey"><<dnd.lingo Creature/Type/Fey>></option>
-  <option value="fiend"><<dnd.lingo Creature/Type/Fiend>></option>
-  <option value="giant"><<dnd.lingo Creature/Type/Giant>></option>
-  <option value="humanoid"><<dnd.lingo Creature/Type/Humanoid>></option>
-  <option value="monstrosity"><<dnd.lingo Creature/Type/Monstrosity>></option>
-  <option value="ooze"><<dnd.lingo Creature/Type/Ooze>></option>
-  <option value="plant"><<dnd.lingo Creature/Type/Plant>></option>
-  <option value="undead"><<dnd.lingo Creature/Type/Undead>></option>
+  <option value="aberration"><<dnd._lingo Creature/Type/Aberration>></option>
+  <option value="beast"><<dnd._lingo Creature/Type/Beast>></option>
+  <option value="celestial"><<dnd._lingo Creature/Type/Celestial>></option>
+  <option value="construct"><<dnd._lingo Creature/Type/Construct>></option>
+  <option value="dragon"><<dnd._lingo Creature/Type/Dragon>></option>
+  <option value="elemental"><<dnd._lingo Creature/Type/Elemental>></option>
+  <option value="fey"><<dnd._lingo Creature/Type/Fey>></option>
+  <option value="fiend"><<dnd._lingo Creature/Type/Fiend>></option>
+  <option value="giant"><<dnd._lingo Creature/Type/Giant>></option>
+  <option value="humanoid"><<dnd._lingo Creature/Type/Humanoid>></option>
+  <option value="monstrosity"><<dnd._lingo Creature/Type/Monstrosity>></option>
+  <option value="ooze"><<dnd._lingo Creature/Type/Ooze>></option>
+  <option value="plant"><<dnd._lingo Creature/Type/Plant>></option>
+  <option value="undead"><<dnd._lingo Creature/Type/Undead>></option>
 </$select>
 \end
 
@@ -110,34 +110,34 @@ subtitle: <<dnd.lingo Modals/Subtitle>>
 </$select>
 \end
 
-<<dnd.lingo Modals/Help>>
+<<dnd._lingo Modals/Help>>
 
-|!<<dnd.lingo StatBlock/Size>> |<<select-size>> |
-|!<<dnd.lingo StatBlock/Type>> |<<select-type>> |
-|!<<dnd.lingo StatBlock/Tags>> |<<input dnd.creature.tags>> |
-|!<<dnd.lingo StatBlock/Alignment>> |<<input dnd.creature.alignment>> |
-
----
-
-|!<<dnd.lingo StatBlock/AC>> |<<input dnd.creature.ac>> |
-|!<<dnd.lingo StatBlock/HP>> |<<input dnd.creature.hp>> |
-|!<<dnd.lingo StatBlock/Speed>> |<<input dnd.creature.speed>> |
+|!<<dnd._lingo StatBlock/Size>> |<<select-size>> |
+|!<<dnd._lingo StatBlock/Type>> |<<select-type>> |
+|!<<dnd._lingo StatBlock/Tags>> |<<input dnd.creature.tags>> |
+|!<<dnd._lingo StatBlock/Alignment>> |<<input dnd.creature.alignment>> |
 
 ---
 
-| <<dnd.lingo StatBlock/STR>> | <<dnd.lingo StatBlock/DEX>> | <<dnd.lingo StatBlock/CON>> | <<dnd.lingo StatBlock/INT>> | <<dnd.lingo StatBlock/WIS>> | <<dnd.lingo StatBlock/CHA>> |h
+|!<<dnd._lingo StatBlock/AC>> |<<input dnd.creature.ac>> |
+|!<<dnd._lingo StatBlock/HP>> |<<input dnd.creature.hp>> |
+|!<<dnd._lingo StatBlock/Speed>> |<<input dnd.creature.speed>> |
+
+---
+
+| <<dnd._lingo StatBlock/STR>> | <<dnd._lingo StatBlock/DEX>> | <<dnd._lingo StatBlock/CON>> | <<dnd._lingo StatBlock/INT>> | <<dnd._lingo StatBlock/WIS>> | <<dnd._lingo StatBlock/CHA>> |h
 | <<select-ability dnd.creature.str>> | <<select-ability dnd.creature.dex>> | <<select-ability dnd.creature.con>> | <<select-ability dnd.creature.int>> | <<select-ability dnd.creature.wis>> | <<select-ability dnd.creature.cha>> |
 
 ---
 
-|!<<dnd.lingo StatBlock/SavingThrows>> |<<input dnd.creature.saves>> |
-|!<<dnd.lingo StatBlock/Skills>> |<<input dnd.creature.skills>> |
-|!<<dnd.lingo StatBlock/DamageImmunities>> |<<input dnd.creature.dimm>> |
-|!<<dnd.lingo StatBlock/DamageResistances>> |<<input dnd.creature.dres>> |
-|!<<dnd.lingo StatBlock/DamageVulnerabilities>> |<<input dnd.creature.dvul>> |
-|!<<dnd.lingo StatBlock/ConditionImmunities>> |<<input dnd.creature.cimm>> |
-|!<<dnd.lingo StatBlock/ConditionResistances>> |<<input dnd.creature.cres>> |
-|!<<dnd.lingo StatBlock/ConditionVulnerabilities>> |<<input dnd.creature.cvul>> |
-|!<<dnd.lingo StatBlock/Senses>> |<<input dnd.creature.senses>> |
-|!<<dnd.lingo StatBlock/Languages>> |<<input dnd.creature.languages>> |
-|!<<dnd.lingo StatBlock/Challenge>> |<<select-challenge>> |
+|!<<dnd._lingo StatBlock/SavingThrows>> |<<input dnd.creature.saves>> |
+|!<<dnd._lingo StatBlock/Skills>> |<<input dnd.creature.skills>> |
+|!<<dnd._lingo StatBlock/DamageImmunities>> |<<input dnd.creature.dimm>> |
+|!<<dnd._lingo StatBlock/DamageResistances>> |<<input dnd.creature.dres>> |
+|!<<dnd._lingo StatBlock/DamageVulnerabilities>> |<<input dnd.creature.dvul>> |
+|!<<dnd._lingo StatBlock/ConditionImmunities>> |<<input dnd.creature.cimm>> |
+|!<<dnd._lingo StatBlock/ConditionResistances>> |<<input dnd.creature.cres>> |
+|!<<dnd._lingo StatBlock/ConditionVulnerabilities>> |<<input dnd.creature.cvul>> |
+|!<<dnd._lingo StatBlock/Senses>> |<<input dnd.creature.senses>> |
+|!<<dnd._lingo StatBlock/Languages>> |<<input dnd.creature.languages>> |
+|!<<dnd._lingo StatBlock/Challenge>> |<<select-challenge>> |

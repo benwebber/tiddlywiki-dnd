@@ -9,8 +9,8 @@ icon: $:/core/images/options-button
 <$edit-text tiddler="$:/plugins/benwebber/dnd/config/$key$" field="text" tag="input" />
 \end
 
-|<<dnd.lingo Settings/Version>> |{{$:/plugins/benwebber/dnd!!version}} |
-|<<dnd.lingo Settings/CreatureTag>> |<<edit-setting "Tags/Creatures">> |
-|<<dnd.lingo Settings/SpellTag>> |<<edit-setting "Tags/Spells">> |
-|<<dnd.lingo Settings/RenderCreatures>> | <<render-boolean "ViewTemplates/StatBlock">> |
-|<<dnd.lingo Settings/RenderSpells>> | <<render-boolean "ViewTemplates/Spell">> |
+|<<dnd._lingo Settings/Version>> |{{$:/plugins/benwebber/dnd!!version}} |
+|<<dnd._lingo Settings/CreatureTag>> |<<edit-setting "Tags/Creatures">> |
+|<<dnd._lingo Settings/SpellTag>> |<<edit-setting "Tags/Spells">> |
+|<<dnd._lingo Settings/RenderCreatures>> | <<render-boolean "ViewTemplates/StatBlock">> |
+|<<dnd._lingo Settings/RenderSpells>> | <<render-boolean "ViewTemplates/Spell">> |
