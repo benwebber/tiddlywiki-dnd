@@ -15,6 +15,7 @@
   "license": "MIT",
   "devDependencies": {
     "@types/jest": "^23.3.12",
+    "@types/rosie": "0.0.36",
     "jest": "^23.6.0",
     "rosie": "^2.0.1",
     "tiddlywiki": "^5.1.19",

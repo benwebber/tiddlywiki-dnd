@@ -8,6 +8,7 @@ export const params = [
   {name: "dc"},
 ];
 
-export function run(ability, skill, dc) {
-  return check(ability, skill, dc);
+export function run(ability: string, skill: string, dc: string): string {
+  const nDC = Number.parseInt(dc, 10);
+  return check(ability, skill, nDC);
 }

@@ -25,12 +25,12 @@ describe("StatBlock", () => {
 
 describe("ability", () => {
   [
-    {score: "1", expected: "1 (−5)"},
-    {score: "5", expected: "5 (−3)"},
-    {score: "10", expected:  "10 (+0)"},
-    {score: "15", expected:  "15 (+2)"},
-    {score: "20", expected:  "20 (+5)"},
-    {score: "30", expected:  "30 (+10)"},
+    {score: 1, expected: "1 (−5)"},
+    {score: 5, expected: "5 (−3)"},
+    {score: 10, expected:  "10 (+0)"},
+    {score: 15, expected:  "15 (+2)"},
+    {score: 20, expected:  "20 (+5)"},
+    {score: 30, expected:  "30 (+10)"},
   ].forEach((example) => {
     it(`should return "${example.expected}" for score "${example.score}"`, () => {
       expect(dnd.ability(example.score)).toBe(example.expected);
@@ -93,7 +93,9 @@ describe("check", () => {
     {args: ["cha", "ath", 15], expected: "<<dnd._lingo Check/DC>> 15 <<dnd._lingo Ability/CHA>> (<<dnd._lingo Skill/Athletics>>)"},
   ].forEach((example) => {
     it(`should return "${example.expected}" for (${example.args[0]}, ${example.args[1]}, ${example.args[2]})`, () => {
-      const [ability, skill, dc] = example.args;
+      const ability = example.args[0] as string;
+      const skill = example.args[1] as string;
+      const dc = example.args[2] as number;
       expect(dnd.check(ability, skill, dc)).toBe(example.expected);
     });
   });

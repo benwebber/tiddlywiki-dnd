@@ -6,14 +6,10 @@ export const params = [
   {name: "school"},
   {name: "ritual"},
 ];
-export function run(
-  level: string,
-  school: string,
-  ritual: string,
-) {
+export function run(this: any, level: string, school: string, ritual: string) {
   const isRitual = ritual === "true";
   // tslint:disable no-shadowed-variable
-  const isCantrip = (level) => parseInt(level, 10) === 0;
+  const isCantrip = (level: string) => parseInt(level, 10) === 0;
   let template: string;
   if (isCantrip(level)) {
     template = "Spell/DescriptionFormat/Cantrip";
@@ -29,12 +25,12 @@ export function run(
     `<<dnd._lingo Spell/School/${capitalize(school)}>>`,
   );
 
-  const replacements = {
+  const replacements: {[index: string]: string | number} = {
     School: schoolName,
     level,
     levelSuffix: `<<dnd._lingo Spell/LevelSuffix/${level}>>`,
     school: schoolName.toLocaleLowerCase(),
   };
-  const rendered = format.replace(/\$(\w+)\$/g, (_, key) => replacements[key]);
+  const rendered = format.replace(/\$(\w+)\$/g, (_: string, key: string) => replacements[key]);
   return rendered;
 }

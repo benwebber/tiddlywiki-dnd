@@ -1,5 +1,5 @@
 /* tslint:disable:object-literal-sort-keys */
-const CR_TO_XP = {
+const CR_TO_XP: {[index: string]: number} = {
   "0": 0,
   "1/8": 25,
   "1/4": 50,
@@ -38,7 +38,7 @@ const CR_TO_XP = {
 /* tslint:enable */
 
 
-const SKILL_CODES_TO_CAPTIONS = {
+const SKILL_CODES_TO_CAPTIONS: {[index: string]: string} = {
   ac: "Acrobatics",
   an: "AnimalHandling",
   ar: "Arcana",
@@ -62,6 +62,12 @@ const ABILITY_REGEX = /^(STR|DEX|CON|INT|WIS|CHA).*/i;
 const SKILL_REGEX = new RegExp(`^(${Object.keys(SKILL_CODES_TO_CAPTIONS).join("|")}).*`, "i");
 
 
+interface ITableRow {
+  caption: string;
+  value: string | number;
+}
+
+
 export class Spell {
   constructor(
     public level: number,
@@ -75,18 +81,18 @@ export class Spell {
     public duration: string,
   ) {}
 
-  get isCantrip() {
+  get isCantrip(): boolean {
     return !isNaN(this.level) && this.level === 0;
   }
 
-  public render() {
+  public render(): string {
     const descriptionLevel = Number.isNaN(this.level) ? "" : this.level;
     let output = [
       `//<<dnd._spellDescription level:"${descriptionLevel}" school:"${this.school}" ritual:"${this.ritual}">>//`,
       "",
     ];
 
-    const componentFragments = [];
+    const componentFragments: string[] = [];
     if (this.verbal) {
       componentFragments.push("<<dnd._lingo Spell/Verbal>>");
     }
@@ -140,7 +146,7 @@ export class StatBlock {
     public cvul: string,
   ) {}
 
-  get description() {
+  get description(): string {
     // TODO: Translate stored size, type values in description.
     const descriptionFragments = [this.size, this.type];
     if (this.tags) {
@@ -153,7 +159,7 @@ export class StatBlock {
     return description;
   }
 
-  public render() {
+  public render(): string {
     let output = [
       `//${capitalize(this.description)}//`,
       "",
@@ -211,28 +217,28 @@ export class StatBlock {
     return output.join("\n");
   }
 
-  private renderTags(tags) {
+  private renderTags(tags: string): string {
     return tags ? `(${tags})` : "";
   }
 
-  private renderAbilities(abilities) {
+  private renderAbilities(abilities: ITableRow[]): string[] {
     return [
       "| " + abilities.map((field) => `<<dnd._lingo ${field.caption}>>`).join(" | ") + " |h",
-      "| " + abilities.map((field) => ability(field.value)).join(" | ") + " |",
+      "| " + abilities.map((field) => ability(field.value as number)).join(" | ") + " |",
     ];
   }
 
 }
 
 
-export function ability(score) {
+export function ability(score: number): string {
   const mod = Math.floor((score - 10) / 2);
   const op = (mod >= 0) ? "+" : "−"; // minus sign (U+2212)
   return `${score} (${op}${Math.abs(mod)})`;
 }
 
 
-export function average(expr) {
+export function average(expr: string): string {
   const regexp = /(\d+)?d(\d+)\s?(?:(-|\+)\s?(\d+))?/i;
   const match = expr.match(regexp);
 
@@ -261,13 +267,13 @@ export function average(expr) {
 }
 
 
-export function capitalize(s) {
+export function capitalize(s: string): string {
   return s.charAt(0).toLocaleUpperCase() + s.slice(1);
 }
 
 
 // tslint:disable-next-line:no-shadowed-variable
-export function check(ability, skill, dc) {
+export function check(ability: string, skill?: string, dc?: number): string {
   const abilityMatch = ability.match(ABILITY_REGEX);
   if (!abilityMatch) {
     return "";
@@ -290,8 +296,8 @@ export function check(ability, skill, dc) {
 }
 
 
-function renderFields(fields, alwaysRender) {
-  const output = [];
+function renderFields(fields: ITableRow[], alwaysRender?: boolean): string[] {
+  const output: string[] = [];
   for (const field of fields) {
     if (alwaysRender || field.value) {
       output.push(`|!<<dnd._lingo ${field.caption}>> |${field.value} |`);
@@ -301,7 +307,7 @@ function renderFields(fields, alwaysRender) {
 }
 
 
-export function getXP(rating) {
+export function getXP(rating: string): number {
   rating = rating.replace(/['"]/g, "");
   return CR_TO_XP[rating];
 }
