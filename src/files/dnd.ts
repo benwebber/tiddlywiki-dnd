@@ -82,7 +82,7 @@ export class Spell {
   public render() {
     const descriptionLevel = Number.isNaN(this.level) ? "" : this.level;
     let output = [
-      `//<<dnd.spell.description level:"${descriptionLevel}" school:"${this.school}" ritual:"${this.ritual}">>//`,
+      `//<<dnd._spellDescription level:"${descriptionLevel}" school:"${this.school}" ritual:"${this.ritual}">>//`,
       "",
     ];
 

@@ -1,6 +1,6 @@
 import {capitalize} from "$:/plugins/benwebber/dnd/dnd.js";
 
-export const name = "dnd.spell.description";
+export const name = "dnd._spellDescription";
 export const params = [
   {name: "level"},
   {name: "school"},
