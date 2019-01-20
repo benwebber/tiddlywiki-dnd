@@ -1,5 +1,7 @@
 title: $:/plugins/benwebber/dnd/Changelog
 
+\define issue(number) [[#$number$|https://github.com/benwebber/tiddlywiki-dnd/issues/$number$]]
+
 ! Unreleased
 
 !! Added
@@ -8,8 +10,13 @@ title: $:/plugins/benwebber/dnd/Changelog
 
 !! Changed
 
-* Refactored localization code to work with core language switcher. Nearly all
-user-facing strings use this framework now.
+* Make creature and spell tags configurable (<<issue 3>>).
+* Refactored localization code to work with core language switcher. Nearly all user-facing strings use this framework now (<<issue 2>>).
+
+!! Fixed
+
+* `dnd.check` macro supports skills with spaces in the name (Animal Handling and Sleight of Hand).
+* Macros which expect boolean values now only consider the string "true" true (<<issue 5>>).
 
 !! Removed
 
