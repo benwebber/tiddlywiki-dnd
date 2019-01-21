@@ -1,7 +1,6 @@
 /* tslint:disable:max-line-length object-literal-sort-keys */
 import * as dnd from "../src/files/dnd";
 
-import SpellFactory from "./factories/spell";
 import StatBlockFactory from "./factories/statblock";
 
 
