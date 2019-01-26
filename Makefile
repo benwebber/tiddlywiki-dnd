@@ -2,6 +2,8 @@
 
 SOURCES := $(shell find doc src)
 
+export PATH := ./node_modules/.bin:$(PATH)
+
 all: index.html
 
 clean:
