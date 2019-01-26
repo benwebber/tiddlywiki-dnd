@@ -1,6 +1,6 @@
 # tiddlywiki-dnd
 
-![CircleCI](https://img.shields.io/circleci/project/github/benwebber/tiddlywiki-dnd/master.svg)
+[![CircleCI](https://img.shields.io/circleci/project/github/benwebber/tiddlywiki-dnd/master.svg)](https://circleci.com/gh/benwebber/tiddlywiki-dnd)
 [![codecov](https://codecov.io/gh/benwebber/tiddlywiki-dnd/branch/master/graph/badge.svg)](https://codecov.io/gh/benwebber/tiddlywiki-dnd)
 
 Manage *Dungeons & Dragons* campaigns with [TiddlyWiki](https://tiddlywiki.com/).
