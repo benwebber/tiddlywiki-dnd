@@ -232,9 +232,14 @@ export class StatBlock {
 
 
 export function ability(score: number): string {
+  return `${score} (${modifier(score)})`;
+}
+
+
+export function modifier(score: number): string {
   const mod = Math.floor((score - 10) / 2);
   const op = (mod >= 0) ? "+" : "−"; // minus sign (U+2212)
-  return `${score} (${op}${Math.abs(mod)})`;
+  return `${op}${Math.abs(mod)}`;
 }
 
 

@@ -7,6 +7,10 @@ title: $:/plugins/benwebber/dnd/Changelog
 
 ! <<unreleased>>
 
+!! Added
+
+* Added `dnd.modifier` macro to calculate ability score modifiers independently.
+
 !! Changed
 
 * Make creature and spell tags configurable (<<issue 3>>).

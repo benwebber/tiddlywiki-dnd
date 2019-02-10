@@ -127,6 +127,18 @@ It also adds a convenient button to edit the stats.
 
 It is ''not'' necessary to use this macro if you use the automatic view template.
 
+!! `dnd.modifier`
+
+Calculates the modifier for a given ability score.
+
+Generally you will want to use `dnd.ability` instead.
+
+|! Call|! Output|
+|`<<dnd.modifier 8>>`|<<dnd.modifier 8>>|
+|`<<dnd.modifier 10>>`|<<dnd.modifier 10>>|
+|`<<dnd.modifier 15>>`|<<dnd.modifier 15>>|
+|`<<dnd.modifier 20>>`|<<dnd.modifier 20>>|
+
 !! `dnd.spell`
 
 Helper macro to create a standalone spell tiddler.
