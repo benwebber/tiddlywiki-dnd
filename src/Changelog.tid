@@ -1,11 +1,15 @@
 title: $:/plugins/benwebber/dnd/Changelog
 
-\define latest() 1.0.0
 \define unreleased() [[Unreleased|https://github.com/benwebber/tiddlywiki-dnd/compare/v$(latest)$..HEAD]]
 \define issue(number) [[#$number$|https://github.com/benwebber/tiddlywiki-dnd/issues/$number$]]
 \define release(version) [[$version$|https://github.com/benwebber/tiddlywiki-dnd/releases/tag/v$version$]]
 
+<$vars latest={{$:/plugins/benwebber/dnd!!version}}>
+
 ! <<unreleased>>
+</$vars>
+
+! <<release 1.1.0>> (2019-02-15)
 
 !! Added
 
