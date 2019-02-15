@@ -9,6 +9,7 @@ title: $:/plugins/benwebber/dnd/Changelog
 
 !! Added
 
+* Added `dnd.attack` macro to typeset creature melee and ranged attacks.
 * Added `dnd.modifier` macro to calculate ability score modifiers independently.
 
 !! Changed

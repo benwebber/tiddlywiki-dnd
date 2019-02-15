@@ -39,6 +39,20 @@ Creature/Type/Ooze: Ooze
 Creature/Type/Plant: Plant
 Creature/Type/Undead: Undead
 
+Damage/Type/Acid: acid damage
+Damage/Type/Bludgeoning: bludgeoning damage
+Damage/Type/Cold: cold damage
+Damage/Type/Fire: fire damage
+Damage/Type/Force: force damage
+Damage/Type/Lightning: lightning damage
+Damage/Type/Necrotic: necrotic damage
+Damage/Type/Piercing: piercing damage
+Damage/Type/Poison: poison damage
+Damage/Type/Psychic: psychic damage
+Damage/Type/Radiant: radiant damage
+Damage/Type/Slashing: slashing damage
+Damage/Type/Thunder: thunder damage
+
 Modals/Subtitle: Editing <<tiddler>>
 Modals/Help: //Changes take effect immediately.//
 
@@ -123,5 +137,16 @@ StatBlock/DamageVulnerabilities: Damage Vulnerabilities
 StatBlock/ConditionImmunities: Condition Immunities
 StatBlock/ConditionResistances: Condition Resistances
 StatBlock/ConditionVulnerabilities: Condition Vulnerabilities
+StatBlock/Action/Damage: damage
+StatBlock/Action/DefaultTarget: one target
+StatBlock/Action/Hit: Hit
+StatBlock/Action/Melee: Melee Weapon Attack
+StatBlock/Action/MeleeOrRanged: Melee or Ranged Weapon Attack
+StatBlock/Action/Or: or
+StatBlock/Action/Plus: plus
+StatBlock/Action/Range: range
+StatBlock/Action/Ranged: Ranged Weapon Attack
+StatBlock/Action/Reach: reach
+StatBlock/Action/ToHit: to hit
 
 XP: XP

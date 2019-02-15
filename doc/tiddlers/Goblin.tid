@@ -19,10 +19,8 @@ dnd.creature.challenge: 1/4
 //''Nimble Escape.''//
 The goblin can take the Disengage or Hide action as a bonus action on each of its turns.
 
-!!! Actions
+!! Actions
 
-//''Scimitar.''//
-//Melee Weapon Attack:// +4 to hit, reach 5 ft., one target. //Hit:// <<dnd.average 1d6+2>> slashing damage.
+<<dnd.attack name:"Scimitar" type:melee bonus:"+4" reach:"5 ft." damage:"1d6+2" damageType:slashing>>
 
-//''Shortbow.''//
-//Ranged Weapon Attack:// +4 to hit, range 80/320 ft., one target. //Hit:// <<dnd.average 1d6+2>> piercing damage.
+<<dnd.attack name:"Shortbow" type:ranged bonus:"+4" range:"80/320 ft." damage:"1d6+2" damageType:piercing>>

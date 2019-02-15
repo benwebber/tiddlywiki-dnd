@@ -51,6 +51,168 @@ Renders an [[ability score|https://roll20.net/compendium/dnd5e/Ability%20Scores]
 |`<<dnd.ability 15>>`|<<dnd.ability 15>>|
 |`<<dnd.ability 20>>`|<<dnd.ability 20>>|
 
+!! `dnd.attack`
+
+Renders creature attacks.
+
+!!! Attack and damage types
+
+Attack types and damage types are localized strings.
+
+To specify an attack's type, use the following values:
+
+|! Value|! Attack Type|
+|`melee`|<<dnd._lingo StatBlock/Action/Melee>>|
+|`ranged`|<<dnd._lingo StatBlock/Action/Ranged>>|
+|`both`|<<dnd._lingo StatBlock/Action/MeleeOrRanged>>|
+
+Similarly, to specify an attack's damage type, use its English name.
+
+|! Value|! Damage Type|
+|`acid`|<<dnd._lingo Damage/Type/Acid>>|
+|`bludgeoning`|<<dnd._lingo Damage/Type/Bludgeoning>>|
+|`cold`|<<dnd._lingo Damage/Type/Cold>>|
+|`fire`|<<dnd._lingo Damage/Type/Fire>>|
+|`force`|<<dnd._lingo Damage/Type/Force>>|
+|`lightning`|<<dnd._lingo Damage/Type/Lightning>>|
+|`necrotic`|<<dnd._lingo Damage/Type/Necrotic>>|
+|`piercing`|<<dnd._lingo Damage/Type/Piercing>>|
+|`poison`|<<dnd._lingo Damage/Type/Poison>>|
+|`psychic`|<<dnd._lingo Damage/Type/Psychic>>|
+|`radiant`|<<dnd._lingo Damage/Type/Radiant>>|
+|`slashing`|<<dnd._lingo Damage/Type/Slashing>>|
+|`thunder`|<<dnd._lingo Damage/Type/Thunder>>|
+
+!!! Simple melee, ranged, or melee and ranged attacks
+
+```
+<<dnd.attack
+  name:"Rapier"
+  type:melee
+  bonus:"+3"
+  reach:"5 ft."
+  damage:"1d8+1"
+  damageType:piercing
+>>
+```
+
+<<dnd.attack name:"Rapier" type:melee bonus:"+3" reach:"5 ft." damage:"1d8+1" damageType:piercing>>
+
+```
+<<dnd.attack
+  name:"Heavy Crossbow"
+  type:ranged
+  bonus:"+2"
+  range:"100/400 ft."
+  damage:"1d10"
+  damageType:piercing
+>>
+```
+
+<<dnd.attack name:"Heavy Crossbow" type:ranged bonus:"+2" range:"100/400 ft." damage:"1d10" damageType:piercing>>
+
+```
+<<dnd.attack
+  name:"Dagger"
+  type:both
+  bonus:"+5"
+  reach:"5 ft."
+  range:"20/60 ft."
+  damage:"1d4+3"
+  damageType:piercing
+>>
+```
+
+<<dnd.attack name:"Dagger" type:both bonus:"+5" reach:"5 ft." range:"20/60 ft." damage:"1d4+3" damageType:piercing>>
+
+!!! Attacks with extra damage
+
+```
+<<dnd.attack
+  name:"Greatsword"
+  type:melee
+  bonus:"+15"
+  reach:"5 ft."
+  damage:"4d6+8"
+  damageType:"slashing"
+  extraDamage:"6d8"
+  extraDamageType:radiant
+>>
+```
+
+<<dnd.attack name:"Greatsword" type:melee bonus:"+15" reach:"5 ft." damage:"4d6+8" damageType:slashing extraDamage:"6d8" extraDamageType:radiant>>
+
+!!! Attacks with conditional damage
+
+```
+<<dnd.attack
+  name:"Longsword"
+  type:melee
+  bonus:"+5"
+  reach:"5 ft."
+  damage:"1d8+3"
+  damageType:slashing
+  condDamage:"1d10+3"
+  condDamageType:slashing
+  when:"if used with two hands"
+>>
+```
+
+<<dnd.attack name:"Longsword" type:melee bonus:"+5" reach:"5 ft." damage:"1d8+3" damageType:slashing condDamage:"1d10+3" condDamageType:slashing when:"if used with two hands">>
+
+```
+<<dnd.attack
+  name:"Longsword"
+  type:melee
+  bonus:"+5"
+  reach:"5 ft."
+  damage:"1d8+3"
+  damageType:slashing
+  extraDamage:"1d4"
+  extraDamage:fire
+  condDamage:"1d10+3"
+  condDamageType:slashing
+  extraCondDamage:"1d4"
+  extraCondDamage:fire
+  when:"if used with two hands"
+>>
+```
+
+<<dnd.attack name:"Longsword" type:melee bonus:"+5" reach:"5 ft." damage:"1d8+3" damageType:slashing extraDamage:"1d4" extraDamageType:fire condDamage:"1d10+3" condDamageType:slashing extraCondDamage:"1d4" extraCondDamageType:fire when:"if used with two hands">>
+
+!!! Attacks with extra effects
+
+```
+<<dnd.attack
+  name:"Light Crossbow"
+  type:ranged
+  bonus:"+6"
+  range:"80/320 ft."
+  damage:"1d8+3"
+  damageType:piercing
+  effect:"and the target must make a DC 15 Constitution saving throw, taking 24 (7d6) poison damage on a failed save, or half as much damage on a successful one"
+>>
+```
+
+<<dnd.attack name:"Light Crossbow" type:ranged bonus:"+6" range:"80/320 ft." damage:"1d8+3" damageType:piercing effect:"and the target must make a DC 15 Constitution saving throw, taking 24 (7d6) poison damage on a failed save, or half as much damage on a successful one">>
+
+!!! Attacks with special targets
+
+```
+<<dnd.attack
+  name:"Dagger"
+  type:both
+  bonus:"+4"
+  reach:"5 ft."
+  range:"20/60 ft."
+  target:"one creature"
+  damage:"1d4+2"
+  damageType:piercing
+>>
+```
+
+<<dnd.attack name:"Dagger" type:both bonus:"+4" reach:"5 ft." range:"20/60 ft." target:"one creature" damage:"1d4+2" damageType:piercing>>
+
 !! `dnd.average`
 
 Calculates the average result of the specified roll.

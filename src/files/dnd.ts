@@ -62,6 +62,30 @@ const ABILITY_REGEX = /^(STR|DEX|CON|INT|WIS|CHA).*/i;
 const SKILL_REGEX = new RegExp(`^(${Object.keys(SKILL_CODES_TO_CAPTIONS).join("|")}).*`, "i");
 
 
+export enum AttackType {
+  Melee,
+  Ranged,
+  MeleeOrRanged,
+}
+
+
+export enum DamageType {
+  Acid = "<<dnd._lingo Damage/Type/Acid>>",
+  Bludgeoning = "<<dnd._lingo Damage/Type/Bludgeoning>>",
+  Cold = "<<dnd._lingo Damage/Type/Cold>>",
+  Fire = "<<dnd._lingo Damage/Type/Fire>>",
+  Force = "<<dnd._lingo Damage/Type/Force>>",
+  Lightning = "<<dnd._lingo Damage/Type/Lightning>>",
+  Necrotic = "<<dnd._lingo Damage/Type/Necrotic>>",
+  Piercing = "<<dnd._lingo Damage/Type/Piercing>>",
+  Poison = "<<dnd._lingo Damage/Type/Poison>>",
+  Psychic = "<<dnd._lingo Damage/Type/Psychic>>",
+  Radiant = "<<dnd._lingo Damage/Type/Radiant>>",
+  Slashing = "<<dnd._lingo Damage/Type/Slashing>>",
+  Thunder = "<<dnd._lingo Damage/Type/Thunder>>",
+}
+
+
 interface ITableRow {
   caption: string;
   value: string | number;
@@ -315,4 +339,81 @@ function renderFields(fields: ITableRow[], alwaysRender?: boolean): string[] {
 export function getXP(rating: string): number {
   rating = rating.replace(/['"]/g, "");
   return CR_TO_XP[rating];
+}
+
+
+export function hit(
+  damage: string,
+  damageType: DamageType,
+  extraDamage: string,
+  extraDamageType: DamageType,
+  condDamage: string,
+  condDamageType: DamageType,
+  extraCondDamage: string,
+  extraCondDamageType: DamageType,
+  when: string,
+  effect: string,
+): string {
+  const buffer = ["//<<dnd._lingo StatBlock/Action/Hit>>://"];
+  buffer.push(renderDamage(damage, damageType, extraDamage, extraDamageType));
+  let or = "";
+  if (condDamage && condDamageType && when) {
+    or = `${renderDamage(condDamage, condDamageType, extraCondDamage, extraCondDamageType)} ${when}`;
+  }
+  let output = buffer.join(" ");
+  if (or) {
+    output = `${output}, <<dnd._lingo StatBlock/Action/Or>> ${or}`;
+  }
+  if (effect) {
+    output = `${output}, ${effect}`;
+  }
+  return `${output}.`;
+}
+
+
+function renderDamage(damage: string, damageType: string, extraDamage: string, extraDamageType: string): string {
+  let buffer = [
+    average(damage),
+    damageType,
+  ];
+  if (extraDamage && extraDamageType) {
+    buffer = buffer.concat([
+      "<<dnd._lingo StatBlock/Action/Plus>>",
+      average(extraDamage),
+      extraDamageType,
+    ]);
+  }
+  return buffer.join(" ");
+}
+
+
+export function weaponAttack(
+  attackType: AttackType,
+  bonus: string,
+  reach: string,
+  range: string,
+  target: string,
+) {
+  // tslint:disable max-line-length
+  const attackTypesToCaptions = {
+    [AttackType.Melee]: {
+      attack: "<<dnd._lingo StatBlock/Action/Melee>>",
+      reachOrRange: `<<dnd._lingo StatBlock/Action/Reach>> ${reach}`,
+    },
+    [AttackType.Ranged]: {
+      attack: "<<dnd._lingo StatBlock/Action/Ranged>>",
+      reachOrRange: `<<dnd._lingo StatBlock/Action/Range>> ${range}`,
+    },
+    [AttackType.MeleeOrRanged]: {
+      attack: "<<dnd._lingo StatBlock/Action/MeleeOrRanged>>",
+      reachOrRange: `<<dnd._lingo StatBlock/Action/Reach>> ${reach} <<dnd._lingo StatBlock/Action/Or>> <<dnd._lingo StatBlock/Action/Range>> ${range}`,
+    },
+  };
+  const captions = attackTypesToCaptions[attackType];
+  const output = [
+    `//${captions.attack}:// ${bonus} <<dnd._lingo StatBlock/Action/ToHit>>`,
+    captions.reachOrRange,
+    target || "<<dnd._lingo StatBlock/Action/DefaultTarget>>",
+  ];
+  return `${output.join(", ")}.`;
 }
