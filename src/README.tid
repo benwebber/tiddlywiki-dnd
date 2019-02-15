@@ -318,7 +318,6 @@ You may want to use the automatic view template instead (see below).
 
 !!! Notes
 
-* Due to a quirk in how ~TiddlyWiki passes values to macros, you must double-quote values containing forward slashes. This is ''not'' necessary when using the template.
 * Ability scores default to <<dnd.ability 10>>.
 * If not set, `language` defaults to `---`.
 
@@ -338,7 +337,7 @@ cha: 8
 skills: "Stealth +6"
 senses: "darkvision 60 ft., passive Perception 9"
 languages: "Common, Goblin"
-challenge: "'1/4'"
+challenge: 1/4
 >>
 ```
 
@@ -367,7 +366,7 @@ cha: 8
 skills: "Stealth +6"
 senses: "darkvision 60 ft., passive Perception 9"
 languages: "Common, Goblin"
-challenge: "'1/4'"
+challenge: 1/4
 >>
 
 </$reveal>
