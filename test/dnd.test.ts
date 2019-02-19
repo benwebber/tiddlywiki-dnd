@@ -38,21 +38,6 @@ describe("ability", () => {
 });
 
 
-describe("average", () => {
-  [
-    {expr: "10", expected: "10"},
-    {expr: "d20", expected: "10 (1d20)"},
-    {expr: "1d20", expected: "10 (1d20)"},
-    {expr: "2d20+10", expected:  "31 (2d20 + 10)"},
-    {expr: "2d20-10", expected:  "11 (2d20 − 10)"},
-  ].forEach((example) => {
-    it(`should return "${example.expected}" for score "${example.expr}"`, () => {
-      expect(dnd.average(example.expr)).toBe(example.expected);
-    });
-  });
-});
-
-
 describe("capitalize", () => {
   [
     {description: "small beast, unaligned", expected: "Small beast, unaligned"},
