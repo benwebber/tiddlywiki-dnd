@@ -33,43 +33,6 @@ describe("capitalize", () => {
 });
 
 
-describe("check", () => {
-  [
-    {args: ["cha"], expected: "<<dnd._lingo Ability/CHA>>"},
-    {args: ["CHA"], expected: "<<dnd._lingo Ability/CHA>>"},
-    {args: ["charisma"], expected: "<<dnd._lingo Ability/CHA>>"},
-    {args: ["Charisma"], expected: "<<dnd._lingo Ability/CHA>>"},
-    {args: ["cha", "perf"], expected: "<<dnd._lingo Ability/CHA>> (<<dnd._lingo Skill/Performance>>)"},
-    {args: ["CHA", "PERF"], expected: "<<dnd._lingo Ability/CHA>> (<<dnd._lingo Skill/Performance>>)"},
-    {args: ["cha", undefined, 15], expected: "<<dnd._lingo Check/DC>> 15 <<dnd._lingo Ability/CHA>>"},
-    {args: ["cha", "perf", 15], expected: "<<dnd._lingo Check/DC>> 15 <<dnd._lingo Ability/CHA>> (<<dnd._lingo Skill/Performance>>)"},
-    {args: ["dex", "sl"], expected: "<<dnd._lingo Ability/DEX>> (<<dnd._lingo Skill/SleightOfHand>>)"},
-    {args: ["dex", "sleight"], expected: "<<dnd._lingo Ability/DEX>> (<<dnd._lingo Skill/SleightOfHand>>)"},
-    {args: ["dex", "sleight of hand"], expected: "<<dnd._lingo Ability/DEX>> (<<dnd._lingo Skill/SleightOfHand>>)"},
-    {args: ["dex", "Sleight of Hand"], expected: "<<dnd._lingo Ability/DEX>> (<<dnd._lingo Skill/SleightOfHand>>)"},
-    // Unknown ability:
-    {args: ["foo"], expected: ""},
-    {args: ["foo", "perf"], expected: ""},
-    {args: ["foo", "perf", 15], expected: ""},
-    // Unknown skill:
-    {args: ["cha", "foo"], expected: "<<dnd._lingo Ability/CHA>>"},
-    {args: ["cha", "foo", 15], expected: "<<dnd._lingo Check/DC>> 15 <<dnd._lingo Ability/CHA>>"},
-    // Ambiguous skill:
-    {args: ["cha", "per"], expected: "<<dnd._lingo Ability/CHA>>"},
-    {args: ["cha", "per", 15], expected: "<<dnd._lingo Check/DC>> 15 <<dnd._lingo Ability/CHA>>"},
-    // Unusual combination:
-    {args: ["cha", "ath", 15], expected: "<<dnd._lingo Check/DC>> 15 <<dnd._lingo Ability/CHA>> (<<dnd._lingo Skill/Athletics>>)"},
-  ].forEach((example) => {
-    it(`should return "${example.expected}" for (${example.args[0]}, ${example.args[1]}, ${example.args[2]})`, () => {
-      const ability = example.args[0] as string;
-      const skill = example.args[1] as string;
-      const dc = example.args[2] as number;
-      expect(dnd.check(ability, skill, dc)).toBe(example.expected);
-    });
-  });
-});
-
-
 describe("hit", () => {
   [
     {
