@@ -22,7 +22,7 @@ index.html: $(SOURCES)
 lint:
 	tslint --format stylish --project .
 
-test:
+test: index.html
 	tsc --version
 	jest --version
 	npm show ts-jest version
