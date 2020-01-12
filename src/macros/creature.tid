@@ -1,28 +1,6 @@
 title: $:/plugins/benwebber/dnd/macros/creature
 tags: $:/tags/Macro
 
-\define creature-actions()
-<!--
-If the user enters, then deletes a value in the form, the corresponding field
-will be empty. Delete empty fields.
--->
-<$list filter="[title<currentTiddler>fields[]]" variable="field">
-<$list filter="[title<currentTiddler>!has<field>]">
-<$action-deletefield $field=<<field>> />
-</$list>
-</$list>
-<!-- Open editor form. -->
-<$action-sendmessage
-  $message="tm-modal"
-  $param="$:/plugins/benwebber/dnd/ui/Modals/UpdateCreature"
-  tiddler=<<currentTiddler>>
-/>
-\end
-
 \define dnd.creature()
 {{||$:/plugins/benwebber/dnd/templates/dnd.statblock}}
-
-<$set name="sourceTiddler" value=<<currentTiddler>>>
-<$button actions=<<creature-actions>>><<dnd._lingo EditCurrentTiddler>></$button>
-</$set>
 \end

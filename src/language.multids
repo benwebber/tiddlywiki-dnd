@@ -7,6 +7,9 @@ Ability/INT: Intelligence
 Ability/WIS: Wisdom
 Ability/CHA: Charisma
 
+Buttons/EditAttributes/Text: edit attributes
+Buttons/EditAttributes/Title: Edit Attributes
+Buttons/EditAttributes/Tooltip: Edit attributes
 Buttons/NewCharacter/Text: new character
 Buttons/NewCharacter/Title: New Character
 Buttons/NewCharacter/Tooltip: Create a new character
@@ -19,7 +22,7 @@ Buttons/NewSpell/Tooltip: Create a new spell
 
 Check/DC: DC
 
-EditCurrentTiddler: Edit <<sourceTiddler>>
+EditCurrentTiddler: Edit <<sourceTiddler>> attributes
 
 Character/Alignment: Alignment
 Character/Class: Class

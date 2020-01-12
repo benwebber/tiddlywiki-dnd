@@ -1,11 +1,11 @@
-title: $:/plugins/benwebber/dnd/ui/Modals/UpdateCreature
+title: $:/plugins/benwebber/dnd/ui/Modals/EditAttributes
 subtitle: <<dnd._lingo Modals/Subtitle>>
 
 \define input(field)
 <$edit-text tag=input tiddler=<<tiddler>> field=<<__field__>> />
 \end
 
-\define select-size()
+\define creature-select-size()
 <$select tiddler=<<tiddler>> field="dnd.creature.size">
   <option value="tiny"><<dnd._lingo Creature/Size/Tiny>></option>
   <option value="small"><<dnd._lingo Creature/Size/Small>></option>
@@ -16,7 +16,7 @@ subtitle: <<dnd._lingo Modals/Subtitle>>
 </$select>
 \end
 
-\define select-type()
+\define creature-select-type()
 <$select tiddler=<<tiddler>> field="dnd.creature.type">
   <option value="aberration"><<dnd._lingo Creature/Type/Aberration>></option>
   <option value="beast"><<dnd._lingo Creature/Type/Beast>></option>
@@ -35,7 +35,7 @@ subtitle: <<dnd._lingo Modals/Subtitle>>
 </$select>
 \end
 
-\define select-ability(field)
+\define creature-select-ability(field)
 <$select tiddler=<<tiddler>> field=<<__field__>>>
   <option value="1"><<dnd.ability 1>></option>
   <option value="2"><<dnd.ability 2>></option>
@@ -70,7 +70,7 @@ subtitle: <<dnd._lingo Modals/Subtitle>>
 </$select>
 \end
 
-\define select-challenge()
+\define creature-select-challenge()
 <$select tiddler=<<tiddler>> field="dnd.creature.challenge">>
   <option value="0"><<dnd.xp "0">></option>
   <option value="0 10"><<dnd.xp "0" "10">></option>
@@ -110,10 +110,56 @@ subtitle: <<dnd._lingo Modals/Subtitle>>
 </$select>
 \end
 
+\define spell-select-level(field)
+<$select tiddler=<<tiddler>> field="dnd.spell.level">
+  <option>0</option>
+  <option>1</option>
+  <option>2</option>
+  <option>3</option>
+  <option>4</option>
+  <option>5</option>
+  <option>6</option>
+  <option>7</option>
+  <option>8</option>
+  <option>9</option>
+</$select>
+\end
+
+\define spell-select-school()
+<$select tiddler=<<tiddler>> field="dnd.spell.school">
+  <option value="abjuration"><<dnd._lingo Spell/School/Abjuration>></option>
+  <option value="conjuration"><<dnd._lingo Spell/School/Conjuration>></option>
+  <option value="divination"><<dnd._lingo Spell/School/Divination>></option>
+  <option value="enchantment"><<dnd._lingo Spell/School/Enchantment>></option>
+  <option value="evocation"><<dnd._lingo Spell/School/Evocation>></option>
+  <option value="illusion"><<dnd._lingo Spell/School/Illusion>></option>
+  <option value="necromancy"><<dnd._lingo Spell/School/Necromancy>></option>
+  <option value="transmutation"><<dnd._lingo Spell/School/Transmutation>></option>
+</$select>
+\end
+
 <<dnd._lingo Modals/Help>>
 
-|!<<dnd._lingo StatBlock/Size>> |<<select-size>> |
-|!<<dnd._lingo StatBlock/Type>> |<<select-type>> |
+<$list filter="[title<tiddler>tag{$:/plugins/benwebber/dnd/config/Tags/Characters}]">
+
+|!<<dnd._lingo Character/Class>> |<<input dnd.character.class>> |
+|!<<dnd._lingo Character/Race>> |<<input dnd.character.race>> |
+|!<<dnd._lingo Character/Alignment>> |<<input dnd.character.alignment>> |
+|!<<dnd._lingo Character/Languages>> |<<input dnd.character.languages>> |
+</$list>
+<$list filter="[title<tiddler>tag{$:/plugins/benwebber/dnd/config/Tags/Spells}]">
+
+|!<<dnd._lingo Spell/Level>> |<<spell-select-level>> |
+|!<<dnd._lingo Spell/School>> |<<spell-select-school>> |
+|!<<dnd._lingo Spell/CastingTime>> |<<input dnd.spell.cast>> <$checkbox tiddler=<<tiddler>> field="dnd.spell.ritual" checked="true" unchecked="" default=""> <<dnd._lingo Spell/Ritual>></$checkbox> |
+|!<<dnd._lingo Spell/Range>> |<<input dnd.spell.range>> |
+|!<<dnd._lingo Spell/Duration>> |<<input dnd.spell.duration>> |
+|!<<dnd._lingo Spell/Components>> |<$checkbox tiddler=<<tiddler>> field="dnd.spell.verbal" checked="true" unchecked="" default=""> <<dnd._lingo Spell/Verbal>></$checkbox> <$checkbox tiddler=<<tiddler>> field="dnd.spell.somatic" checked="true" unchecked="" default=""> <<dnd._lingo Spell/Somatic>></$checkbox> <<dnd._lingo Spell/Material>>: <<input dnd.spell.material>> |
+</$list>
+<$list filter="[title<tiddler>tag{$:/plugins/benwebber/dnd/config/Tags/Creatures}]">
+
+|!<<dnd._lingo StatBlock/Size>> |<<creature-select-size>> |
+|!<<dnd._lingo StatBlock/Type>> |<<creature-select-type>> |
 |!<<dnd._lingo StatBlock/Tags>> |<<input dnd.creature.tags>> |
 |!<<dnd._lingo StatBlock/Alignment>> |<<input dnd.creature.alignment>> |
 
@@ -126,7 +172,7 @@ subtitle: <<dnd._lingo Modals/Subtitle>>
 ---
 
 | <<dnd._lingo StatBlock/STR>> | <<dnd._lingo StatBlock/DEX>> | <<dnd._lingo StatBlock/CON>> | <<dnd._lingo StatBlock/INT>> | <<dnd._lingo StatBlock/WIS>> | <<dnd._lingo StatBlock/CHA>> |h
-| <<select-ability dnd.creature.str>> | <<select-ability dnd.creature.dex>> | <<select-ability dnd.creature.con>> | <<select-ability dnd.creature.int>> | <<select-ability dnd.creature.wis>> | <<select-ability dnd.creature.cha>> |
+| <<creature-select-ability dnd.creature.str>> | <<creature-select-ability dnd.creature.dex>> | <<creature-select-ability dnd.creature.con>> | <<creature-select-ability dnd.creature.int>> | <<creature-select-ability dnd.creature.wis>> | <<creature-select-ability dnd.creature.cha>> |
 
 ---
 
@@ -140,4 +186,5 @@ subtitle: <<dnd._lingo Modals/Subtitle>>
 |!<<dnd._lingo StatBlock/ConditionVulnerabilities>> |<<input dnd.creature.cvul>> |
 |!<<dnd._lingo StatBlock/Senses>> |<<input dnd.creature.senses>> |
 |!<<dnd._lingo StatBlock/Languages>> |<<input dnd.creature.languages>> |
-|!<<dnd._lingo StatBlock/Challenge>> |<<select-challenge>> |
+|!<<dnd._lingo StatBlock/Challenge>> |<<creature-select-challenge>> |
+</$list>
