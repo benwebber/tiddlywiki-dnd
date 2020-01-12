@@ -9,7 +9,7 @@ Manage *Dungeons & Dragons* campaigns with [TiddlyWiki](https://tiddlywiki.com/)
 
 * Calculate modifiers, rolls, and XP with useful macros.
 * Render stat blocks, spells, and checks like the core books.
-* Create stat block and spell tiddlers with a single click.
+* Create character cards, stat blocks, and spell cards with a single click.
 
 ## Demo, Documentation, and Download
 

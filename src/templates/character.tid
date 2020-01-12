@@ -1,0 +1,38 @@
+title: $:/plugins/benwebber/dnd/templates/dnd.character
+
+\define field-character()
+
+<$macrocall
+  $name="dnd.characterblock"
+  class={{!!dnd.character.class}}
+  race={{!!dnd.character.race}}
+  alignment={{!!dnd.character.alignment}}
+  languages={{!!dnd.character.languages}}
+/>
+
+\end
+
+\define data-character()
+
+<$macrocall
+  $name="dnd.characterblock"
+  class={{##class}}
+  race={{##race}}
+  alignment={{##alignment}}
+  languages={{##languages}}
+/>
+
+\end
+
+<$reveal type="match" state="!!type" text="text/vnd.tiddlywiki" default="text/vnd.tiddlywiki">
+
+<<field-character>>
+</$reveal>
+<$reveal type="match" state="!!type" text="application/x-tiddler-dictionary">
+
+<<data-character>>
+</$reveal>
+<$reveal type="match" state="!!type" text="application/json">
+
+<<data-character>>
+</$reveal>

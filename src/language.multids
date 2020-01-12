@@ -7,6 +7,9 @@ Ability/INT: Intelligence
 Ability/WIS: Wisdom
 Ability/CHA: Charisma
 
+Buttons/NewCharacter/Text: new character
+Buttons/NewCharacter/Title: New Character
+Buttons/NewCharacter/Tooltip: Create a new character
 Buttons/NewCreature/Text: new creature
 Buttons/NewCreature/Title: New Creature
 Buttons/NewCreature/Tooltip: Create a new creature
@@ -17,6 +20,11 @@ Buttons/NewSpell/Tooltip: Create a new spell
 Check/DC: DC
 
 EditCurrentTiddler: Edit <<sourceTiddler>>
+
+Character/Alignment: Alignment
+Character/Class: Class
+Character/Languages: Languages
+Character/Race: Race
 
 Creature/Size/Tiny: Tiny
 Creature/Size/Small: Small
@@ -57,8 +65,10 @@ Modals/Subtitle: Editing <<tiddler>>
 Modals/Help: //Changes take effect immediately.//
 
 Settings/Version: Version
+Settings/CharacterTag: Tag for character tiddlers
 Settings/CreatureTag: Tag for creature tiddlers
 Settings/SpellTag: Tag for spell tiddlers
+Settings/RenderCharacters: Automatically render character frontmatter for character tiddlers
 Settings/RenderCreatures: Automatically render stat blocks for creature tiddlers
 Settings/RenderSpells: Automatically render stat blocks for spell tiddlers
 

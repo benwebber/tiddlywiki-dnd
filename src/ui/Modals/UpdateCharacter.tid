@@ -1,0 +1,13 @@
+title: $:/plugins/benwebber/dnd/ui/Modals/UpdateCharacter
+subtitle: <<dnd._lingo Modals/Subtitle>>
+
+\define input(field)
+<$edit-text tag=input tiddler=<<tiddler>> field=<<__field__>> />
+\end
+
+<<dnd._lingo Modals/Help>>
+
+|!<<dnd._lingo Character/Class>> |<<input dnd.character.class>> |
+|!<<dnd._lingo Character/Race>> |<<input dnd.character.race>> |
+|!<<dnd._lingo Character/Alignment>> |<<input dnd.character.alignment>> |
+|!<<dnd._lingo Character/Languages>> |<<input dnd.character.languages>> |

@@ -1,0 +1,27 @@
+title: Noble
+tags: Creatures
+dnd.creature.size: medium
+dnd.creature.type: humanoid
+dnd.creature.tags: any race
+dnd.creature.alignment: any alignment
+dnd.creature.ac: 15 (breastplate)
+dnd.creature.hp: 2d8
+dnd.creature.speed: 30 ft.
+dnd.creature.str: 11
+dnd.creature.dex: 12
+dnd.creature.con: 11
+dnd.creature.int: 12
+dnd.creature.wis: 14
+dnd.creature.cha: 16
+dnd.creature.skills: Deception +5, Insight +4, Persuasion +5
+dnd.creature.senses: passive Perception 12
+dnd.creature.languages: any two languages
+dnd.creature.challenge: 1/8
+
+!! Actions
+
+<<dnd.attack name:"Rapier" type:melee bonus:"+3" reach:"5 ft." damage:"1d8+1" damageType:piercing>>
+
+!! Reactions
+
+//''Parry.''// The noble adds 2 to its AC against one melee attack that would hit it. To do so, the noble must see the attacker and be wielding a melee weapon.

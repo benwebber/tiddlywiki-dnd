@@ -92,6 +92,23 @@ interface ITableRow {
 }
 
 
+export class Character {
+  constructor(public cls: string, public race: string, public alignment: string, public languages: string) {}
+
+  public render(): string {
+    const fields = [
+      {caption: "Character/Class", value: this.cls},
+      {caption: "Character/Race", value: this.race},
+      {caption: "Character/Alignment", value: this.alignment},
+      {caption: "Character/Languages", value: this.languages},
+    ];
+    const output = renderFields(fields, false);
+    output.push("");
+    return output.join("\n");
+  }
+}
+
+
 export class Spell {
   constructor(
     public level: number,

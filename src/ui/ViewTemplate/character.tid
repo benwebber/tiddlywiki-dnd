@@ -1,0 +1,15 @@
+title: $:/plugins/benwebber/dnd/ui/ViewTemplate/character
+tags: $:/tags/ViewTemplate
+list-before: $:/core/ui/ViewTemplate/body
+
+<!-- Check tiddler tag. -->
+<$list filter="[<currentTiddler>tag{$:/plugins/benwebber/dnd/config/Tags/Characters}]">
+<!-- Check if user enabled view template; don't override <<currentTiddler>>. -->
+<$list
+  filter="[title[$:/plugins/benwebber/dnd/config/ViewTemplates/Character]field:text[true]]"
+  variable="noop"
+>
+
+<<dnd.character>>
+</$list>
+</$list>

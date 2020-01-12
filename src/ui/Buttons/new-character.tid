@@ -1,0 +1,25 @@
+title: $:/plugins/benwebber/dnd/ui/Buttons/new-character
+tags: $:/tags/PageControls
+
+\define actions()
+<$action-sendmessage
+  $message="tm-new-tiddler"
+  title=<<title>>
+  tags={{$:/plugins/benwebber/dnd/config/Tags/Characters}}
+/>
+\end
+
+<$wikify name="text" text=<<dnd._lingo Buttons/NewCharacter/Text>>>
+<$wikify name="title" text=<<dnd._lingo Buttons/NewCharacter/Title>>>
+<$wikify name="tooltip" text=<<dnd._lingo Buttons/NewCharacter/Tooltip>>>
+<$button actions=<<actions>> class=<<tv-config-toolbar-class>> tooltip=<<tooltip>>>
+<$list filter="[<tv-config-toolbar-icons>prefix[yes]]">
+{{$:/plugins/benwebber/dnd/images/new-character}}
+</$list>
+<$list filter="[<tv-config-toolbar-text>prefix[yes]]">
+<span class="tc-btn-text"><$text text=<<text>>/></span>
+</$list>
+</$button>
+</$wikify>
+</$wikify>
+</$wikify>

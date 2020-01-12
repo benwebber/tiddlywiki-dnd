@@ -9,6 +9,10 @@ title: $:/plugins/benwebber/dnd/Changelog
 ! <<unreleased>>
 </$vars>
 
+!! Added
+
+* Added `dnd.character` macro and view template to typeset character information (class, race, alignment and languages).
+
 !! Changed
 
 * Changed ''New Creature'' icon to a dragon.

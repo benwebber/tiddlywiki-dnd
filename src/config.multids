@@ -1,6 +1,8 @@
 title: $:/plugins/benwebber/dnd/config/
 
+Tags/Characters: Characters
 Tags/Creatures: Creatures
 Tags/Spells: Spells
-ViewTemplates/StatBlock: true
+ViewTemplates/Character: true
 ViewTemplates/Spell: true
+ViewTemplates/StatBlock: true
