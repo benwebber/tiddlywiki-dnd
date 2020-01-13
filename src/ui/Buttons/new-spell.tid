@@ -1,5 +1,7 @@
 title: $:/plugins/benwebber/dnd/ui/Buttons/new-spell
 tags: $:/tags/PageControls
+caption: {{$:/plugins/benwebber/dnd/images/new-spell}} <<dnd._lingo Buttons/NewSpell/Text>>
+description: <<dnd._lingo Buttons/NewSpell/Tooltip>>
 
 \define actions()
 <$action-sendmessage

@@ -1,5 +1,7 @@
 title: $:/plugins/benwebber/dnd/ui/Buttons/new-creature
 tags: $:/tags/PageControls
+caption: {{$:/plugins/benwebber/dnd/images/new-creature}} <<dnd._lingo Buttons/NewCreature/Text>>
+description: <<dnd._lingo Buttons/NewCreature/Tooltip>>
 
 \define actions()
 <$action-sendmessage

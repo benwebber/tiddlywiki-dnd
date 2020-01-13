@@ -18,6 +18,10 @@ title: $:/plugins/benwebber/dnd/Changelog
 * Changed ''New Creature'' icon to a dragon.
 * Moved buttons to edit creature/spell attributes to tiddler view toolbar.
 
+!! Fixed
+
+* Fixed display of plugin buttons in toolbar lists.
+
 ! <<release 1.1.0>> (2019-02-15)
 
 !! Added

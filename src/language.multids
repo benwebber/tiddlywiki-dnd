@@ -8,8 +8,7 @@ Ability/WIS: Wisdom
 Ability/CHA: Charisma
 
 Buttons/EditAttributes/Text: edit attributes
-Buttons/EditAttributes/Title: Edit Attributes
-Buttons/EditAttributes/Tooltip: Edit attributes
+Buttons/EditAttributes/Tooltip: Edit this tiddler's game attributes
 Buttons/NewCharacter/Text: new character
 Buttons/NewCharacter/Title: New Character
 Buttons/NewCharacter/Tooltip: Create a new character

@@ -1,6 +1,8 @@
 title: $:/plugins/benwebber/dnd/ui/Buttons/edit-attributes
 tags: $:/tags/ViewToolbar
 list-after: $:/core/ui/Buttons/edit
+caption: {{$:/plugins/benwebber/dnd/images/edit-attributes}} <<dnd._lingo Buttons/EditAttributes/Text>>
+description: <<dnd._lingo Buttons/EditAttributes/Tooltip>>
 
 \whitespace trim
 
