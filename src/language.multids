@@ -13,6 +13,8 @@ Buttons/DeleteNote/Text: Delete this note
 Buttons/EditNote/Text: Edit this note
 Buttons/EditAttributes/Text: edit attributes
 Buttons/EditAttributes/Tooltip: Edit this tiddler's game attributes
+Buttons/ExportPlayerEdition/Text: export player edition
+Buttons/ExportPlayerEdition/Tooltip: Export player edition
 Buttons/NewCharacter/Text: new character
 Buttons/NewCharacter/Title: New Character
 Buttons/NewCharacter/Tooltip: Create a new character
@@ -22,6 +24,12 @@ Buttons/NewCreature/Tooltip: Create a new creature
 Buttons/NewSpell/Text: new spell
 Buttons/NewSpell/Title: New Spell
 Buttons/NewSpell/Tooltip: Create a new spell
+Buttons/PlayerEdition/Description: Choose whether to export this tiddler in the player edition
+Buttons/PlayerEdition/Text: player edition
+Buttons/Private/Text: private
+Buttons/Private/Tooltip: This tiddler is private. Click to make it public.
+Buttons/Public/Text: public
+Buttons/Public/Tooltip: This tiddler is public. Click to make it private.
 
 Check/DC: DC
 
@@ -74,6 +82,7 @@ Settings/Version: Version
 Settings/CharacterTag: Tag for character tiddlers
 Settings/CreatureTag: Tag for creature tiddlers
 Settings/NoteTag: Tag for note tiddlers
+Settings/PlayerEditionTag: Tag for public tiddlers (exported with player edition)
 Settings/SpellTag: Tag for spell tiddlers
 Settings/RenderCharacters: Automatically render character frontmatter for character tiddlers
 Settings/RenderCreatures: Automatically render stat blocks for creature tiddlers

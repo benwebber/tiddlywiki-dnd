@@ -3,6 +3,7 @@ title: $:/plugins/benwebber/dnd/config/
 Tags/Characters: Characters
 Tags/Creatures: Creatures
 Tags/Notes: Notes
+Tags/PlayerEdition: Public
 Tags/Spells: Spells
 ViewTemplates/Character: true
 ViewTemplates/Notes: true

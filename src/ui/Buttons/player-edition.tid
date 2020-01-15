@@ -1,0 +1,51 @@
+title: $:/plugins/benwebber/dnd/ui/Buttons/player-edition
+tags: $:/tags/ViewToolbar
+caption: {{$:/plugins/benwebber/dnd/images/public}} <<dnd._lingo Buttons/PlayerEdition/Text>>
+description: <<dnd._lingo Buttons/PlayerEdition/Description>>
+list-after: $:/plugins/benwebber/dnd/ui/Buttons/add-note
+
+\whitespace trim
+
+\define mark-public()
+<$action-sendmessage $message="tm-add-tag" $param={{$:/plugins/benwebber/dnd/config/Tags/PlayerEdition}}/>
+\end
+
+\define mark-private()
+<$action-sendmessage $message="tm-remove-tag" $param={{$:/plugins/benwebber/dnd/config/Tags/PlayerEdition}}/>
+\end
+
+<$reveal type="nomatch" state="$:/plugins/benwebber/dnd/config/PlayerEdition" text="true">
+<$list filter="[all[current]!is[system]tag{$:/plugins/benwebber/dnd/config/Tags/PlayerEdition}]" variable="noop">
+<$wikify name="text" text=<<dnd._lingo Buttons/Public/Text>>>
+<$wikify name="tooltip" text=<<dnd._lingo Buttons/Public/Tooltip>>>
+<$fieldmangler>
+<$button actions=<<mark-private>> tooltip=<<tooltip>> aria-label=<<text>> class=<<tv-config-toolbar-class>>>
+<$list filter="[<tv-config-toolbar-icons>prefix[yes]]">
+{{$:/plugins/benwebber/dnd/images/public}}
+</$list>
+<$list filter="[<tv-config-toolbar-text>prefix[yes]]">
+<span class="tc-btn-text"><$text text=<<text>>/></span>
+</$list>
+</$button>
+</$fieldmangler>
+</$wikify>
+</$wikify>
+</$list>
+
+<$list filter="[all[current]!is[system]!tag{$:/plugins/benwebber/dnd/config/Tags/PlayerEdition}]" variable="noop">
+<$wikify name="text" text=<<dnd._lingo Buttons/Private/Text>>>
+<$wikify name="tooltip" text=<<dnd._lingo Buttons/Private/Tooltip>>>
+<$fieldmangler>
+<$button actions=<<mark-public>> tooltip=<<tooltip>> aria-label=<<text>> class=<<tv-config-toolbar-class>>>
+<$list filter="[<tv-config-toolbar-icons>prefix[yes]]">
+{{$:/plugins/benwebber/dnd/images/private}}
+</$list>
+<$list filter="[<tv-config-toolbar-text>prefix[yes]]">
+<span class="tc-btn-text"><$text text=<<text>>/></span>
+</$list>
+</$button>
+</$fieldmangler>
+</$wikify>
+</$wikify>
+</$list>
+</$reveal>

@@ -54,6 +54,16 @@ A tiddler can have more than one note.
 
 See [[Lord Wilmore]] as an example.
 
+! Player Edition
+
+<$vars tv-config-toolbar-text="yes" tv-config-toolbar-class="">
+Use the {{$:/plugins/benwebber/dnd/ui/Buttons/export-player-edition}} tool to export a filtered version of your wiki to share with players.
+The player edition ''only includes'' tiddlers tagged <$tiddler tiddler={{$:/plugins/benwebber/dnd/config/Tags/PlayerEdition}}>{{||$:/core/ui/TagTemplate}}</$tiddler> and the plugin itself.
+</$vars>
+
+Notes associated with those tiddlers ''will not'' appear in the player edition by default. You must tag them separately.
+This makes notes a great way to add private information to otherwise public tiddlers.
+
 ! Configuration
 
 Navigate to the plugin info tiddler ([[$:/plugins/benwebber/dnd]]), then go to the ''Settings'' tab.

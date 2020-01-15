@@ -1,0 +1,31 @@
+title: $:/plugins/benwebber/dnd/ui/Buttons/export-player-edition
+tags: $:/tags/PageControls
+caption: {{$:/plugins/benwebber/dnd/images/export-player-edition}} <<dnd._lingo Buttons/ExportPlayerEdition/Text>>
+description: <<dnd._lingo Buttons/ExportPlayerEdition/Tooltip>>
+
+\define actions()
+<$action-setfield $tiddler="$:/plugins/benwebber/dnd/config/PlayerEdition" text="true"/>
+<$action-sendmessage
+  $message="tm-download-file"
+  $param="$:/plugins/benwebber/dnd/PlayerEdition"
+  filename="public.html"
+/>
+<$action-setfield $tiddler="$:/plugins/benwebber/dnd/config/PlayerEdition" text="false"/>
+\end
+
+<$reveal type="nomatch" state="$:/plugins/benwebber/dnd/config/PlayerEdition" text="true">
+<$wikify name="text" text=<<dnd._lingo Buttons/ExportPlayerEdition/Text>>>
+<$wikify name="title" text=<<dnd._lingo Buttons/ExportPlayerEdition/Title>>>
+<$wikify name="tooltip" text=<<dnd._lingo Buttons/ExportPlayerEdition/Tooltip>>>
+<$button actions=<<actions>> class=<<tv-config-toolbar-class>> tooltip=<<tooltip>>>
+<$list filter="[<tv-config-toolbar-icons>prefix[yes]]">
+{{$:/plugins/benwebber/dnd/images/export-player-edition}}
+</$list>
+<$list filter="[<tv-config-toolbar-text>prefix[yes]]">
+<span class="tc-btn-text"><$text text=<<text>>/></span>
+</$list>
+</$button>
+</$wikify>
+</$wikify>
+</$wikify>
+</$reveal>

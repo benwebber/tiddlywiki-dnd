@@ -13,6 +13,7 @@ icon: $:/core/images/options-button
 |<<dnd._lingo Settings/CharacterTag>> |<<edit-setting "Tags/Characters">> |
 |<<dnd._lingo Settings/CreatureTag>> |<<edit-setting "Tags/Creatures">> |
 |<<dnd._lingo Settings/NoteTag>> |<<edit-setting "Tags/Notes">> |
+|<<dnd._lingo Settings/PlayerEditionTag>> |<<edit-setting "Tags/PlayerEdition">> |
 |<<dnd._lingo Settings/SpellTag>> |<<edit-setting "Tags/Spells">> |
 |<<dnd._lingo Settings/RenderCharacters>> | <<render-boolean "ViewTemplates/Character">> |
 |<<dnd._lingo Settings/RenderNotes>> | <<render-boolean "ViewTemplates/Notes">> |
