@@ -7,6 +7,10 @@ Ability/INT: Intelligence
 Ability/WIS: Wisdom
 Ability/CHA: Charisma
 
+Buttons/AddNote/Text: add note
+Buttons/AddNote/Tooltip: Add a note to this tiddler
+Buttons/DeleteNote/Text: Delete this note
+Buttons/EditNote/Text: Edit this note
 Buttons/EditAttributes/Text: edit attributes
 Buttons/EditAttributes/Tooltip: Edit this tiddler's game attributes
 Buttons/NewCharacter/Text: new character
@@ -69,9 +73,11 @@ Modals/Help: //Changes take effect immediately.//
 Settings/Version: Version
 Settings/CharacterTag: Tag for character tiddlers
 Settings/CreatureTag: Tag for creature tiddlers
+Settings/NoteTag: Tag for note tiddlers
 Settings/SpellTag: Tag for spell tiddlers
 Settings/RenderCharacters: Automatically render character frontmatter for character tiddlers
 Settings/RenderCreatures: Automatically render stat blocks for creature tiddlers
+Settings/RenderNotes: Show notes
 Settings/RenderSpells: Automatically render stat blocks for spell tiddlers
 
 Skill/Acrobatics: Acrobatics

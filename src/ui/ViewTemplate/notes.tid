@@ -1,0 +1,32 @@
+title: $:/plugins/benwebber/dnd/ui/ViewTemplate/notes
+tags: $:/tags/ViewTemplate
+list-after: $:/core/ui/ViewTemplate/tags
+
+\define edit-actions()
+<$action-sendmessage $message="tm-edit-tiddler" $param=<<currentTiddler>> />
+\end
+
+\define delete-actions()
+<$action-sendmessage $message="tm-delete-tiddler" $param=<<currentTiddler>> />
+\end
+
+<$wikify name="edit-note-text" text=<<dnd._lingo Buttons/EditNote/Text>>>
+<$wikify name="edit-note-tooltip" text=<<dnd._lingo Buttons/EditNote/Tooltip>>>
+<$wikify name="delete-note-text" text=<<dnd._lingo Buttons/DeleteNote/Text>>>
+<$wikify name="delete-note-tooltip" text=<<dnd._lingo Buttons/DeleteNote/Tooltip>>>
+<$list filter="[title[$:/plugins/benwebber/dnd/config/ViewTemplates/Notes]field:text[true]]" variable="noop">
+<$list filter="[title<currentTiddler>listed[]tag{$:/plugins/benwebber/dnd/config/Tags/Notes}!has[draft.of]sort[created]]">
+<div class="dnd-note">
+<$transclude mode="block"/>
+<div class="dnd-note-menu">
+  <ul>
+    <li><$button actions=<<edit-actions>> aria-label=<<edit-note-text>> class="tc-btn-invisible" tooltip=<<edit-note-tooltip>>>{{$:/core/images/edit-button}}</$button></li>
+    <li><$button actions=<<delete-actions>> aria-label=<<delete-note-text>> class="tc-btn-invisible" tooltip=<<delete-note-tooltip>>>{{$:/core/images/delete-button}}</$button></li>
+  </ul>
+</div>
+<div class="dnd-clear"></div>
+</div>
+</$list>
+</$list>
+</$wikify>
+</$wikify>

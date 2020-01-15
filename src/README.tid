@@ -44,6 +44,16 @@ Enable the {{$:/plugins/benwebber/dnd/ui/Buttons/new-spell}} tool to create new 
 
 See [[Alarm]] as an example.
 
+!! Notes
+
+<$vars tv-config-toolbar-text="yes" tv-config-toolbar-class="">
+You can add notes to non-system tiddlers using the <$button text=<<dnd._lingo Buttons/AddNote/Text>>>{{$:/plugins/benwebber/dnd/images/add-note}} <<dnd._lingo Buttons/AddNote/Text>></$button> tool.
+Notes exist as separate tiddlers associated with the main tiddler (using the note tiddler's `list` field).
+A tiddler can have more than one note.
+</$vars>
+
+See [[Lord Wilmore]] as an example.
+
 ! Configuration
 
 Navigate to the plugin info tiddler ([[$:/plugins/benwebber/dnd]]), then go to the ''Settings'' tab.
@@ -415,15 +425,19 @@ This plugin ships with several view templates:
 
 |! Template |! Description |! Example |
 |`character` |Automatically render character information for all tiddlers tagged <$link to={{$:/plugins/benwebber/dnd/config/Tags/Characters}}>{{$:/plugins/benwebber/dnd/config/Tags/Characters}}</$link>. |[[Lord Wilmore]] |
+|`note` |Automatically render notes related to a tiddler |[[Lord Wilmore]] |
 |`spell` |Automatically render a spell description for all tiddlers tagged <$link to={{$:/plugins/benwebber/dnd/config/Tags/Spells}}>{{$:/plugins/benwebber/dnd/config/Tags/Spells}}</$link>. |[[Alarm]] |
 |`statblock` |Automatically render a stat block for all tiddlers tagged <$link to={{$:/plugins/benwebber/dnd/config/Tags/Creatures}}>{{$:/plugins/benwebber/dnd/config/Tags/Creatures}}</$link>. |[[Goblin]] |
 
 All templates are enabled by default.
 To disable them and use the equivalent macros manually, navigate to the [[plugin settings tiddler|$:/plugins/benwebber/dnd]].
 
-! View Toolbar Button
+! View Toolbar Buttons
 
 <$vars tv-config-toolbar-text="yes" tv-config-toolbar-class="">
 The <$button text=<<dnd._lingo Buttons/EditAttributes/Text>>>{{$:/plugins/benwebber/dnd/images/edit-attributes}} <<dnd._lingo Buttons/EditAttributes/Text>></$button> tool will automatically appear beside the {{$:/core/ui/Buttons/edit}} tool on any character, creature, or spell tiddler (see ''View Templates'' above).
-You can enable or disable this button by in the [[control panel|$:/ControlPanel]] (''Appearance > Toolbars > View Toolbar'').
+
+The {{$:/plugins/benwebber/dnd/ui/Buttons/add-notes}} button automatically appears on any non-system tiddler that is ''not'' tagged as a note tiddler.
+
+You can enable or disable these buttons in the [[control panel|$:/ControlPanel]] (''Appearance > Toolbars > View Toolbar'').
 </$vars>

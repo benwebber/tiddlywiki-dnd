@@ -1,0 +1,35 @@
+title: $:/plugins/benwebber/dnd/ui/Buttons/add-note
+tags: $:/tags/ViewToolbar
+list-after: $:/plugins/benwebber/dnd/ui/Buttons/edit-attributes
+caption: {{$:/plugins/benwebber/dnd/images/add-note}} <<dnd._lingo Buttons/AddNote/Text>>
+description: <<dnd._lingo Buttons/AddNote/Tooltip>>
+
+\whitespace trim
+
+\define actions()
+<$set name="target" filter="[<currentTiddler>]">
+<$action-createtiddler
+  $basetitle="$(currentTiddler)$: Note"
+  $savetitle="$:/temp/plugins/benwebber/dnd/new-note"
+  list=<<target>>
+  tags={{$:/plugins/benwebber/dnd/config/Tags/Notes}}
+/>
+<$action-sendmessage $message="tm-edit-tiddler" $param={{$:/temp/plugins/benwebber/dnd/new-note}}/>
+<$action-sendmessage $message="tm-delete-tiddler" $param={{$:/temp/plugins/benwebber/dnd/new-note}}/>
+</$set>
+\end
+
+<$list filter="[<currentTiddler>!is[system]!tag{$:/plugins/benwebber/dnd/config/Tags/Notes}]">
+<$wikify name="text" text=<<dnd._lingo Buttons/AddNote/Text>>>
+<$wikify name="tooltip" text=<<dnd._lingo Buttons/AddNote/Tooltip>>>
+<$button actions=<<actions>> tooltip=<<tooltip>> aria-label=<<text>> class=<<tv-config-toolbar-class>>>
+<$list filter="[<tv-config-toolbar-icons>prefix[yes]]">
+{{$:/plugins/benwebber/dnd/images/add-note}}
+</$list>
+<$list filter="[<tv-config-toolbar-text>prefix[yes]]">
+<span class="tc-btn-text"><$text text=<<text>>/></span>
+</$list />>
+</$button>
+</$wikify>
+</$wikify>
+</$list>

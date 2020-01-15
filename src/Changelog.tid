@@ -12,6 +12,7 @@ title: $:/plugins/benwebber/dnd/Changelog
 !! Added
 
 * Added `dnd.character` macro and view template to typeset character information (class, race, alignment and languages).
+* Added note tool to record extra notes associated with main tiddlers.
 
 !! Changed
 

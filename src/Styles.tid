@@ -1,0 +1,33 @@
+title: $:/plugins/benwebber/dnd/Styles
+tags: $:/tags/Stylesheet
+type: text/vnd.tiddlywiki
+
+.dnd-clear {
+  clear: both;
+}
+
+.dnd-note svg {
+  fill: <<colour alert-muted-foreground>>;
+}
+
+.dnd-note-menu button:hover svg {
+  fill: <<colour foreground>>;
+}
+
+.dnd-note {
+  background: <<colour alert-background>>;
+  border-radius: 0.25rem;
+  padding: 0.5rem;
+  margin: 0.5rem 0;
+}
+
+.dnd-note-menu ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  float: right;
+}
+
+.dnd-note-menu li {
+  display: inline-block;
+}
