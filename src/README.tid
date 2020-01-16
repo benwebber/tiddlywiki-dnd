@@ -1,5 +1,30 @@
 title: $:/plugins/benwebber/dnd/README
 
+\define .tool(_)
+<$vars tv-config-toolbar-text="yes" tv-config-toolbar-class="">
+<$transclude tiddler="""$:/plugins/benwebber/dnd/ui/Buttons/$_$""" />
+</$vars>
+\end
+
+\define .noop-tool(name, caption)
+<$transclude tiddler="""$:/plugins/benwebber/dnd/ui/Buttons/$_$""" />
+''<<dnd._lingo Buttons/$caption$/Text>>'' ({{$:/plugins/benwebber/dnd/images/$name$}})
+\end
+
+\define .tag(_)
+<$macrocall $name="tag" tag={{$:/plugins/benwebber/dnd/config/Tags/$_$}}/>
+\end
+
+\define .example(code)
+<$codeblock code="""$code$"""/>
+
+$code$
+\end
+
+\define .call-row(code)
+<tr><td>`$code$`</td><td>$code$</td></tr>
+\end
+
 Manage //Dungeons & Dragons// campaigns with [[TiddlyWiki|https://tiddlywiki.com]].
 
 ! Install
@@ -19,50 +44,39 @@ Then save and refresh your ~TiddlyWiki.
 
 !! Create a new character
 
-<!-- Set variables to render button as it appears in the toolbar. -->
-<$vars tv-config-toolbar-text="yes" tv-config-toolbar-class="">
-Enable the {{$:/plugins/benwebber/dnd/ui/Buttons/new-character}} tool to create new character tiddlers with a single click.
-</$vars>
+Enable the <<.tool new-character>> tool to create new character tiddlers with a single click.
 
 See [[Lord Wilmore]] as an example.
 
 !! Create a new creature
 
-<!-- Set variables to render button as it appears in the toolbar. -->
-<$vars tv-config-toolbar-text="yes" tv-config-toolbar-class="">
-Enable the {{$:/plugins/benwebber/dnd/ui/Buttons/new-creature}} tool to create new creature tiddlers with a single click.
-</$vars>
+Enable the <<.tool new-creature>> tool to create new creature tiddlers with a single click.
 
 See [[Goblin]] as an example.
 
 !! Create a new spell
 
-<!-- Set variables to render button as it appears in the toolbar. -->
-<$vars tv-config-toolbar-text="yes" tv-config-toolbar-class="">
-Enable the {{$:/plugins/benwebber/dnd/ui/Buttons/new-spell}} tool to create new spell tiddlers with a single click.
-</$vars>
+Enable the <<.tool new-spell>> tool to create new spell tiddlers with a single click.
 
 See [[Alarm]] as an example.
 
 !! Notes
 
-<$vars tv-config-toolbar-text="yes" tv-config-toolbar-class="">
-You can add notes to non-system tiddlers using the <$button text=<<dnd._lingo Buttons/AddNote/Text>>>{{$:/plugins/benwebber/dnd/images/add-note}} <<dnd._lingo Buttons/AddNote/Text>></$button> tool.
+You can add notes to non-system tiddlers using the <<.noop-tool add-note AddNote>> tool.
 Notes exist as separate tiddlers associated with the main tiddler (using the note tiddler's `list` field).
 A tiddler can have more than one note.
-</$vars>
 
 See [[Lord Wilmore]] as an example.
 
 ! Player Edition
 
-<$vars tv-config-toolbar-text="yes" tv-config-toolbar-class="">
-Use the {{$:/plugins/benwebber/dnd/ui/Buttons/export-player-edition}} tool to export a filtered version of your wiki to share with players.
-The player edition ''only includes'' tiddlers tagged <$tiddler tiddler={{$:/plugins/benwebber/dnd/config/Tags/PlayerEdition}}>{{||$:/core/ui/TagTemplate}}</$tiddler> and the plugin itself.
-</$vars>
+Use the <<.tool export-player-edition>> tool to export a filtered version of your wiki to share with players.
+The player edition ''only includes'' tiddlers tagged <<.tag PlayerEdition>> and the plugin itself.
 
 Notes associated with those tiddlers ''will not'' appear in the player edition by default. You must tag them separately.
 This makes notes a great way to add private information to otherwise public tiddlers.
+
+You can easily publish or hide a tiddler using the <<.noop-tool public PlayerEdition>> tool.
 
 ! Configuration
 
@@ -74,11 +88,16 @@ Navigate to the plugin info tiddler ([[$:/plugins/benwebber/dnd]]), then go to t
 
 Renders an [[ability score|https://roll20.net/compendium/dnd5e/Ability%20Scores]] with its calculated modifier.
 
-|! Call|! Output|
-|`<<dnd.ability 8>>`|<<dnd.ability 8>>|
-|`<<dnd.ability 10>>`|<<dnd.ability 10>>|
-|`<<dnd.ability 15>>`|<<dnd.ability 15>>|
-|`<<dnd.ability 20>>`|<<dnd.ability 20>>|
+<table>
+  <tr>
+    <th>Call</th>
+    <th>Output</th>
+  </tr>
+  <$macrocall $name=".call-row" code="""<<dnd.ability 8>>"""/>
+  <$macrocall $name=".call-row" code="""<<dnd.ability 10>>"""/>
+  <$macrocall $name=".call-row" code="""<<dnd.ability 15>>"""/>
+  <$macrocall $name=".call-row" code="""<<dnd.ability 20>>"""/>
+</table>
 
 !! `dnd.attack`
 
@@ -114,34 +133,25 @@ Similarly, to specify an attack's damage type, use its English name.
 
 !!! Simple melee, ranged, or melee and ranged attacks
 
-```
-<<dnd.attack
+<$macrocall $name=".example" code="""<<dnd.attack
   name:"Rapier"
   type:melee
   bonus:"+3"
   reach:"5 ft."
   damage:"1d8+1"
   damageType:piercing
->>
-```
+>>"""/>
 
-<<dnd.attack name:"Rapier" type:melee bonus:"+3" reach:"5 ft." damage:"1d8+1" damageType:piercing>>
-
-```
-<<dnd.attack
+<$macrocall $name=".example" code="""<<dnd.attack
   name:"Heavy Crossbow"
   type:ranged
   bonus:"+2"
   range:"100/400 ft."
   damage:"1d10"
   damageType:piercing
->>
-```
+>>"""/>
 
-<<dnd.attack name:"Heavy Crossbow" type:ranged bonus:"+2" range:"100/400 ft." damage:"1d10" damageType:piercing>>
-
-```
-<<dnd.attack
+<$macrocall $name=".example" code="""<<dnd.attack
   name:"Dagger"
   type:both
   bonus:"+5"
@@ -149,15 +159,11 @@ Similarly, to specify an attack's damage type, use its English name.
   range:"20/60 ft."
   damage:"1d4+3"
   damageType:piercing
->>
-```
-
-<<dnd.attack name:"Dagger" type:both bonus:"+5" reach:"5 ft." range:"20/60 ft." damage:"1d4+3" damageType:piercing>>
+>>"""/>
 
 !!! Attacks with extra damage
 
-```
-<<dnd.attack
+<$macrocall $name=".example" code="""<<dnd.attack
   name:"Greatsword"
   type:melee
   bonus:"+15"
@@ -166,15 +172,11 @@ Similarly, to specify an attack's damage type, use its English name.
   damageType:"slashing"
   extraDamage:"6d8"
   extraDamageType:radiant
->>
-```
-
-<<dnd.attack name:"Greatsword" type:melee bonus:"+15" reach:"5 ft." damage:"4d6+8" damageType:slashing extraDamage:"6d8" extraDamageType:radiant>>
+>>"""/>
 
 !!! Attacks with conditional damage
 
-```
-<<dnd.attack
+<$macrocall $name=".example" code="""<<dnd.attack
   name:"Longsword"
   type:melee
   bonus:"+5"
@@ -184,13 +186,9 @@ Similarly, to specify an attack's damage type, use its English name.
   condDamage:"1d10+3"
   condDamageType:slashing
   when:"if used with two hands"
->>
-```
+>>"""/>
 
-<<dnd.attack name:"Longsword" type:melee bonus:"+5" reach:"5 ft." damage:"1d8+3" damageType:slashing condDamage:"1d10+3" condDamageType:slashing when:"if used with two hands">>
-
-```
-<<dnd.attack
+<$macrocall $name=".example" code="""<<dnd.attack
   name:"Longsword"
   type:melee
   bonus:"+5"
@@ -204,15 +202,11 @@ Similarly, to specify an attack's damage type, use its English name.
   extraCondDamage:"1d4"
   extraCondDamage:fire
   when:"if used with two hands"
->>
-```
-
-<<dnd.attack name:"Longsword" type:melee bonus:"+5" reach:"5 ft." damage:"1d8+3" damageType:slashing extraDamage:"1d4" extraDamageType:fire condDamage:"1d10+3" condDamageType:slashing extraCondDamage:"1d4" extraCondDamageType:fire when:"if used with two hands">>
+>>"""/>
 
 !!! Attacks with extra effects
 
-```
-<<dnd.attack
+<$macrocall $name=".example" code="""<<dnd.attack
   name:"Light Crossbow"
   type:ranged
   bonus:"+6"
@@ -220,15 +214,11 @@ Similarly, to specify an attack's damage type, use its English name.
   damage:"1d8+3"
   damageType:piercing
   effect:"and the target must make a DC 15 Constitution saving throw, taking 24 (7d6) poison damage on a failed save, or half as much damage on a successful one"
->>
-```
-
-<<dnd.attack name:"Light Crossbow" type:ranged bonus:"+6" range:"80/320 ft." damage:"1d8+3" damageType:piercing effect:"and the target must make a DC 15 Constitution saving throw, taking 24 (7d6) poison damage on a failed save, or half as much damage on a successful one">>
+>>"""/>
 
 !!! Attacks with special targets
 
-```
-<<dnd.attack
+<$macrocall $name=".example" code="""<<dnd.attack
   name:"Dagger"
   type:both
   bonus:"+4"
@@ -237,22 +227,24 @@ Similarly, to specify an attack's damage type, use its English name.
   target:"one creature"
   damage:"1d4+2"
   damageType:piercing
->>
-```
-
-<<dnd.attack name:"Dagger" type:both bonus:"+4" reach:"5 ft." range:"20/60 ft." target:"one creature" damage:"1d4+2" damageType:piercing>>
+>>"""/>
 
 !! `dnd.average`
 
 Calculates the average result of the specified roll.
 
-|! Call|! Output|
-|`<<dnd.average d8>>`|<<dnd.average d8>>|
-|`<<dnd.average 2d8>>`|<<dnd.average 2d8>>|
-|`<<dnd.average 2d8+2>>`|<<dnd.average 2d8+2>>|
-|`<<dnd.average 2d8-2>>`|<<dnd.average 2d8-2>>|
-|`<<dnd.average "2d8 + 2">>`|<<dnd.average "2d8 + 2">>|
-|`<<dnd.average "2d8 - 2">>`|<<dnd.average "2d8 - 2">>|
+<table>
+  <tr>
+    <th>Call</th>
+    <th>Output</th>
+  </tr>
+  <$macrocall $name=".call-row" code="""<<dnd.average d8>>"""/>
+  <$macrocall $name=".call-row" code="""<<dnd.average 2d8>>"""/>
+  <$macrocall $name=".call-row" code="""<<dnd.average 2d8+2>>"""/>
+  <$macrocall $name=".call-row" code="""<<dnd.average 2d8-2>>"""/>
+  <$macrocall $name=".call-row" code="""<<dnd.average "2d8 + 2">>"""/>
+  <$macrocall $name=".call-row" code="""<<dnd.average "2d8 - 2">>"""/>
+</table>
 
 !! `dnd.character`
 
@@ -303,18 +295,23 @@ For example, `perc`, `perf`, and `pers` for Perception, Performance, and Persuas
 
 You can also use the full skill name, such as `<<dnd.check dex acrobatics>>` or `<<dnd.check wis "Animal Handling">>`.
 
-| Call | Output |h
-|`<<dnd.check int>>` |<<dnd.check int>> |
-|`<<dnd.check int dc:15>>` |<<dnd.check int dc:15>> |
-|`<<dnd.check int inv>>` |<<dnd.check int inv>> |
-|`<<dnd.check int inv 18>>` |<<dnd.check int inv 18>> |
-|`<<dnd.check cha perf>>` |<<dnd.check cha perf>> |
-|`<<dnd.check cha pers>>` |<<dnd.check cha pers>> |
-|`<<dnd.check wis su>>` |<<dnd.check wis su>> |
-|`<<dnd.check wis surv>>` |<<dnd.check wis surv>> |
-|`<<dnd.check wis survival>>` |<<dnd.check wis survival>> |
-|`<<dnd.check wis animal>>` |<<dnd.check wis animal>> |
-|`<<dnd.check wis "Animal Handling">>` |<<dnd.check wis "Animal Handling">> |
+<table>
+  <tr>
+    <th>Call</th>
+    <th>Output</th>
+  </tr>
+  <$macrocall $name=".call-row" code="""<<dnd.check int>>"""/>
+  <$macrocall $name=".call-row" code="""<<dnd.check int dc:15>>"""/>
+  <$macrocall $name=".call-row" code="""<<dnd.check int inv>>"""/>
+  <$macrocall $name=".call-row" code="""<<dnd.check int inv 18>>"""/>
+  <$macrocall $name=".call-row" code="""<<dnd.check cha perf>>"""/>
+  <$macrocall $name=".call-row" code="""<<dnd.check cha pers>>"""/>
+  <$macrocall $name=".call-row" code="""<<dnd.check wis su>>"""/>
+  <$macrocall $name=".call-row" code="""<<dnd.check wis surv>>"""/>
+  <$macrocall $name=".call-row" code="""<<dnd.check wis survival>>"""/>
+  <$macrocall $name=".call-row" code="""<<dnd.check wis animal>>"""/>
+  <$macrocall $name=".call-row" code="""<<dnd.check wis "Animal Handling">>"""/>
+</table>
 
 Finally, the macro supports unusual ability and skill combinations, such as asking a player to make a <<dnd.check str int>> check (`<<dnd.check str int>>`).
 
@@ -332,11 +329,16 @@ Calculates the modifier for a given ability score.
 
 Generally you will want to use `dnd.ability` instead.
 
-|! Call|! Output|
-|`<<dnd.modifier 8>>`|<<dnd.modifier 8>>|
-|`<<dnd.modifier 10>>`|<<dnd.modifier 10>>|
-|`<<dnd.modifier 15>>`|<<dnd.modifier 15>>|
-|`<<dnd.modifier 20>>`|<<dnd.modifier 20>>|
+<table>
+  <tr>
+    <th>Call</th>
+    <th>Output</th>
+  </tr>
+  <$macrocall $name=".call-row" code="""<<dnd.modifier 8>>"""/>
+  <$macrocall $name=".call-row" code="""<<dnd.modifier 10>>"""/>
+  <$macrocall $name=".call-row" code="""<<dnd.modifier 15>>"""/>
+  <$macrocall $name=".call-row" code="""<<dnd.modifier 20>>"""/>
+</table>
 
 !! `dnd.spell`
 
@@ -413,41 +415,47 @@ Renders experience points (XP) for the given challenge rating (CR).
 
 !!! Standard challenge ratings
 
-| Call | Output |h
-|`<<dnd.xp 0>>`|<<dnd.xp 0>>|
-|`<<dnd.xp 0 10>>`|<<dnd.xp 0 10>>|
-|`<<dnd.xp 1/2>>`|<<dnd.xp 1/2>>|
-|`<<dnd.xp 5>>`|<<dnd.xp 5>>|
+<table>
+  <tr>
+    <th>Call</th>
+    <th>Output</th>
+  </tr>
+  <$macrocall $name=".call-row" code="""<<dnd.xp 0>>""" />
+  <$macrocall $name=".call-row" code="""<<dnd.xp 0 10>>""" />
+  <$macrocall $name=".call-row" code="""<<dnd.xp 1/2>>""" />
+  <$macrocall $name=".call-row" code="""<<dnd.xp 5>>""" />
+</table>
 
 !!! Custom challenge ratings
 
-| Call | Output |h
-|`<<dnd.xp 40>>` |<<dnd.xp 40>>|
-|`<<dnd.xp 40 255555>>` |<<dnd.xp 40 255555>>|
-|`<<dnd.xp unknown>>`|<<dnd.xp unknown>>|
+<table>
+  <tr>
+    <th>Call</th>
+    <th>Output</th>
+  </tr>
+  <$macrocall $name=".call-row" code="""<<dnd.xp 40>>""" />
+  <$macrocall $name=".call-row" code="""<<dnd.xp 40 255555>>""" />
+  <$macrocall $name=".call-row" code="""<<dnd.xp unknown>>""" />
+</table>
 
 ! View Templates
 
 ~TiddlyWiki view templates automatically inject content into tiddlers that match certain criteria.
-For example, you might use a view template to style all tiddlers with a certain tag.
+This plugin includes view templates that style all tiddlers with certain tags.
 
-This plugin ships with several view templates:
-
-|! Template |! Description |! Example |
-|`character` |Automatically render character information for all tiddlers tagged <$link to={{$:/plugins/benwebber/dnd/config/Tags/Characters}}>{{$:/plugins/benwebber/dnd/config/Tags/Characters}}</$link>. |[[Lord Wilmore]] |
-|`note` |Automatically render notes related to a tiddler |[[Lord Wilmore]] |
-|`spell` |Automatically render a spell description for all tiddlers tagged <$link to={{$:/plugins/benwebber/dnd/config/Tags/Spells}}>{{$:/plugins/benwebber/dnd/config/Tags/Spells}}</$link>. |[[Alarm]] |
-|`statblock` |Automatically render a stat block for all tiddlers tagged <$link to={{$:/plugins/benwebber/dnd/config/Tags/Creatures}}>{{$:/plugins/benwebber/dnd/config/Tags/Creatures}}</$link>. |[[Goblin]] |
+| Template | Tag | Description | Example |h
+|`character` |<<.tag Characters >> |Automatically render character information. |[[Lord Wilmore]] |
+|`note` |<<.tag Notes>> |Automatically render notes related to a tiddler. |[[Lord Wilmore]] |
+|`spell` |<<.tag Spells>> |Automatically render a spell description. |[[Alarm]] |
+|`statblock` |<<.tag Creatures>> |Automatically render a stat block. |[[Goblin]] |
 
 All templates are enabled by default.
 To disable them and use the equivalent macros manually, navigate to the [[plugin settings tiddler|$:/plugins/benwebber/dnd]].
 
 ! View Toolbar Buttons
 
-<$vars tv-config-toolbar-text="yes" tv-config-toolbar-class="">
-The <$button text=<<dnd._lingo Buttons/EditAttributes/Text>>>{{$:/plugins/benwebber/dnd/images/edit-attributes}} <<dnd._lingo Buttons/EditAttributes/Text>></$button> tool will automatically appear beside the {{$:/core/ui/Buttons/edit}} tool on any character, creature, or spell tiddler (see ''View Templates'' above).
+The <<.noop-tool edit-attributes EditAttributes>> tool will automatically appear beside the ''{{$:/language/Buttons/Edit/Caption}}'' ({{$:/core/ui/Buttons/edit}}) tool on any character, creature, or spell tiddler (see ''View Templates'' above).
 
-The {{$:/plugins/benwebber/dnd/ui/Buttons/add-notes}} button automatically appears on any non-system tiddler that is ''not'' tagged as a note tiddler.
+The <<.tool add-note>> button automatically appears on any non-system tiddler that is ''not'' tagged as a note tiddler.
 
 You can enable or disable these buttons in the [[control panel|$:/ControlPanel]] (''Appearance > Toolbars > View Toolbar'').
-</$vars>
