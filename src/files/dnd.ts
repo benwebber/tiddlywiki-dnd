@@ -164,7 +164,7 @@ export class StatBlock {
     public size: string,
     public type: string,
     public alignment: string,
-    public ac: number,
+    public ac: string,
     public hp: string,
     public speed: string,
     public str: number,

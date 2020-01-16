@@ -57,7 +57,6 @@ export function run(
   cres: string,
   cvul: string,
 ) {
-  const nAC = Number.parseInt(ac, 10);
   const nStr = Number.parseInt(str, 10);
   const nDex = Number.parseInt(dex, 10);
   const nCon = Number.parseInt(con, 10);
@@ -68,7 +67,7 @@ export function run(
     size,
     type,
     alignment,
-    nAC,
+    ac,
     hp,
     speed,
     nStr,

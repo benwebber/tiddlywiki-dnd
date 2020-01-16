@@ -23,6 +23,7 @@ title: $:/plugins/benwebber/dnd/Changelog
 !! Fixed
 
 * Fixed display of plugin buttons in toolbar lists.
+* Fixed display of qualified armour class (e.g., `15 (breastplate)`).
 
 ! <<release 1.1.0>> (2019-02-15)
 
