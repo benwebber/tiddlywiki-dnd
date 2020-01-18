@@ -93,7 +93,13 @@ interface ITableRow {
 
 
 export class Character {
-  constructor(public cls: string, public race: string, public alignment: string, public languages: string) {}
+  constructor(
+    public cls: string,
+    public race: string,
+    public alignment: string,
+    public languages: string,
+    public factions: string,
+  ) {}
 
   public render(): string {
     const fields = [
@@ -101,6 +107,7 @@ export class Character {
       {caption: "Character/Race", value: this.race},
       {caption: "Character/Alignment", value: this.alignment},
       {caption: "Character/Languages", value: this.languages},
+      {caption: "Character/Factions", value: this.factions},
     ];
     const output = renderFields(fields, false);
     output.push("");

@@ -11,7 +11,7 @@ title: $:/plugins/benwebber/dnd/Changelog
 
 !! Added
 
-* Added `dnd.character` macro and view template to typeset character information (class, race, alignment and languages).
+* Added `dnd.character` macro and view template to typeset character information (class, race, alignment, languages, and factions).
 * Added note tool to record extra notes associated with main tiddlers.
 * Added tool to export filtered "player edition" of the wiki. This edition excludes any tiddlers that are not explicitly tagged <$tiddler tiddler={{$:/plugins/benwebber/dnd/config/Tags/PlayerEdition}}>{{||$:/core/ui/TagTemplate}}</$tiddler>.
 

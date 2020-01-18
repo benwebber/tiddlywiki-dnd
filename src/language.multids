@@ -37,6 +37,7 @@ EditCurrentTiddler: Edit <<sourceTiddler>> attributes
 
 Character/Alignment: Alignment
 Character/Class: Class
+Character/Factions: Factions
 Character/Languages: Languages
 Character/Race: Race
 

@@ -8,6 +8,7 @@ export const params = [
   {name: "race"},
   {name: "alignment"},
   {name: "languages"},
+  {name: "factions"},
 ];
 
 export function run(
@@ -16,6 +17,7 @@ export function run(
   race: string,
   alignment: string,
   languages: string,
+  factions: string,
 ): string {
   if (this.wiki.getTiddler(cls)) {
     cls = `[[${cls}]]`;
@@ -23,6 +25,6 @@ export function run(
   if (this.wiki.getTiddler(race)) {
     race = `[[${race}]]`;
   }
-  const character = new Character(cls, race, alignment, languages);
+  const character = new Character(cls, race, alignment, languages, factions);
   return character.render();
 }

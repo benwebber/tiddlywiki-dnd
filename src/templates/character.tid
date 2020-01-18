@@ -8,6 +8,7 @@ title: $:/plugins/benwebber/dnd/templates/dnd.character
   race={{!!dnd.character.race}}
   alignment={{!!dnd.character.alignment}}
   languages={{!!dnd.character.languages}}
+  factions={{!!dnd.character.factions}}
 />
 
 \end
@@ -20,6 +21,7 @@ title: $:/plugins/benwebber/dnd/templates/dnd.character
   race={{##race}}
   alignment={{##alignment}}
   languages={{##languages}}
+  factions={{##factions}}
 />
 
 \end
