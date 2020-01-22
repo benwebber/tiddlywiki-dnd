@@ -1,0 +1,7 @@
+title: $:/plugins/benwebber/dnd/ui/EditTemplate/attributes
+tags: $:/tags/EditTemplate
+list-before: $:/core/ui/EditTemplate/body
+
+<$vars showHelp="false" tiddler=<<currentTiddler>>>
+{{$:/plugins/benwebber/dnd/ui/Modals/EditAttributes}}
+</$vars>

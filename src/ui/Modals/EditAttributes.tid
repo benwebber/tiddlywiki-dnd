@@ -138,7 +138,9 @@ subtitle: <<dnd._lingo Modals/Subtitle>>
 </$select>
 \end
 
+<$reveal type="nomatch" default=<<showHelp>> text="false">
 <<dnd._lingo Modals/Help>>
+</$reveal>
 
 <$list filter="[title<tiddler>tag{$:/plugins/benwebber/dnd/config/Tags/Characters}]">
 
