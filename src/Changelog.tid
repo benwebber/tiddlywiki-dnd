@@ -18,7 +18,8 @@ title: $:/plugins/benwebber/dnd/Changelog
 !! Changed
 
 * Changed ''New Creature'' icon to a dragon.
-* Moved buttons to edit creature/spell attributes to tiddler view toolbar.
+* Moved buttons to edit game tiddler attributes to tiddler toolbar.
+* Embedded attribute form directly in game tiddler edit template.
 
 !! Fixed
 
