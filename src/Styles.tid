@@ -31,3 +31,9 @@ type: text/vnd.tiddlywiki
 .dnd-note-menu li {
   display: inline-block;
 }
+
+.dnd-doc-icon svg {
+  width: 1em;
+  height: 1em;
+  vertical-align: middle;
+}

@@ -8,7 +8,7 @@ title: $:/plugins/benwebber/dnd/README
 
 \define .noop-tool(name, caption)
 <$transclude tiddler="""$:/plugins/benwebber/dnd/ui/Buttons/$_$""" />
-''<<dnd._lingo Buttons/$caption$/Text>>'' ({{$:/plugins/benwebber/dnd/images/$name$}})
+''<<dnd._lingo Buttons/$caption$/Text>>'' (<span class="dnd-doc-icon">{{$:/plugins/benwebber/dnd/images/$name$}}</span>)
 \end
 
 \define .tag(_)
