@@ -9,6 +9,8 @@ title: $:/plugins/benwebber/dnd/Changelog
 ! <<unreleased>>
 </$vars>
 
+! <<release 1.2.0>> (2021-02-17)
+
 !! Added
 
 * Added `dnd.character` macro and view template to typeset character information (class, race, alignment, languages, and factions).
