@@ -1,7 +1,9 @@
-- repo: https://github.com/awebdeveloper/pre-commit-tslint
-  rev: v0.0.2
-  hooks:
-    - id: tslint
-      additional_dependencies:
-        - tslint@5
-        - typescript
+---
+repos:
+  - repo: https://github.com/awebdeveloper/pre-commit-tslint
+    rev: v0.0.2
+    hooks:
+      - id: tslint
+        additional_dependencies:
+          - tslint@5
+          - typescript
