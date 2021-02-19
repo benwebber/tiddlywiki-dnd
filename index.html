@@ -10065,12 +10065,12 @@ Error message and password prompt
 <div title="$:/isEncrypted">
 <pre>no</pre>
 </div>
-<div author="Ben Webber" core-version="&gt;=5.0.0" dependents="" description="Dungeons &amp; Dragons campaign tools" list="README License Changelog Settings" plugin-type="plugin" source="https://github.com/benwebber/tiddlywiki-dnd" title="$:/plugins/benwebber/dnd" type="application/json" version="1.2.0">
+<div author="Ben Webber" core-version="&gt;=5.0.0" dependents="" description="Dungeons &amp; Dragons campaign tools" list="README License Changelog Settings" plugin-type="plugin" source="https://github.com/benwebber/tiddlywiki-dnd" title="$:/plugins/benwebber/dnd" type="application/json" version="1.2.1">
 <pre>{
     &quot;tiddlers&quot;: {
         &quot;$:/plugins/benwebber/dnd/Changelog&quot;: {
             &quot;title&quot;: &quot;$:/plugins/benwebber/dnd/Changelog&quot;,
-            &quot;text&quot;: &quot;\\define unreleased() [[Unreleased|https://github.com/benwebber/tiddlywiki-dnd/compare/v$(latest)$..HEAD]]\n\\define issue(number) [[#$number$|https://github.com/benwebber/tiddlywiki-dnd/issues/$number$]]\n\\define release(version) [[$version$|https://github.com/benwebber/tiddlywiki-dnd/releases/tag/v$version$]]\n\n&lt;$vars latest={{$:/plugins/benwebber/dnd!!version}}&gt;\n\n! &lt;&lt;unreleased&gt;&gt;\n&lt;/$vars&gt;\n\n! &lt;&lt;release 1.2.0&gt;&gt; (2021-02-17)\n\n!! Added\n\n* Added `dnd.character` macro and view template to typeset character information (class, race, alignment, languages, and factions).\n* Added note tool to record extra notes associated with main tiddlers.\n* Added tool to export filtered \&quot;player edition\&quot; of the wiki. This edition excludes any tiddlers that are not explicitly tagged &lt;$tiddler tiddler={{$:/plugins/benwebber/dnd/config/Tags/PlayerEdition}}&gt;{{||$:/core/ui/TagTemplate}}&lt;/$tiddler&gt;.\n\n!! Changed\n\n* Changed ''New Creature'' icon to a dragon.\n* Moved buttons to edit game tiddler attributes to tiddler toolbar.\n* Embedded attribute form directly in game tiddler edit template.\n\n!! Fixed\n\n* Fixed display of plugin buttons in toolbar lists.\n* Fixed display of qualified armour class (e.g., `15 (breastplate)`).\n\n! &lt;&lt;release 1.1.0&gt;&gt; (2019-02-15)\n\n!! Added\n\n* Added `dnd.attack` macro to typeset creature melee and ranged attacks.\n* Added `dnd.modifier` macro to calculate ability score modifiers independently.\n\n!! Changed\n\n* Make creature and spell tags configurable (&lt;&lt;issue 3&gt;&gt;).\n* Refactored localization code to work with core language switcher. Nearly all user-facing strings use this framework now (&lt;&lt;issue 2&gt;&gt;).\n\n!! Deprecated\n\n* Deprecated `dnd.dspell` and `dnd.fspell` in favour of a single template that determines the input tiddler's type. These templates will be removed in 2.0.0.\n* Deprecated `dnd.dstatblock` and `dnd.fstatblock` in favour of a single template that determines the input tiddler's type. These templates will be removed in 2.0.0.\n\n!! Fixed\n\n* `dnd.check` macro supports skills with spaces in the name (Animal Handling and Sleight of Hand).\n* Macros which expect boolean values now only consider the string \&quot;true\&quot; true (&lt;&lt;issue 5&gt;&gt;).\n\n! &lt;&lt;release 1.0.0&gt;&gt; (2018-08-31)\n\n!! Added\n\n* Added English (UK) and English (US) translations.\n* Added D&amp;D icon from Font Awesome to plugin info block.\n* Set up Jest test harness, Travis CI, and Codecov.\n* Added creature view template.\n* Added spell macros, templates, and view templates.\n* Added toolbar buttons to create new creatures and spells.\n* Added modal update form for creatures and spells.\n\n!! Changed\n\n* Moved macro functionality to testable library.\n* Ported to ~TypeScript.\n* Store creature attributes as tiddler field values by default.\n\n!! Fixed\n\n* Use proper minus sign for ability/roll modifiers.\n* `dnd.average`: Pass through unrecognized roll expressions (support arbitrary values).\n\n! &lt;&lt;release 0.1.0&gt;&gt; (2018-07-31)\n\nInitial release.\n&quot;
+            &quot;text&quot;: &quot;\\define unreleased() [[Unreleased|https://github.com/benwebber/tiddlywiki-dnd/compare/v$(latest)$..HEAD]]\n\\define issue(number) [[#$number$|https://github.com/benwebber/tiddlywiki-dnd/issues/$number$]]\n\\define release(version) [[$version$|https://github.com/benwebber/tiddlywiki-dnd/releases/tag/v$version$]]\n\\define @(name) [[@$name$|https://github.com/$name$]]\n\n&lt;$vars latest={{$:/plugins/benwebber/dnd!!version}}&gt;\n\n! &lt;&lt;unreleased&gt;&gt;\n&lt;/$vars&gt;\n\n! &lt;&lt;release 1.2.1&gt;&gt; (2021-02-18)\n\n!! Fixed\n\n* Fixed incompatibility with ~KaTeX plugin that prevented spell descriptions from rendering correctly (&lt;&lt;issue 8&gt;&gt;). Thanks to &lt;&lt;@ lbhgh&gt;&gt; for reporting this bug.\n\n! &lt;&lt;release 1.2.0&gt;&gt; (2021-02-17)\n\n!! Added\n\n* Added `dnd.character` macro and view template to typeset character information (class, race, alignment, languages, and factions).\n* Added note tool to record extra notes associated with main tiddlers.\n* Added tool to export filtered \&quot;player edition\&quot; of the wiki. This edition excludes any tiddlers that are not explicitly tagged &lt;$tiddler tiddler={{$:/plugins/benwebber/dnd/config/Tags/PlayerEdition}}&gt;{{||$:/core/ui/TagTemplate}}&lt;/$tiddler&gt;.\n\n!! Changed\n\n* Changed ''New Creature'' icon to a dragon.\n* Moved buttons to edit game tiddler attributes to tiddler toolbar.\n* Embedded attribute form directly in game tiddler edit template.\n\n!! Fixed\n\n* Fixed display of plugin buttons in toolbar lists.\n* Fixed display of qualified armour class (e.g., `15 (breastplate)`).\n\n! &lt;&lt;release 1.1.0&gt;&gt; (2019-02-15)\n\n!! Added\n\n* Added `dnd.attack` macro to typeset creature melee and ranged attacks.\n* Added `dnd.modifier` macro to calculate ability score modifiers independently.\n\n!! Changed\n\n* Make creature and spell tags configurable (&lt;&lt;issue 3&gt;&gt;).\n* Refactored localization code to work with core language switcher. Nearly all user-facing strings use this framework now (&lt;&lt;issue 2&gt;&gt;).\n\n!! Deprecated\n\n* Deprecated `dnd.dspell` and `dnd.fspell` in favour of a single template that determines the input tiddler's type. These templates will be removed in 2.0.0.\n* Deprecated `dnd.dstatblock` and `dnd.fstatblock` in favour of a single template that determines the input tiddler's type. These templates will be removed in 2.0.0.\n\n!! Fixed\n\n* `dnd.check` macro supports skills with spaces in the name (Animal Handling and Sleight of Hand).\n* Macros which expect boolean values now only consider the string \&quot;true\&quot; true (&lt;&lt;issue 5&gt;&gt;).\n\n! &lt;&lt;release 1.0.0&gt;&gt; (2018-08-31)\n\n!! Added\n\n* Added English (UK) and English (US) translations.\n* Added D&amp;D icon from Font Awesome to plugin info block.\n* Set up Jest test harness, Travis CI, and Codecov.\n* Added creature view template.\n* Added spell macros, templates, and view templates.\n* Added toolbar buttons to create new creatures and spells.\n* Added modal update form for creatures and spells.\n\n!! Changed\n\n* Moved macro functionality to testable library.\n* Ported to ~TypeScript.\n* Store creature attributes as tiddler field values by default.\n\n!! Fixed\n\n* Use proper minus sign for ability/roll modifiers.\n* `dnd.average`: Pass through unrecognized roll expressions (support arbitrary values).\n\n! &lt;&lt;release 0.1.0&gt;&gt; (2018-07-31)\n\nInitial release.\n&quot;
         },
         &quot;$:/plugins/benwebber/dnd/License&quot;: {
             &quot;title&quot;: &quot;$:/plugins/benwebber/dnd/License&quot;,
@@ -10591,11 +10591,11 @@ Error message and password prompt
         },
         &quot;$:/plugins/benwebber/dnd/language/Spell/DescriptionFormat/Default&quot;: {
             &quot;title&quot;: &quot;$:/plugins/benwebber/dnd/language/Spell/DescriptionFormat/Default&quot;,
-            &quot;text&quot;: &quot;$level$$levelSuffix$-level $school$&quot;
+            &quot;text&quot;: &quot;$level$ $school$&quot;
         },
         &quot;$:/plugins/benwebber/dnd/language/Spell/DescriptionFormat/Ritual&quot;: {
             &quot;title&quot;: &quot;$:/plugins/benwebber/dnd/language/Spell/DescriptionFormat/Ritual&quot;,
-            &quot;text&quot;: &quot;$level$$levelSuffix$-level $school$ (ritual)&quot;
+            &quot;text&quot;: &quot;$level$ $school$ (ritual)&quot;
         },
         &quot;$:/plugins/benwebber/dnd/language/Spell/DescriptionFormat/Cantrip&quot;: {
             &quot;title&quot;: &quot;$:/plugins/benwebber/dnd/language/Spell/DescriptionFormat/Cantrip&quot;,
@@ -10605,41 +10605,41 @@ Error message and password prompt
             &quot;title&quot;: &quot;$:/plugins/benwebber/dnd/language/Spell/Level&quot;,
             &quot;text&quot;: &quot;Level&quot;
         },
-        &quot;$:/plugins/benwebber/dnd/language/Spell/LevelSuffix/1&quot;: {
-            &quot;title&quot;: &quot;$:/plugins/benwebber/dnd/language/Spell/LevelSuffix/1&quot;,
-            &quot;text&quot;: &quot;st&quot;
+        &quot;$:/plugins/benwebber/dnd/language/Spell/Level/1&quot;: {
+            &quot;title&quot;: &quot;$:/plugins/benwebber/dnd/language/Spell/Level/1&quot;,
+            &quot;text&quot;: &quot;1st-level&quot;
         },
-        &quot;$:/plugins/benwebber/dnd/language/Spell/LevelSuffix/2&quot;: {
-            &quot;title&quot;: &quot;$:/plugins/benwebber/dnd/language/Spell/LevelSuffix/2&quot;,
-            &quot;text&quot;: &quot;nd&quot;
+        &quot;$:/plugins/benwebber/dnd/language/Spell/Level/2&quot;: {
+            &quot;title&quot;: &quot;$:/plugins/benwebber/dnd/language/Spell/Level/2&quot;,
+            &quot;text&quot;: &quot;2nd-level&quot;
         },
-        &quot;$:/plugins/benwebber/dnd/language/Spell/LevelSuffix/3&quot;: {
-            &quot;title&quot;: &quot;$:/plugins/benwebber/dnd/language/Spell/LevelSuffix/3&quot;,
-            &quot;text&quot;: &quot;rd&quot;
+        &quot;$:/plugins/benwebber/dnd/language/Spell/Level/3&quot;: {
+            &quot;title&quot;: &quot;$:/plugins/benwebber/dnd/language/Spell/Level/3&quot;,
+            &quot;text&quot;: &quot;3rd-level&quot;
         },
-        &quot;$:/plugins/benwebber/dnd/language/Spell/LevelSuffix/4&quot;: {
-            &quot;title&quot;: &quot;$:/plugins/benwebber/dnd/language/Spell/LevelSuffix/4&quot;,
-            &quot;text&quot;: &quot;th&quot;
+        &quot;$:/plugins/benwebber/dnd/language/Spell/Level/4&quot;: {
+            &quot;title&quot;: &quot;$:/plugins/benwebber/dnd/language/Spell/Level/4&quot;,
+            &quot;text&quot;: &quot;4th-level&quot;
         },
-        &quot;$:/plugins/benwebber/dnd/language/Spell/LevelSuffix/5&quot;: {
-            &quot;title&quot;: &quot;$:/plugins/benwebber/dnd/language/Spell/LevelSuffix/5&quot;,
-            &quot;text&quot;: &quot;th&quot;
+        &quot;$:/plugins/benwebber/dnd/language/Spell/Level/5&quot;: {
+            &quot;title&quot;: &quot;$:/plugins/benwebber/dnd/language/Spell/Level/5&quot;,
+            &quot;text&quot;: &quot;5th-level&quot;
         },
-        &quot;$:/plugins/benwebber/dnd/language/Spell/LevelSuffix/6&quot;: {
-            &quot;title&quot;: &quot;$:/plugins/benwebber/dnd/language/Spell/LevelSuffix/6&quot;,
-            &quot;text&quot;: &quot;th&quot;
+        &quot;$:/plugins/benwebber/dnd/language/Spell/Level/6&quot;: {
+            &quot;title&quot;: &quot;$:/plugins/benwebber/dnd/language/Spell/Level/6&quot;,
+            &quot;text&quot;: &quot;6th-level&quot;
         },
-        &quot;$:/plugins/benwebber/dnd/language/Spell/LevelSuffix/7&quot;: {
-            &quot;title&quot;: &quot;$:/plugins/benwebber/dnd/language/Spell/LevelSuffix/7&quot;,
-            &quot;text&quot;: &quot;th&quot;
+        &quot;$:/plugins/benwebber/dnd/language/Spell/Level/7&quot;: {
+            &quot;title&quot;: &quot;$:/plugins/benwebber/dnd/language/Spell/Level/7&quot;,
+            &quot;text&quot;: &quot;7th-level&quot;
         },
-        &quot;$:/plugins/benwebber/dnd/language/Spell/LevelSuffix/8&quot;: {
-            &quot;title&quot;: &quot;$:/plugins/benwebber/dnd/language/Spell/LevelSuffix/8&quot;,
-            &quot;text&quot;: &quot;th&quot;
+        &quot;$:/plugins/benwebber/dnd/language/Spell/Level/8&quot;: {
+            &quot;title&quot;: &quot;$:/plugins/benwebber/dnd/language/Spell/Level/8&quot;,
+            &quot;text&quot;: &quot;8th-level&quot;
         },
-        &quot;$:/plugins/benwebber/dnd/language/Spell/LevelSuffix/9&quot;: {
-            &quot;title&quot;: &quot;$:/plugins/benwebber/dnd/language/Spell/LevelSuffix/9&quot;,
-            &quot;text&quot;: &quot;th&quot;
+        &quot;$:/plugins/benwebber/dnd/language/Spell/Level/9&quot;: {
+            &quot;title&quot;: &quot;$:/plugins/benwebber/dnd/language/Spell/Level/9&quot;,
+            &quot;text&quot;: &quot;9th-level&quot;
         },
         &quot;$:/plugins/benwebber/dnd/language/Spell/School&quot;: {
             &quot;title&quot;: &quot;$:/plugins/benwebber/dnd/language/Spell/School&quot;,
@@ -10883,7 +10883,7 @@ Error message and password prompt
             &quot;module-type&quot;: &quot;macro&quot;
         },
         &quot;$:/plugins/benwebber/dnd/modules/macros/dnd._spellDescription.js&quot;: {
-            &quot;text&quot;: &quot;\&quot;use strict\&quot;;\nObject.defineProperty(exports, \&quot;__esModule\&quot;, { value: true });\nexports.run = exports.params = exports.name = void 0;\nvar dnd_js_1 = require(\&quot;$:/plugins/benwebber/dnd/dnd.js\&quot;);\nexports.name = \&quot;dnd._spellDescription\&quot;;\nexports.params = [\n    { name: \&quot;level\&quot; },\n    { name: \&quot;school\&quot; },\n    { name: \&quot;ritual\&quot; },\n];\nfunction run(level, school, ritual) {\n    var isRitual = ritual === \&quot;true\&quot;;\n    // tslint:disable no-shadowed-variable\n    var isCantrip = function (level) { return parseInt(level, 10) === 0; };\n    var template;\n    if (isCantrip(level)) {\n        template = \&quot;Spell/DescriptionFormat/Cantrip\&quot;;\n    }\n    else if (isRitual) {\n        template = \&quot;Spell/DescriptionFormat/Ritual\&quot;;\n    }\n    else {\n        template = \&quot;Spell/DescriptionFormat/Default\&quot;;\n    }\n    var format = this.wiki.renderText(\&quot;text/plain\&quot;, \&quot;text/vnd.tiddlywiki\&quot;, \&quot;&lt;&lt;dnd._lingo \&quot; + template + \&quot;&gt;&gt;\&quot;);\n    var schoolName = this.wiki.renderText(\&quot;text/plain\&quot;, \&quot;text/vnd.tiddlywiki\&quot;, \&quot;&lt;&lt;dnd._lingo Spell/School/\&quot; + dnd_js_1.capitalize(school) + \&quot;&gt;&gt;\&quot;);\n    var replacements = {\n        School: schoolName,\n        level: level,\n        levelSuffix: \&quot;&lt;&lt;dnd._lingo Spell/LevelSuffix/\&quot; + level + \&quot;&gt;&gt;\&quot;,\n        school: schoolName.toLocaleLowerCase(),\n    };\n    var rendered = format.replace(/\\$(\\w+)\\$/g, function (_, key) { return replacements[key]; });\n    return rendered;\n}\nexports.run = run;\n&quot;,
+            &quot;text&quot;: &quot;\&quot;use strict\&quot;;\nObject.defineProperty(exports, \&quot;__esModule\&quot;, { value: true });\nexports.run = exports.params = exports.name = void 0;\nvar dnd_js_1 = require(\&quot;$:/plugins/benwebber/dnd/dnd.js\&quot;);\nexports.name = \&quot;dnd._spellDescription\&quot;;\nexports.params = [\n    { name: \&quot;level\&quot; },\n    { name: \&quot;school\&quot; },\n    { name: \&quot;ritual\&quot; },\n];\nfunction run(level, school, ritual) {\n    var isRitual = ritual === \&quot;true\&quot;;\n    // tslint:disable no-shadowed-variable\n    var isCantrip = function (level) { return parseInt(level, 10) === 0; };\n    var template;\n    if (isCantrip(level)) {\n        template = \&quot;Spell/DescriptionFormat/Cantrip\&quot;;\n    }\n    else if (isRitual) {\n        template = \&quot;Spell/DescriptionFormat/Ritual\&quot;;\n    }\n    else {\n        template = \&quot;Spell/DescriptionFormat/Default\&quot;;\n    }\n    var format = this.wiki.renderText(\&quot;text/plain\&quot;, \&quot;text/vnd.tiddlywiki\&quot;, \&quot;&lt;&lt;dnd._lingo \&quot; + template + \&quot;&gt;&gt;\&quot;);\n    var schoolName = this.wiki.renderText(\&quot;text/plain\&quot;, \&quot;text/vnd.tiddlywiki\&quot;, \&quot;&lt;&lt;dnd._lingo Spell/School/\&quot; + dnd_js_1.capitalize(school) + \&quot;&gt;&gt;\&quot;);\n    var replacements = {\n        School: schoolName,\n        level: \&quot;&lt;&lt;dnd._lingo Spell/Level/\&quot; + level + \&quot;&gt;&gt;\&quot;,\n        school: schoolName.toLocaleLowerCase(),\n    };\n    var rendered = format.replace(/\\$(\\w+)\\$/g, function (_, key) { return replacements[key]; });\n    return rendered;\n}\nexports.run = run;\n&quot;,
             &quot;title&quot;: &quot;$:/plugins/benwebber/dnd/modules/macros/dnd._spellDescription.js&quot;,
             &quot;type&quot;: &quot;application/javascript&quot;,
             &quot;module-type&quot;: &quot;macro&quot;
