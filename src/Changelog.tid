@@ -10,6 +10,8 @@ title: $:/plugins/benwebber/dnd/Changelog
 ! <<unreleased>>
 </$vars>
 
+! <<release 1.2.1>> (2021-02-18)
+
 !! Fixed
 
 * Fixed incompatibility with ~KaTeX plugin that prevented spell descriptions from rendering correctly (<<issue 8>>). Thanks to <<@ lbhgh>> for reporting this bug.
