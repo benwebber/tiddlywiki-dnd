@@ -109,19 +109,19 @@ Skill/SleightOfHand: Sleight of Hand
 Skill/Stealth: Stealth
 Skill/Survival: Survival
 
-Spell/DescriptionFormat/Default: $level$$levelSuffix$-level $school$
-Spell/DescriptionFormat/Ritual: $level$$levelSuffix$-level $school$ (ritual)
+Spell/DescriptionFormat/Default: $level$ $school$
+Spell/DescriptionFormat/Ritual: $level$ $school$ (ritual)
 Spell/DescriptionFormat/Cantrip: $School$ cantrip
 Spell/Level: Level
-Spell/LevelSuffix/1: st
-Spell/LevelSuffix/2: nd
-Spell/LevelSuffix/3: rd
-Spell/LevelSuffix/4: th
-Spell/LevelSuffix/5: th
-Spell/LevelSuffix/6: th
-Spell/LevelSuffix/7: th
-Spell/LevelSuffix/8: th
-Spell/LevelSuffix/9: th
+Spell/Level/1: 1st-level
+Spell/Level/2: 2nd-level
+Spell/Level/3: 3rd-level
+Spell/Level/4: 4th-level
+Spell/Level/5: 5th-level
+Spell/Level/6: 6th-level
+Spell/Level/7: 7th-level
+Spell/Level/8: 8th-level
+Spell/Level/9: 9th-level
 Spell/School: School
 Spell/CastingTime: Casting Time
 Spell/Range: Range

@@ -3,11 +3,16 @@ title: $:/plugins/benwebber/dnd/Changelog
 \define unreleased() [[Unreleased|https://github.com/benwebber/tiddlywiki-dnd/compare/v$(latest)$..HEAD]]
 \define issue(number) [[#$number$|https://github.com/benwebber/tiddlywiki-dnd/issues/$number$]]
 \define release(version) [[$version$|https://github.com/benwebber/tiddlywiki-dnd/releases/tag/v$version$]]
+\define @(name) [[@$name$|https://github.com/$name$]]
 
 <$vars latest={{$:/plugins/benwebber/dnd!!version}}>
 
 ! <<unreleased>>
 </$vars>
+
+!! Fixed
+
+* Fixed incompatibility with ~KaTeX plugin that prevented spell descriptions from rendering correctly (<<issue 8>>). Thanks to <<@ lbhgh>> for reporting this bug.
 
 ! <<release 1.2.0>> (2021-02-17)
 

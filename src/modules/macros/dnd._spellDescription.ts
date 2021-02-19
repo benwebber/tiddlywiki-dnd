@@ -27,8 +27,7 @@ export function run(this: any, level: string, school: string, ritual: string) {
 
   const replacements: {[index: string]: string | number} = {
     School: schoolName,
-    level,
-    levelSuffix: `<<dnd._lingo Spell/LevelSuffix/${level}>>`,
+    level: `<<dnd._lingo Spell/Level/${level}>>`,
     school: schoolName.toLocaleLowerCase(),
   };
   const rendered = format.replace(/\$(\w+)\$/g, (_: string, key: string) => replacements[key]);
