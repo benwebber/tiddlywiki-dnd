@@ -10,6 +10,16 @@ title: $:/plugins/benwebber/dnd/Changelog
 ! <<unreleased>>
 </$vars>
 
+! <<release 1.2.2>> (2022-12-03)
+
+!! Changed
+
+* Upgraded build and test dependencies.
+
+!! Fixed
+
+* Included a public tiddler in the documentation wiki to demonstrate the player edition.
+
 ! <<release 1.2.1>> (2021-02-18)
 
 !! Fixed
