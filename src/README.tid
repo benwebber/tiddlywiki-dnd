@@ -78,6 +78,27 @@ This makes notes a great way to add private information to otherwise public tidd
 
 You can easily publish or hide a tiddler using the <<.noop-tool public PlayerEdition>> tool.
 
+!! Export the player edition automatically
+
+You can use the [ext[TiddlyWiki command line interface|https://tiddlywiki.com/#Using%20TiddlyWiki%20on%20Node.js]] to export the player edition automatically.
+Installing ~TiddlyWiki for Node.js is beyond the scope of this documentation.
+
+First, convert your wiki to a [ext[wiki folder|https://tiddlywiki.com/#TiddlyWikiFolders]] using the <code>[ext[savewikifolder|https://tiddlywiki.com/#SaveWikiFolderCommand]]</code> command. You can skip this step if you already use the Node.js backend.
+
+This command extracts `wiki.html` to the `wiki` directory:
+
+```
+tiddlywiki --load wiki.html --savewikifolder wiki
+```
+
+Next, use the <code>[ext[render|https://tiddlywiki.com/#RenderCommand]]</code> command to export tiddlers tagged with the player edition tag.
+
+This command will render the wiki directory from the first step to `player.html` in the current directory:
+
+```
+tiddlywiki wiki --output . --render '$:/plugins/benwebber/dnd/PlayerEdition' player.html text/plain
+```
+
 ! Configuration
 
 Navigate to the plugin info tiddler ([[$:/plugins/benwebber/dnd]]), then go to the ''Settings'' tab.
