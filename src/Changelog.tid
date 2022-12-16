@@ -10,6 +10,12 @@ title: $:/plugins/benwebber/dnd/Changelog
 ! <<unreleased>>
 </$vars>
 
+! <<release 1.2.3>> (2022-12-15)
+
+!! Added
+
+* Documented how to export the player edition automatically using the TiddlyWiki CLI (<<issue 19>>).
+
 ! <<release 1.2.2>> (2022-12-03)
 
 !! Changed
